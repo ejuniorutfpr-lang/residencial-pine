@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -442,7 +443,10 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
         <div class="ch-num">1</div>
         <div class="ch-icon">📱</div>
         <h4>Abra o chamado no Informma</h4>
-        <p>Acesse o app Informma Síndicos (código <strong style="color:var(--g)">PIN837</strong>), crie um novo chamado e <strong style="color:var(--cr)">anote o número de protocolo</strong> gerado automaticamente.</p>
+        <p><strong style="color:var(--cr)">Antes de tudo</strong>, acesse o app Informma Síndicos (código <strong style="color:var(--g)">PIN837</strong>), crie um novo chamado e <strong style="color:var(--cr)">anote o número de protocolo</strong> gerado automaticamente. O chamado no app é obrigatório — sem ele, o síndico não tem como agir.</p>
+        <a href="https://app.informma.com.br/c/cm6par3a102xff8kadrsqlli8" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;margin-top:.85rem;padding:.5rem 1rem;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.35);border-radius:6px;color:var(--g);text-decoration:none;font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:all .3s">
+          📲 Abrir app Informma ↗
+        </a>
       </div>
       <div class="chamados-step fade-up">
         <div class="ch-num">2</div>
@@ -462,22 +466,10 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
       <strong>📌 Importante:</strong> Este formulário é um canal de transparência entre os moradores e o Conselho do Residencial Pine. Ele <strong>não substitui</strong> a abertura do chamado no Informma Síndicos — o chamado no aplicativo é obrigatório e é onde o síndico gerencia as resoluções. O número de protocolo do Informma é o campo principal deste formulário.
     </div>
 
-    <div class="form-wrapper fade-up">
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfCn6t8v2rzfnxaLKzcc3bK7hhf7v5_LeXqkrQ5VxkXGEz9Dw/viewform?embedded=true"
-        width="100%"
-        height="1680"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        title="Formulário de Acompanhamento de Chamados — Residencial Pine">
-        Carregando formulário...
-      </iframe>
-    </div>
-
-    <div class="form-fallback">
-      <a href="https://forms.gle/GV2SFUmcK32Cde2UA" target="_blank" rel="noopener" class="btn-link">
-        🔗 Abrir formulário em nova aba ↗
+    <div class="fade-up" style="text-align:center;padding:2.5rem 2rem;background:rgba(10,31,18,.45);border:1px solid rgba(201,168,76,.2);border-radius:12px;">
+      <p style="font-size:.85rem;color:var(--cm);margin-bottom:1.5rem;line-height:1.8;">Clique no botão abaixo para acessar o formulário e registrar o número de protocolo do seu chamado para acompanhamento pelo Conselho.</p>
+      <a href="https://forms.gle/GV2SFUmcK32Cde2UA" target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;align-items:center;gap:.6rem;font-size:.82rem;">
+        📋 Acessar Formulário de Chamados ↗
       </a>
     </div>
   </div>
@@ -1065,6 +1057,9 @@ function toggleFaq(btn){
 
 const obs=new IntersectionObserver(entries=>{entries.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible');});},{threshold:.08});
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Y11sprFM6FjqJEh_kr_tf";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
 </body>
 </html>

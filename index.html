@@ -119,7 +119,6 @@ section:nth-child(even) { background: rgba(255,255,255,0.015); }
 .contact-label { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
 .contact-value { font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem; }
 
-/* Botões de Ação de Contato (Substituindo CSS inline) */
 .contact-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .btn-action { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.8rem; font-weight: 700; text-decoration: none; transition: all 0.2s; }
 .btn-action-call { background: var(--bg-surface-light); border: 1px solid var(--border-subtle); color: var(--text-main); }
@@ -152,7 +151,6 @@ section:nth-child(even) { background: rgba(255,255,255,0.015); }
 .btn-sistema { display: block; width: 100%; text-align: center; padding: 1rem; background: var(--gold-dim); border: 1px solid var(--border-gold); border-radius: var(--radius-sm); color: var(--gold); text-decoration: none; font-weight: 700; font-size: 0.85rem; transition: all 0.3s; text-transform: uppercase; letter-spacing: 0.05em; }
 .btn-sistema:hover { background: var(--gold); color: var(--text-dark); }
 
-/* Destaque PIN */
 .pin-highlight { display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.8rem; background: var(--gold-dim); border: 1px solid var(--border-gold); border-radius: 6px; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; }
 
 .chamados-how { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
@@ -174,27 +172,23 @@ section:nth-child(even) { background: rgba(255,255,255,0.015); }
 .area-icon { font-size: 1.5rem; width: 48px; height: 48px; background: var(--bg-surface-light); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; }
 .area-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: #fff; font-weight: 600; }
 
-/* Tags Limpas */
 .area-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .tag { display: inline-flex; align-items: center; padding: 0.25rem 0.75rem; border-radius: 100px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
 .tag-hora { background: var(--bg-surface-light); color: var(--text-muted); }
 .tag-cap { background: rgba(74,140,92,0.15); color: #7dcca0; }
 .tag-loc { background: var(--gold-dim); color: var(--gold); }
 
-/* Tabs */
 .area-tabs { display: flex; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); background: var(--bg-main); }
 .area-tab-btn { flex: 1; padding: 1rem; background: none; border: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
 .area-tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); background: var(--bg-surface); }
 .area-tab-content { display: none; padding: 1.5rem; }
 .area-tab-content.active { display: block; }
 
-/* Rules */
 .area-rules { list-style: none; }
 .area-rules li { font-size: 0.95rem; color: var(--text-muted); padding: 0.5rem 0; border-bottom: 1px dashed var(--border-subtle); display: flex; gap: 0.75rem; line-height: 1.5; position: relative; }
 .area-rules li:last-child { border-bottom: none; }
 .area-rules li::before { content: '•'; color: var(--gold); font-size: 1.2rem; line-height: 1; margin-top: 2px; }
 
-/* Tooltip do Regimento */
 .area-rules li[data-ref] { cursor: help; }
 .area-rules li[data-ref]:hover { color: var(--text-main); }
 .area-rules li[data-ref]:hover::after {
@@ -210,7 +204,6 @@ section:nth-child(even) { background: rgba(255,255,255,0.015); }
 .rule-alert-icon { font-size: 1.25rem; }
 .rule-alert-text { font-size: 0.9rem; color: var(--text-main); line-height: 1.5; }
 
-/* Booking Details */
 .booking-price { text-align: center; margin-bottom: 1.5rem; padding: 1.5rem; background: var(--bg-main); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); }
 .booking-price-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
 .booking-price-val { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1; }
@@ -228,7 +221,6 @@ section:nth-child(even) { background: rgba(255,255,255,0.015); }
 .reg-intro strong { color: var(--text-main); }
 .reg-disclaimer { font-size: 0.8rem; border-top: 1px solid var(--border-subtle); padding-top: 1rem; margin-top: 1.5rem; }
 
-/* Busca */
 .reg-search-wrap { position: relative; margin-bottom: 1rem; max-width: 800px; }
 .reg-search-wrap svg { position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); opacity: 0.5; }
 #regSearch { 
@@ -244,7 +236,6 @@ section:nth-child(even) { background: rgba(255,255,255,0.015); }
 .reg-no-results { display: none; padding: 2rem; text-align: center; color: var(--text-muted); background: var(--bg-surface); border-radius: var(--radius-md); margin-bottom: 2rem; }
 .search-highlight { background: rgba(220, 165, 76, 0.3); color: #fff; padding: 0 0.2rem; border-radius: 2px; }
 
-/* Accordion Limpo (Sem bordas ao redor de tudo, apenas linhas separadoras) */
 .accordion-item { border-bottom: 1px solid var(--border-subtle); }
 .accordion-item:last-child { border-bottom: none; }
 .accordion-btn { 
@@ -266,7 +257,6 @@ section:nth-child(even) { background: rgba(255,255,255,0.015); }
 .artigo-sub p { margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
 .artigo-note { display: block; margin-top: 1rem; padding: 1rem; background: var(--bg-surface); border-radius: var(--radius-sm); border-left: 2px solid var(--gold); font-size: 0.9rem; }
 
-/* FAQ Específico (Mesmo design limpo) */
 .faq-item { border-bottom: 1px solid var(--border-subtle); }
 .faq-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 0; background: transparent; border: none; cursor: pointer; text-align: left; color: var(--text-main); font-size: 1.1rem; font-weight: 600; transition: color 0.3s; }
 .faq-btn:hover { color: var(--gold); }
@@ -843,7 +833,7 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
       <!-- Espaço Gourmet Maior -->
       <div class="area-card fade-up">
         <div class="area-card-top">
-          <div class="area-header"><div class="area-icon">🍖</div><h3>Gourmet Maior</h3></div>
+          <div class="area-header"><div class="area-icon">🍖</div><h3>Espaço Gourmet Maior</h3></div>
           <div class="area-tags"><span class="tag tag-hora">⏰ 10h–2h</span><span class="tag tag-cap">👥 15 pess.</span><span class="tag tag-loc">📍 Térreo</span></div>
         </div>
         <div class="area-tabs">
@@ -879,7 +869,7 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
       <!-- Espaço Gourmet Menor -->
       <div class="area-card fade-up">
         <div class="area-card-top">
-          <div class="area-header"><div class="area-icon">🥂</div><h3>Gourmet Menor</h3></div>
+          <div class="area-header"><div class="area-icon">🥂</div><h3>Espaço Gourmet Menor</h3></div>
           <div class="area-tags"><span class="tag tag-hora">⏰ 10h–2h</span><span class="tag tag-cap">👥 8 pess.</span><span class="tag tag-loc">📍 Térreo</span></div>
         </div>
         <div class="area-tabs">
@@ -911,10 +901,10 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
         </div>
       </div>
 
-      <!-- Espaço Gourmet Maior + Menor-->
+      <!-- Combo Espaço Gourmet -->
       <div class="area-card fade-up">
         <div class="area-card-top">
-          <div class="area-header"><div class="area-icon">🍽️</div><h3>Combo Gourmet</h3></div>
+          <div class="area-header"><div class="area-icon">🍽️</div><h3>Combo Espaço Gourmet</h3></div>
           <div class="area-tags"><span class="tag tag-hora">⏰ 10h–2h</span><span class="tag tag-cap">👥 23 pess.</span><span class="tag tag-loc">📍 Térreo</span></div>
         </div>
         <div class="area-tabs">

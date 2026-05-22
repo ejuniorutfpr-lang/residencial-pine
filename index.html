@@ -155,13 +155,50 @@ section{padding:5rem 2rem;}
 .booking-note{margin-top:.75rem;font-size:.72rem;color:var(--cm);background:rgba(74,140,92,.07);border-left:2px solid rgba(74,140,92,.3);padding:.5rem .7rem;border-radius:0 5px 5px 0;line-height:1.65;}
 
 /* BUSCA REGIMENTO */
-.reg-search-wrap{position:relative;margin-bottom:1.5rem;}
+/* ── SCROLL PROGRESS BAR ── */
+#scrollProgress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--pb),var(--g));width:0%;z-index:200;transition:width .1s linear;box-shadow:0 0 8px rgba(201,168,76,.4);}
+
+/* ── ACTIVE NAV ── */
+.nav-links a.active{color:var(--g);}
+
+/* ── GUIA RÁPIDO ── */
+#guia{background:var(--pd);}
+.guia-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;}
+.guia-card{background:rgba(26,61,43,.45);border:1px solid rgba(74,140,92,.18);border-radius:12px;padding:1.3rem 1.1rem;cursor:pointer;transition:all .28s;text-align:center;position:relative;overflow:hidden;}
+.guia-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.06) 0%,transparent 60%);opacity:0;transition:opacity .3s;}
+.guia-card:hover{border-color:rgba(201,168,76,.45);transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.3);}
+.guia-card:hover::before{opacity:1;}
+.guia-icon{font-size:1.8rem;margin-bottom:.65rem;display:block;}
+.guia-card h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--wh);margin-bottom:.35rem;}
+.guia-card p{font-size:.72rem;color:var(--cm);line-height:1.55;}
+.guia-arrow{display:inline-block;margin-top:.65rem;font-size:.68rem;color:var(--g);font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:0;transform:translateY(4px);transition:all .25s;}
+.guia-card:hover .guia-arrow{opacity:1;transform:translateY(0);}
+
+/* ── FLOATING BUTTONS ── */
+.float-group{position:fixed;bottom:1.5rem;right:1.5rem;display:flex;flex-direction:column;align-items:flex-end;gap:.6rem;z-index:90;}
+.float-btn{display:flex;align-items:center;gap:.55rem;padding:.6rem 1rem;border-radius:100px;font-size:.72rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:all .3s;box-shadow:0 4px 16px rgba(0,0,0,.35);white-space:nowrap;}
+.float-btn-wa{background:#25d366;color:#fff;}
+.float-btn-wa:hover{background:#1ebe5d;transform:translateX(-3px);}
+.float-btn-top{background:rgba(10,31,18,.92);border:1px solid rgba(201,168,76,.35);color:var(--g);transition:all .35s ease;}
+.float-btn-top:hover{background:rgba(201,168,76,.12);}
+.float-label{display:inline;transition:max-width .3s;}
+
+/* ── COUNTER ANIMATION ── */
+.stat-num[data-target]{transition:none;}
+
+/* ── SEARCH SUGGESTIONS ── */
+.reg-search-suggestions{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.65rem;margin-bottom:.2rem;}
+.reg-sugg-chip{padding:.25rem .7rem;background:rgba(74,140,92,.1);border:1px solid rgba(74,140,92,.2);border-radius:100px;font-size:.68rem;color:#7dcca0;cursor:pointer;transition:all .22s;font-weight:600;}
+.reg-sugg-chip:hover{background:rgba(74,140,92,.22);border-color:rgba(74,140,92,.4);color:var(--wh);}
+
+.reg-search-wrap{position:relative;margin-bottom:.75rem;}
 .reg-search-wrap svg{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);pointer-events:none;opacity:.5;}
 #regSearch{width:100%;padding:.75rem 1rem .75rem 2.5rem;background:rgba(10,31,18,.6);border:1px solid rgba(74,140,92,.25);border-radius:8px;color:var(--cr);font-family:'Nunito Sans',sans-serif;font-size:.84rem;outline:none;transition:border-color .25s;}
 #regSearch::placeholder{color:var(--cm);}
 #regSearch:focus{border-color:rgba(201,168,76,.5);background:rgba(10,31,18,.8);}
 .reg-no-results{display:none;text-align:center;padding:1.5rem;color:var(--cm);font-size:.82rem;background:rgba(10,31,18,.3);border-radius:8px;border:1px dashed rgba(255,255,255,.08);}
 .search-highlight{background:rgba(201,168,76,.25);border-radius:2px;color:var(--cr);padding:0 .1rem;}
+
 
 /* REGIMENTO */
 #regimento{background:var(--pd);}
@@ -182,6 +219,24 @@ section{padding:5rem 2rem;}
 .artigo-texto{font-size:.82rem;color:var(--cm);line-height:1.82;}
 .artigo-sub{margin-top:.5rem;padding-left:.9rem;border-left:1px solid rgba(201,168,76,.15);}
 .artigo-sub p{margin-bottom:.28rem;font-size:.8rem;color:var(--cm);line-height:1.75;}
+
+.msg{display:flex;gap:.7rem;animation:msgIn .3s ease;}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.msg-bot{align-items:flex-start;}
+.msg-user{align-items:flex-start;flex-direction:row-reverse;}
+.msg-avatar{width:30px;height:30px;flex-shrink:0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+.msg-bot .msg-avatar{background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.25);}
+.msg-user .msg-avatar{background:rgba(74,140,92,.15);border:1px solid rgba(74,140,92,.3);}
+.msg-bubble{max-width:88%;padding:.7rem 1rem;border-radius:10px;font-size:.8rem;line-height:1.75;}
+.msg-bot .msg-bubble{background:rgba(26,61,43,.8);color:var(--cr);border-radius:3px 10px 10px 10px;}
+.msg-user .msg-bubble{background:rgba(74,140,92,.2);color:var(--cr);border-radius:10px 3px 10px 10px;}
+.msg-bubble strong{color:var(--g);}
+.msg-bubble a{color:var(--g);}
+.msg-typing{display:flex;gap:.35rem;padding:.5rem .7rem;align-items:center;}
+.msg-typing span{width:7px;height:7px;background:var(--g);border-radius:50%;animation:typeDot 1.2s infinite ease-in-out;}
+.msg-typing span:nth-child(2){animation-delay:.2s;}
+.msg-typing span:nth-child(3){animation-delay:.4s;}
+@keyframes typeDot{0%,80%,100%{transform:scale(.8);opacity:.4;}40%{transform:scale(1.1);opacity:1;}}
 
 /* FAQ */
 #faq{background:var(--pm);}
@@ -221,6 +276,7 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
 </head>
 <body>
 
+<div id="scrollProgress"></div>
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
@@ -231,9 +287,9 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
       </div>
     </a>
     <ul class="nav-links" id="navLinks">
+      <li><a href="#guia">Guia Rápido</a></li>
       <li><a href="#contatos">Contatos</a></li>
       <li><a href="#sistemas">Sistemas</a></li>
-      <li><a href="#chamados">Chamados</a></li>
       <li><a href="#areas">Áreas</a></li>
       <li><a href="#regimento">Regimento</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -253,13 +309,104 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
       <a href="#regimento" class="btn-outline">Regimento Interno</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Sistemas Digitais<br><span style="font-size:.6rem;opacity:.7;letter-spacing:.05em;text-transform:none">Informma · CMPremium · BV Garantia · Ultragaz</span></div></div>
-      <div class="stat"><div class="stat-num">9</div><div class="stat-label">Áreas de Lazer<br><span style="font-size:.6rem;opacity:.7;letter-spacing:.05em;text-transform:none">Academia · Gourmet · Rooftop · Pet · e mais</span></div></div>
-      <div class="stat"><div class="stat-num">23</div><div class="stat-label">Capítulos<br><span style="font-size:.6rem;opacity:.7;letter-spacing:.05em;text-transform:none">Regimento Interno completo e detalhado</span></div></div>
+      <div class="stat"><div class="stat-num" data-target="4">4</div><div class="stat-label">Sistemas Digitais<br><span style="font-size:.6rem;opacity:.7;letter-spacing:.05em;text-transform:none">Informma · CMPremium · BV Garantia · Ultragaz</span></div></div>
+      <div class="stat"><div class="stat-num" data-target="9">9</div><div class="stat-label">Áreas de Lazer<br><span style="font-size:.6rem;opacity:.7;letter-spacing:.05em;text-transform:none">Academia · Gourmet · Rooftop · Pet · e mais</span></div></div>
+      <div class="stat"><div class="stat-num" data-target="23">23</div><div class="stat-label">Capítulos<br><span style="font-size:.6rem;opacity:.7;letter-spacing:.05em;text-transform:none">Regimento Interno completo e detalhado</span></div></div>
       <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Portaria Remota<br><span style="font-size:.6rem;opacity:.7;letter-spacing:.05em;text-transform:none">Monitoramento contínuo pela Porttari</span></div></div>
     </div>
   </div>
 </section>
+
+<!-- GUIA RÁPIDO -->
+<section id="guia">
+  <div class="section-inner">
+    <p class="section-label">Por onde começar</p>
+    <h2 class="section-title">Guia Rápido</h2>
+    <div class="divider"></div>
+    <div class="guia-grid">
+
+      <div class="guia-card fade-up" onclick="document.getElementById('areas').scrollIntoView({behavior:'smooth'})">
+        <span class="guia-icon">🎉</span>
+        <h4>Reservar um Espaço</h4>
+        <p>Gourmet, Rooftop, Bar — veja horários, taxas e regras de reserva</p>
+        <div class="guia-arrow">Ver espaços →</div>
+      </div>
+
+      <div class="guia-card fade-up" onclick="goToRegSearch('obra')">
+        <span class="guia-icon">🔨</span>
+        <h4>Fazer Obra ou Reforma</h4>
+        <p>Horários permitidos, autorização prévia e documentos necessários.<br><span style="color:#f0a050;font-size:.7rem;font-weight:700">⚠️ Obras complexas exigem ART/RRT</span></p>
+        <div class="guia-arrow">Ver regras →</div>
+      </div>
+
+      <div class="guia-card fade-up" onclick="goToRegSearch('animais')">
+        <span class="guia-icon">🐾</span>
+        <h4>Tenho um Pet</h4>
+        <p>Circulação, Espaço Pet, Pet Care e regras de convivência</p>
+        <div class="guia-arrow">Ver regras →</div>
+      </div>
+
+      <div class="guia-card fade-up" onclick="goToArea('mu-rules')">
+        <span class="guia-icon">📦</span>
+        <h4>Fazer Mudança</h4>
+        <p>Horários, agendamento, taxa e cuidados com elevador</p>
+        <div class="guia-arrow">Ver regras →</div>
+      </div>
+
+      <div class="guia-card fade-up" onclick="goToRegSearch('barulho')">
+        <span class="guia-icon">🔊</span>
+        <h4>Reclamar de Barulho</h4>
+        <p>Horário de silêncio, como notificar e amparo no Código Civil</p>
+        <div class="guia-arrow">Ver regras →</div>
+      </div>
+
+      <div class="guia-card fade-up" onclick="document.getElementById('sistemas').scrollIntoView({behavior:'smooth'})">
+        <span class="guia-icon">💳</span>
+        <h4>Boleto ou Débito</h4>
+        <p>2ª via, negociação e regularização via BV Garantia ou CMPremium</p>
+        <div class="guia-arrow">Ver sistemas →</div>
+      </div>
+
+      <div class="guia-card fade-up" onclick="goToRegSearch('garagem')">
+        <span class="guia-icon">🚗</span>
+        <h4>Regras da Garagem</h4>
+        <p>Velocidade, proibições, carregador elétrico e estacionamento</p>
+        <div class="guia-arrow">Ver regras →</div>
+      </div>
+
+      <div class="guia-card fade-up" onclick="document.getElementById('chamados').scrollIntoView({behavior:'smooth'})">
+        <span class="guia-icon">📋</span>
+        <h4>Abrir Chamado</h4>
+        <p>Registre ocorrências no Informma e acompanhe pelo Conselho</p>
+        <div class="guia-arrow">Abrir chamado →</div>
+      </div>
+
+      <div class="guia-card fade-up" onclick="document.getElementById('contatos').scrollIntoView({behavior:'smooth'})">
+        <span class="guia-icon">🆘</span>
+        <h4>Emergência</h4>
+        <p>Contatos do síndico, portaria 24h e emergência de gás Ultragaz</p>
+        <div class="guia-arrow">Ver contatos →</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-group">
+  <a href="https://wa.me/5541987513253" target="_blank" class="float-btn float-btn-wa" title="WhatsApp Síndico" style="background:rgba(37,211,102,.18);backdrop-filter:blur(10px);border:1px solid rgba(37,211,102,.35);color:#4fcc7a;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="float-label">Síndico</span>
+  </a>
+  <button onclick="window.chatbase && window.chatbase('open')" class="float-btn" style="background:rgba(40,40,45,.45);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);color:#e5e5e7;" title="Assistente Pine">
+    <span style="font-size:1rem">✨</span>
+    <span class="float-label" style="color:#e5e5e7">Assistente Pine</span>
+  </button>
+  <button id="btnTopo" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="float-btn float-btn-top" title="Voltar ao topo" style="opacity:0;pointer-events:none;transform:translateY(8px);">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    <span class="float-label">Topo</span>
+  </button>
+</div>
 
 <!-- CONTATOS -->
 <section id="contatos">
@@ -636,7 +783,7 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
       <!-- GOURMET MAIOR -->
       <div class="area-card fade-up">
         <div class="area-card-top">
-          <div class="area-header"><div class="area-icon">🍖</div><h3>Gourmet Maior</h3></div>
+          <div class="area-header"><div class="area-icon">🍖</div><h3>Espaço Gourmet Maior</h3></div>
           <div class="area-tags">
             <span class="tag-hora">⏰ 10h–2h</span>
             <span class="tag-cap">👥 Máx. 15 pess.</span>
@@ -682,7 +829,7 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
       <!-- GOURMET MENOR -->
       <div class="area-card fade-up">
         <div class="area-card-top">
-          <div class="area-header"><div class="area-icon">🥂</div><h3>Gourmet Menor</h3></div>
+          <div class="area-header"><div class="area-icon">🥂</div><h3>Espaço Gourmet Menor</h3></div>
           <div class="area-tags">
             <span class="tag-hora">⏰ 10h–2h</span>
             <span class="tag-cap">👥 Máx. 8 pess.</span>
@@ -728,7 +875,7 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
       <!-- GOURMET MAIOR + MENOR (COMBO) -->
       <div class="area-card fade-up">
         <div class="area-card-top">
-          <div class="area-header"><div class="area-icon">🍽️</div><h3>Gourmet Maior + Menor</h3></div>
+          <div class="area-header"><div class="area-icon">🍽️</div><h3>Espaço Gourmet Maior + Menor</h3></div>
           <div class="area-tags">
             <span class="tag-hora">⏰ 10h–2h</span>
             <span class="tag-cap">👥 Máx. 23 pess.</span>
@@ -983,6 +1130,16 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       <input type="text" id="regSearch" placeholder="Buscar no regimento… ex: silêncio, animais, mudança, multa" oninput="searchReg(this.value)" autocomplete="off">
     </div>
+    <div class="reg-search-suggestions">
+      <span class="reg-sugg-chip" onclick="applySearch('silêncio')">🔊 silêncio</span>
+      <span class="reg-sugg-chip" onclick="applySearch('animais')">🐾 animais</span>
+      <span class="reg-sugg-chip" onclick="applySearch('multa')">⚠️ multa</span>
+      <span class="reg-sugg-chip" onclick="applySearch('obra')">🔨 obra</span>
+      <span class="reg-sugg-chip" onclick="applySearch('mudança')">📦 mudança</span>
+      <span class="reg-sugg-chip" onclick="applySearch('garagem')">🚗 garagem</span>
+      <span class="reg-sugg-chip" onclick="applySearch('assembleia')">🏛️ assembleia</span>
+      <span class="reg-sugg-chip" onclick="applySearch('sacada')">🏠 sacada</span>
+    </div>
     <div class="reg-no-results" id="regNoResults">Nenhum resultado encontrado para "<span id="regSearchTerm"></span>"</div>
 
     <!-- CAP I -->
@@ -1166,7 +1323,7 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
         <div class="artigo"><div class="artigo-num">Art. 34º — Da Iluminação</div><div class="artigo-texto">As luzes das áreas de uso comum deverão permanecer apagadas quando não estiverem em uso.</div></div>
         <div class="artigo"><div class="artigo-num">Art. 35º — Das Mudanças</div><div class="artigo-texto">As mudanças poderão ser feitas somente após solicitação prévia junto à Administração, com antecedência mínima de 2 dias.<div class="artigo-sub"><p>35.1. Horários permitidos: segunda a sexta, das 8h às 17h. Sábados: 8h às 12h. Proibido domingos e feriados.</p><p>35.2. O dono da mudança será responsável por eventuais danos causados aos elevadores, portas, paredes ou escadarias.</p><p>35.3. Será cobrada taxa de mudança (entrada e saída): 5% do salário mínimo nacional. Dispensado no pagamento na primeira ocupação do imóvel.</p><p>35.4. Será permitida uma mudança por dia, por elevador, mediante agendamento prévio.</p><p>35.5. Objetos de maior porte que possam gerar danos ao elevador devem ser carregados pelas escadas sempre que possível.</p></div></div></div>
         <div class="artigo"><div class="artigo-num">Art. 36º — Do Lixo</div><div class="artigo-texto">Cada morador deverá levar o seu lixo nos locais indicados pela Administração, devidamente acondicionado e fechado.<div class="artigo-sub"><p>36.1. O lixo orgânico deve ser separado do lixo reciclável.</p><p>36.3. Em caso de vazamento no trajeto até o local de descarte, o morador deverá efetuar a limpeza.</p></div></div></div>
-        <div class="artigo"><div class="artigo-num">Art. 37º — Das Obras</div><div class="artigo-texto">Antes de iniciar qualquer obra, o condômino deve preencher e encaminhar ao síndico o Formulário de Autorização de Obra e aguardar a autorização.<div class="artigo-sub"><p>Obras complexas exigem: projeto/planta baixa assinada por engenheiro ou arquiteto; dados do responsável técnico; ART e/ou RRT e comprovante de pagamento.</p><p>37.1. As obras são permitidas das 8h às 17h, de segunda a sexta, e das 8h às 12h aos sábados.</p><p>37.2. Proibido obras aos domingos e feriados, incluindo as de pequena monta, exceto serviços internos sem barulho (ex.: pintura). Entende-se por "obra com barulho" qualquer intervenção que envolva uso de martelo ou furadeira.</p><p>Parágrafo segundo: O síndico poderá autorizar obras emergenciais em qualquer horário.</p></div></div></div>
+        <div class="artigo"><div class="artigo-num">Art. 37º — Das Obras</div><div class="artigo-texto">Antes de iniciar qualquer obra, o condômino deve preencher e encaminhar ao síndico o Formulário de Autorização de Obra e aguardar a autorização.<div class="artigo-sub"><p>Obras complexas exigem:</p><p style="margin-top:.4rem;padding:.65rem .85rem;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-left:3px solid var(--g);border-radius:0 7px 7px 0;line-height:1.8">📌 <strong style="color:var(--g)">ART e/ou RRT obrigatórios</strong> — Anotação de Responsabilidade Técnica (ART) ou Registro de Responsabilidade Técnica (RRT), emitido por engenheiro ou arquiteto habilitado, com comprovante de pagamento. Sem esses documentos, a obra não pode ser iniciada.<br><br>Também necessários: projeto/planta baixa assinada pelo responsável técnico e os dados completos do profissional contratado.</p><p>37.1. As obras são permitidas das 8h às 17h, de segunda a sexta, e das 8h às 12h aos sábados.</p><p>37.2. Proibido obras aos domingos e feriados, incluindo as de pequena monta, exceto serviços internos sem barulho (ex.: pintura). Entende-se por "obra com barulho" qualquer intervenção que envolva uso de martelo ou furadeira.</p><p>Parágrafo segundo: O síndico poderá autorizar obras emergenciais em qualquer horário.</p></div></div></div>
       </div>
     </div>
 
@@ -1292,7 +1449,9 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
 
       <div class="faq-item">
         <button class="faq-btn" onclick="toggleFaq(this)"><span class="faq-q">Quando posso realizar obras no apartamento?</span><span class="faq-icon">▾</span></button>
-        <div class="faq-a">Obras são permitidas das <strong>8h às 17h de segunda a sexta</strong> e das <strong>8h às 12h aos sábados</strong>. Proibido aos domingos e feriados, incluindo obras de pequena monta (qualquer uso de martelo ou furadeira é considerado obra). Antes de iniciar qualquer obra, é obrigatório preencher o <strong>Formulário de Autorização de Obra</strong> e aguardar aprovação do síndico. Obras complexas (elétricas, hidráulicas, estruturais) exigem projeto assinado por engenheiro ou arquiteto com ART/RRT. (Art. 37)</div>
+        <div class="faq-a">Obras são permitidas das <strong>8h às 17h de segunda a sexta</strong> e das <strong>8h às 12h aos sábados</strong>. Proibido aos domingos e feriados, incluindo obras de pequena monta (qualquer uso de martelo ou furadeira é considerado obra). Antes de iniciar qualquer obra, é obrigatório preencher o <strong>Formulário de Autorização de Obra</strong> e aguardar aprovação do síndico.<br><br>
+          <span style="display:block;padding:.65rem .85rem;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-left:3px solid var(--g);border-radius:0 7px 7px 0;line-height:1.8;font-size:.8rem">📌 <strong style="color:var(--g)">Obras complexas exigem ART e/ou RRT obrigatoriamente</strong> — a Anotação de Responsabilidade Técnica (ART) ou Registro de Responsabilidade Técnica (RRT) deve ser emitida por engenheiro ou arquiteto habilitado e apresentada junto ao Formulário de Autorização, com comprovante de pagamento. Obras elétricas, hidráulicas ou estruturais se enquadram nessa categoria.</span>
+          (Art. 37)</div>
       </div>
 
       <div class="faq-item">
@@ -1376,7 +1535,97 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
 </footer>
 
 <script>
-// Normalize text: remove accents for accent-insensitive search
+// ── TOPO BUTTON SHOW/HIDE ─────────────────────────────
+const btnTopo = document.getElementById('btnTopo');
+window.addEventListener('scroll',()=>{
+  const el=document.getElementById('scrollProgress');
+  const scrolled=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;
+  if(el) el.style.width=scrolled+'%';
+  // Show Topo after 400px scroll
+  if(btnTopo){
+    if(window.scrollY>400){
+      btnTopo.style.opacity='1';
+      btnTopo.style.pointerEvents='auto';
+      btnTopo.style.transform='translateY(0)';
+    } else {
+      btnTopo.style.opacity='0';
+      btnTopo.style.pointerEvents='none';
+      btnTopo.style.transform='translateY(8px)';
+    }
+  }
+});
+
+// ── ANIMATED COUNTERS ────────────────────────────────
+function animateCounter(el){
+  const target=parseInt(el.dataset.target);
+  const duration=1200;
+  const start=performance.now();
+  const update=(now)=>{
+    const elapsed=now-start;
+    const progress=Math.min(elapsed/duration,1);
+    const eased=1-Math.pow(1-progress,3);
+    el.textContent=Math.round(eased*target);
+    if(progress<1) requestAnimationFrame(update);
+    else el.textContent=target;
+  };
+  requestAnimationFrame(update);
+}
+const counterObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting && e.target.dataset.target){
+      animateCounter(e.target);
+      counterObs.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('.stat-num[data-target]').forEach(el=>counterObs.observe(el));
+
+// ── ACTIVE NAV ON SCROLL ─────────────────────────────
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-links a[href^="#"]');
+const navObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(a=>a.classList.remove('active'));
+      const active=document.querySelector('.nav-links a[href="#'+e.target.id+'"]');
+      if(active) active.classList.add('active');
+    }
+  });
+},{threshold:.35,rootMargin:'-70px 0px 0px 0px'});
+sections.forEach(s=>navObs.observe(s));
+
+// ── GUIA RÁPIDO HELPERS ──────────────────────────────
+function goToRegSearch(term){
+  document.getElementById('regimento').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>{
+    const input=document.getElementById('regSearch');
+    input.value=term;
+    searchReg(term);
+    input.focus();
+  },600);
+}
+function goToArea(tabId){
+  document.getElementById('areas').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>{
+    const content=document.getElementById(tabId);
+    if(content){
+      content.closest('.area-card').scrollIntoView({behavior:'smooth',block:'center'});
+      content.classList.add('active');
+      const sibling=content.closest('.area-card').querySelector('.area-tab-btn');
+      if(sibling) sibling.classList.add('active');
+    }
+  },600);
+}
+
+// ── SEARCH CHIP HELPER ───────────────────────────────
+function applySearch(term){
+  const input=document.getElementById('regSearch');
+  input.value=term;
+  searchReg(term);
+  input.focus();
+}
+
+
 function normalize(str){
   return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 }

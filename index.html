@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -18,7 +17,7 @@ nav{position:fixed;top:0;width:100%;background:rgba(10,31,18,.97);backdrop-filte
 .nav-logo-icon{flex-shrink:0;}
 .nav-logo-text{display:flex;flex-direction:column;gap:0;line-height:1.1;}
 .nav-logo-res{font-size:.48rem;letter-spacing:.22em;font-family:'Nunito Sans',sans-serif;font-weight:400;color:var(--cm);text-transform:uppercase;}
-.nav-logo-pine{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--g);letter-spacing:.04em;}
+.nav-logo-pine{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;font-style:italic;color:var(--g);letter-spacing:.04em;}
 .nav-links{display:flex;gap:1.25rem;list-style:none;}
 .nav-links a{color:var(--cm);text-decoration:none;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:color .3s;}
 .nav-links a:hover{color:var(--g);}
@@ -107,19 +106,62 @@ section{padding:5rem 2rem;}
 
 /* ÁREAS */
 #areas{background:var(--pm);}
-.areas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.1rem;}
-.area-card{background:rgba(10,31,18,.45);border:1px solid rgba(74,140,92,.15);border-radius:11px;padding:1.4rem;transition:all .3s;}
-.area-card:hover{border-color:rgba(201,168,76,.3);transform:translateY(-3px);}
-.area-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.85rem;}
-.area-icon{width:42px;height:42px;flex-shrink:0;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.15);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;}
-.area-card h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--wh);}
-.area-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem;}
-.tag-hora{display:inline-flex;align-items:center;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:100px;padding:.2rem .65rem;font-size:.65rem;color:var(--g);font-weight:700;}
-.tag-cap{display:inline-flex;align-items:center;background:rgba(74,140,92,.1);border:1px solid rgba(74,140,92,.2);border-radius:100px;padding:.2rem .65rem;font-size:.65rem;color:#7dcca0;font-weight:700;}
+.areas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem;}
+.area-card{background:rgba(10,31,18,.5);border:1px solid rgba(74,140,92,.18);border-radius:12px;overflow:hidden;transition:all .3s;}
+.area-card:hover{border-color:rgba(201,168,76,.35);transform:translateY(-3px);}
+.area-card-top{padding:1.25rem 1.25rem .9rem;}
+.area-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;}
+.area-icon{width:40px;height:40px;flex-shrink:0;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.15);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+.area-card h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--wh);line-height:1.2;}
+.area-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.85rem;}
+.tag-hora{display:inline-flex;align-items:center;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:100px;padding:.18rem .6rem;font-size:.62rem;color:var(--g);font-weight:700;}
+.tag-cap{display:inline-flex;align-items:center;background:rgba(74,140,92,.1);border:1px solid rgba(74,140,92,.2);border-radius:100px;padding:.18rem .6rem;font-size:.62rem;color:#7dcca0;font-weight:700;}
+.tag-free{display:inline-flex;align-items:center;background:rgba(74,140,92,.12);border:1px solid rgba(74,140,92,.3);border-radius:100px;padding:.18rem .6rem;font-size:.62rem;color:#7dcca0;font-weight:700;}
+/* Tabs */
+.area-tabs{display:flex;border-top:1px solid rgba(255,255,255,.06);}
+.area-tab-btn{flex:1;padding:.6rem .5rem;background:none;border:none;cursor:pointer;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cm);transition:all .25s;border-bottom:2px solid transparent;}
+.area-tab-btn.active{color:var(--g);border-bottom-color:var(--g);background:rgba(201,168,76,.06);}
+.area-tab-btn:hover:not(.active){color:var(--cr);background:rgba(255,255,255,.03);}
+.area-tab-content{display:none;padding:1rem 1.25rem 1.25rem;min-height:160px;}
+.area-tab-content.active{display:block;}
+/* Rules list */
 .area-rules{list-style:none;}
-.area-rules li{font-size:.78rem;color:var(--cm);padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:flex-start;gap:.45rem;line-height:1.5;}
+.area-rules li{font-size:.77rem;color:var(--cm);padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:flex-start;gap:.42rem;line-height:1.55;position:relative;padding-right:0;transition:color .2s;}
 .area-rules li:last-child{border-bottom:none;}
-.area-rules li::before{content:'—';color:var(--g);flex-shrink:0;font-size:.72rem;margin-top:.1rem;}
+.area-rules li::before{content:'—';color:var(--g);flex-shrink:0;font-size:.68rem;margin-top:.15rem;}
+/* Normative ref tooltip on hover */
+.area-rules li[data-ref]{cursor:default;}
+.area-rules li[data-ref]:hover{color:var(--cr);}
+.area-rules li[data-ref]:hover::after{
+  content:attr(data-ref);
+  position:absolute;right:0;top:50%;transform:translateY(-50%);
+  background:rgba(10,31,18,.95);border:1px solid rgba(201,168,76,.4);
+  color:var(--g);padding:.18rem .55rem;border-radius:5px;
+  font-size:.62rem;font-weight:700;letter-spacing:.05em;
+  white-space:nowrap;pointer-events:none;z-index:20;
+  box-shadow:0 2px 8px rgba(0,0,0,.35);
+}
+/* Booking info */
+.booking-price{text-align:center;margin-bottom:.9rem;padding:.8rem;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.15);border-radius:8px;}
+.booking-price-label{font-size:.62rem;color:var(--cm);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.2rem;}
+.booking-price-val{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--g);line-height:1;}
+.booking-price-sub{font-size:.65rem;color:var(--cm);margin-top:.15rem;}
+.booking-rows{list-style:none;}
+.booking-row{display:flex;justify-content:space-between;align-items:center;padding:.35rem 0;font-size:.76rem;border-bottom:1px solid rgba(255,255,255,.04);}
+.booking-row:last-child{border-bottom:none;}
+.booking-row .blbl{color:var(--cm);}
+.booking-row .bval{color:var(--cr);font-weight:700;}
+.booking-row .bval.warn{color:#f0a050;}
+.booking-note{margin-top:.75rem;font-size:.72rem;color:var(--cm);background:rgba(74,140,92,.07);border-left:2px solid rgba(74,140,92,.3);padding:.5rem .7rem;border-radius:0 5px 5px 0;line-height:1.65;}
+
+/* BUSCA REGIMENTO */
+.reg-search-wrap{position:relative;margin-bottom:1.5rem;}
+.reg-search-wrap svg{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);pointer-events:none;opacity:.5;}
+#regSearch{width:100%;padding:.75rem 1rem .75rem 2.5rem;background:rgba(10,31,18,.6);border:1px solid rgba(74,140,92,.25);border-radius:8px;color:var(--cr);font-family:'Nunito Sans',sans-serif;font-size:.84rem;outline:none;transition:border-color .25s;}
+#regSearch::placeholder{color:var(--cm);}
+#regSearch:focus{border-color:rgba(201,168,76,.5);background:rgba(10,31,18,.8);}
+.reg-no-results{display:none;text-align:center;padding:1.5rem;color:var(--cm);font-size:.82rem;background:rgba(10,31,18,.3);border-radius:8px;border:1px dashed rgba(255,255,255,.08);}
+.search-highlight{background:rgba(201,168,76,.25);border-radius:2px;color:var(--cr);padding:0 .1rem;}
 
 /* REGIMENTO */
 #regimento{background:var(--pd);}
@@ -159,9 +201,9 @@ section{padding:5rem 2rem;}
 footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76,.12);}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.55rem;}
 .footer-brand{display:flex;flex-direction:column;align-items:center;gap:.5rem;margin-bottom:.5rem;}
-.footer-logo-res{font-size:.65rem;letter-spacing:.3em;font-family:'Nunito Sans',sans-serif;font-weight:400;color:var(--cm);text-transform:uppercase;}
-.footer-logo-rule{width:80px;height:1px;background:rgba(201,168,76,.35);}
-.footer-logo-pine{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--g);letter-spacing:.06em;}
+.footer-logo-res{font-size:.65rem;letter-spacing:.35em;font-family:'Nunito Sans',sans-serif;font-weight:400;color:var(--cm);text-transform:uppercase;}
+.footer-logo-rule{width:70px;height:1px;background:rgba(201,168,76,.4);}
+.footer-logo-pine{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;font-style:italic;color:var(--g);letter-spacing:.04em;line-height:1;}
 .footer-sub{font-size:.76rem;color:var(--cm);}
 .footer-copy{font-size:.65rem;color:var(--cm);opacity:.4;}
 
@@ -183,37 +225,9 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
 <nav>
   <div class="nav-inner">
     <a href="#inicio" class="nav-logo">
-      <svg class="nav-logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 62" width="22" height="28" fill="none" stroke="var(--g)" stroke-linecap="round" stroke-linejoin="round">
-        <defs><clipPath id="ncc"><path d="M24 2C31 2 42 16 42 33C42 50 35 60 24 60C13 60 6 50 6 33C6 16 17 2 24 2Z"/></clipPath></defs>
-        <g clip-path="url(#ncc)" stroke-width="1.4">
-          <path d="M24 1C27 1 27 10 24 13C21 10 21 1 24 1Z"/>
-          <path d="M17 9C20 9 20 18 17 21C14 18 14 9 17 9Z"/>
-          <path d="M24 8C27 8 27 17 24 20C21 17 21 8 24 8Z"/>
-          <path d="M31 9C34 9 34 18 31 21C28 18 28 9 31 9Z"/>
-          <path d="M11 17C14 17 14 26 11 29C8 26 8 17 11 17Z"/>
-          <path d="M18 16C21 16 21 25 18 28C15 25 15 16 18 16Z"/>
-          <path d="M24 15C27 15 27 24 24 27C21 24 21 15 24 15Z"/>
-          <path d="M30 16C33 16 33 25 30 28C27 25 27 16 30 16Z"/>
-          <path d="M37 17C40 17 40 26 37 29C34 26 34 17 37 17Z"/>
-          <path d="M12 25C15 25 15 34 12 37C9 34 9 25 12 25Z"/>
-          <path d="M18 24C21 24 21 33 18 36C15 33 15 24 18 24Z"/>
-          <path d="M24 23C27 23 27 32 24 35C21 32 21 23 24 23Z"/>
-          <path d="M30 24C33 24 33 33 30 36C27 33 27 24 30 24Z"/>
-          <path d="M36 25C39 25 39 34 36 37C33 34 33 25 36 25Z"/>
-          <path d="M14 34C17 34 17 43 14 46C11 43 11 34 14 34Z"/>
-          <path d="M20 33C23 33 23 42 20 45C17 42 17 33 20 33Z"/>
-          <path d="M24 32C27 32 27 41 24 44C21 41 21 32 24 32Z"/>
-          <path d="M28 33C31 33 31 42 28 45C25 42 25 33 28 33Z"/>
-          <path d="M34 34C37 34 37 43 34 46C31 43 31 34 34 34Z"/>
-          <path d="M17 43C20 43 20 52 17 55C14 52 14 43 17 43Z"/>
-          <path d="M24 42C27 42 27 51 24 54C21 51 21 42 24 42Z"/>
-          <path d="M31 43C34 43 34 52 31 55C28 52 28 43 31 43Z"/>
-        </g>
-        <path d="M24 2C31 2 42 16 42 33C42 50 35 60 24 60C13 60 6 50 6 33C6 16 17 2 24 2Z" stroke-width="2"/>
-      </svg>
       <div class="nav-logo-text">
         <span class="nav-logo-res">Residencial</span>
-        <span class="nav-logo-pine">— Pine —</span>
+        <span class="nav-logo-pine">—&thinsp;Pine&thinsp;—</span>
       </div>
     </a>
     <ul class="nav-links" id="navLinks">
@@ -231,7 +245,7 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
 <!-- HERO -->
 <section class="hero" id="inicio">
   <div class="hero-content">
-    <div class="hero-badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 62" width="14" height="18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><defs><clipPath id="hcc"><path d="M24 2C31 2 42 16 42 33C42 50 35 60 24 60C13 60 6 50 6 33C6 16 17 2 24 2Z"/></clipPath></defs><g clip-path="url(#hcc)" stroke-width="1.4"><path d="M24 1C27 1 27 10 24 13C21 10 21 1 24 1Z"/><path d="M17 9C20 9 20 18 17 21C14 18 14 9 17 9Z"/><path d="M24 8C27 8 27 17 24 20C21 17 21 8 24 8Z"/><path d="M31 9C34 9 34 18 31 21C28 18 28 9 31 9Z"/><path d="M11 17C14 17 14 26 11 29C8 26 8 17 11 17Z"/><path d="M18 16C21 16 21 25 18 28C15 25 15 16 18 16Z"/><path d="M24 15C27 15 27 24 24 27C21 24 21 15 24 15Z"/><path d="M30 16C33 16 33 25 30 28C27 25 27 16 30 16Z"/><path d="M37 17C40 17 40 26 37 29C34 26 34 17 37 17Z"/><path d="M18 24C21 24 21 33 18 36C15 33 15 24 18 24Z"/><path d="M24 23C27 23 27 32 24 35C21 32 21 23 24 23Z"/><path d="M30 24C33 24 33 33 30 36C27 33 27 24 30 24Z"/><path d="M20 33C23 33 23 42 20 45C17 42 17 33 20 33Z"/><path d="M24 32C27 32 27 41 24 44C21 41 21 32 24 32Z"/><path d="M28 33C31 33 31 42 28 45C25 42 25 33 28 33Z"/><path d="M24 42C27 42 27 51 24 54C21 51 21 42 24 42Z"/></g><path d="M24 2C31 2 42 16 42 33C42 50 35 60 24 60C13 60 6 50 6 33C6 16 17 2 24 2Z" stroke-width="2"/></svg> Hub do Condômino</div>
+    <div class="hero-badge">Hub do Condômino</div>
     <h1>Bem-vindo ao<br><em>Residencial Pine</em></h1>
     <p>Central de informações, contatos, sistemas e regras para todos os moradores e condôminos.</p>
     <div class="hero-cta">
@@ -239,10 +253,10 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
       <a href="#regimento" class="btn-outline">Regimento Interno</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Sistemas</div></div>
-      <div class="stat"><div class="stat-num">9</div><div class="stat-label">Áreas de Lazer</div></div>
-      <div class="stat"><div class="stat-num">23</div><div class="stat-label">Capítulos</div></div>
-      <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Portaria Remota</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Sistemas Digitais<br><span style="font-size:.6rem;opacity:.7;letter-spacing:.05em;text-transform:none">Informma · CMPremium · BV Garantia · Ultragaz</span></div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">Áreas de Lazer<br><span style="font-size:.6rem;opacity:.7;letter-spacing:.05em;text-transform:none">Academia · Gourmet · Rooftop · Pet · e mais</span></div></div>
+      <div class="stat"><div class="stat-num">23</div><div class="stat-label">Capítulos<br><span style="font-size:.6rem;opacity:.7;letter-spacing:.05em;text-transform:none">Regimento Interno completo e detalhado</span></div></div>
+      <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Portaria Remota<br><span style="font-size:.6rem;opacity:.7;letter-spacing:.05em;text-transform:none">Monitoramento contínuo pela Porttari</span></div></div>
     </div>
   </div>
 </section>
@@ -261,8 +275,12 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
         <p class="role">Gestão: Rui — Informma Síndicos</p>
         <div class="contact-item">
           <div class="contact-icon">📱</div>
-          <div><div class="contact-label">WhatsApp</div>
-          <div class="contact-value"><a href="https://wa.me/5541987513253">(41) 98751-3253</a></div></div>
+          <div><div class="contact-label">WhatsApp / Telefone</div>
+          <div class="contact-value" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.2rem">
+            <a href="tel:+5541987513253" style="display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .7rem;background:rgba(74,140,92,.12);border:1px solid rgba(74,140,92,.3);border-radius:6px;color:var(--cr);text-decoration:none;font-size:.75rem;font-weight:700;transition:all .2s" onmouseover="this.style.background='rgba(74,140,92,.25)'" onmouseout="this.style.background='rgba(74,140,92,.12)'">📞 Ligar</a>
+            <a href="https://wa.me/5541987513253" target="_blank" style="display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .7rem;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);border-radius:6px;color:#4fcc7a;text-decoration:none;font-size:.75rem;font-weight:700;transition:all .2s" onmouseover="this.style.background='rgba(37,211,102,.2)'" onmouseout="this.style.background='rgba(37,211,102,.1)'">💬 WhatsApp</a>
+            <span style="font-size:.78rem;color:var(--cm);align-self:center">(41) 98751-3253</span>
+          </div></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📧</div>
@@ -276,8 +294,13 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
         </div>
         <div class="contact-item">
           <div class="contact-icon">⏰</div>
-          <div><div class="contact-label">Atendimento</div>
+          <div><div class="contact-label">Atendimento Regular</div>
           <div class="contact-value">Seg–Sex (dias úteis)</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🚨</div>
+          <div><div class="contact-label">Plantão</div>
+          <div class="contact-value">Atende também fora do horário comercial em situações urgentes e emergências do condomínio</div></div>
         </div>
       </div>
 
@@ -288,12 +311,19 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
         <div class="contact-item">
           <div class="contact-icon">👔</div>
           <div><div class="contact-label">Supervisor Fernando</div>
-          <div class="contact-value"><a href="https://wa.me/5541999917226">(41) 99991-7226</a></div></div>
+          <div class="contact-value" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.2rem">
+            <a href="tel:+5541999917226" style="display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .7rem;background:rgba(74,140,92,.12);border:1px solid rgba(74,140,92,.3);border-radius:6px;color:var(--cr);text-decoration:none;font-size:.75rem;font-weight:700" onmouseover="this.style.background='rgba(74,140,92,.25)'" onmouseout="this.style.background='rgba(74,140,92,.12)'">📞 Ligar</a>
+            <a href="https://wa.me/5541999917226" target="_blank" style="display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .7rem;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);border-radius:6px;color:#4fcc7a;text-decoration:none;font-size:.75rem;font-weight:700" onmouseover="this.style.background='rgba(37,211,102,.2)'" onmouseout="this.style.background='rgba(37,211,102,.1)'">💬 WhatsApp</a>
+            <span style="font-size:.78rem;color:var(--cm);align-self:center">(41) 99991-7226</span>
+          </div></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📞</div>
-          <div><div class="contact-label">Central 24h (WhatsApp)</div>
-          <div class="contact-value"><a href="https://wa.me/558000410004">0800 041 0004</a></div></div>
+          <div><div class="contact-label">Central 24h — somente WhatsApp</div>
+          <div class="contact-value" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.2rem">
+            <a href="https://wa.me/558000410004" target="_blank" style="display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .7rem;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);border-radius:6px;color:#4fcc7a;text-decoration:none;font-size:.75rem;font-weight:700" onmouseover="this.style.background='rgba(37,211,102,.2)'" onmouseout="this.style.background='rgba(37,211,102,.1)'">💬 WhatsApp</a>
+            <span style="font-size:.78rem;color:var(--cm);align-self:center">0800 041 0004</span>
+          </div></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📧</div>
@@ -314,25 +344,58 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
         <div class="contact-item">
           <div class="contact-icon">👤</div>
           <div><div class="contact-label">Supervisor Antonio</div>
-          <div class="contact-value"><a href="tel:+5541997251867">(41) 99725-1867</a></div></div>
+          <div class="contact-value" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.2rem">
+            <a href="tel:+5541997251867" style="display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .7rem;background:rgba(74,140,92,.12);border:1px solid rgba(74,140,92,.3);border-radius:6px;color:var(--cr);text-decoration:none;font-size:.75rem;font-weight:700" onmouseover="this.style.background='rgba(74,140,92,.25)'" onmouseout="this.style.background='rgba(74,140,92,.12)'">📞 Ligar</a>
+            <a href="https://wa.me/5541997251867" target="_blank" style="display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .7rem;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);border-radius:6px;color:#4fcc7a;text-decoration:none;font-size:.75rem;font-weight:700" onmouseover="this.style.background='rgba(37,211,102,.2)'" onmouseout="this.style.background='rgba(37,211,102,.1)'">💬 WhatsApp</a>
+            <span style="font-size:.78rem;color:var(--cm);align-self:center">(41) 99725-1867</span>
+          </div></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">👤</div>
           <div><div class="contact-label">Supervisor Deni</div>
-          <div class="contact-value"><a href="tel:+5541999670635">(41) 99967-0635</a></div></div>
+          <div class="contact-value" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.2rem">
+            <a href="tel:+5541999670635" style="display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .7rem;background:rgba(74,140,92,.12);border:1px solid rgba(74,140,92,.3);border-radius:6px;color:var(--cr);text-decoration:none;font-size:.75rem;font-weight:700" onmouseover="this.style.background='rgba(74,140,92,.25)'" onmouseout="this.style.background='rgba(74,140,92,.12)'">📞 Ligar</a>
+            <a href="https://wa.me/5541999670635" target="_blank" style="display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .7rem;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);border-radius:6px;color:#4fcc7a;text-decoration:none;font-size:.75rem;font-weight:700" onmouseover="this.style.background='rgba(37,211,102,.2)'" onmouseout="this.style.background='rgba(37,211,102,.1)'">💬 WhatsApp</a>
+            <span style="font-size:.78rem;color:var(--cm);align-self:center">(41) 99967-0635</span>
+          </div></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">👤</div>
           <div><div class="contact-label">Supervisor Henrique</div>
-          <div class="contact-value"><a href="tel:+5541997668033">(41) 99766-8033</a></div></div>
+          <div class="contact-value" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.2rem">
+            <a href="tel:+5541997668033" style="display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .7rem;background:rgba(74,140,92,.12);border:1px solid rgba(74,140,92,.3);border-radius:6px;color:var(--cr);text-decoration:none;font-size:.75rem;font-weight:700" onmouseover="this.style.background='rgba(74,140,92,.25)'" onmouseout="this.style.background='rgba(74,140,92,.12)'">📞 Ligar</a>
+            <a href="https://wa.me/5541997668033" target="_blank" style="display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .7rem;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);border-radius:6px;color:#4fcc7a;text-decoration:none;font-size:.75rem;font-weight:700" onmouseover="this.style.background='rgba(37,211,102,.2)'" onmouseout="this.style.background='rgba(37,211,102,.1)'">💬 WhatsApp</a>
+            <span style="font-size:.78rem;color:var(--cm);align-self:center">(41) 99766-8033</span>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- ULTRAGAZ -->
+      <div class="contact-card fade-up">
+        <div class="contact-card-icon">🔥</div>
+        <h3>Ultragaz</h3>
+        <p class="role">Gás Canalizado — Fornecedora</p>
+        <div class="contact-item">
+          <div class="contact-icon">🆘</div>
+          <div><div class="contact-label">Emergência 24h</div>
+          <div class="contact-value" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.2rem">
+            <a href="tel:08008861616" style="display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .7rem;background:rgba(220,80,60,.12);border:1px solid rgba(220,80,60,.35);border-radius:6px;color:#f08070;text-decoration:none;font-size:.75rem;font-weight:700" onmouseover="this.style.background='rgba(220,80,60,.22)'" onmouseout="this.style.background='rgba(220,80,60,.12)'">📞 Ligar agora</a>
+            <span style="font-size:.78rem;color:var(--cm);align-self:center">0800 886 1616</span>
+          </div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div><div class="contact-label">WhatsApp</div>
+          <div class="contact-value" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.2rem">
+            <a href="https://wa.me/5511933058481" target="_blank" style="display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .7rem;background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);border-radius:6px;color:#4fcc7a;text-decoration:none;font-size:.75rem;font-weight:700" onmouseover="this.style.background='rgba(37,211,102,.2)'" onmouseout="this.style.background='rgba(37,211,102,.1)'">💬 WhatsApp</a>
+            <span style="font-size:.78rem;color:var(--cm);align-self:center">(11) 93305-8481</span>
+          </div></div>
         </div>
       </div>
 
     </div>
   </div>
 </section>
-
-<!-- SISTEMAS -->
 <section id="sistemas">
   <div class="section-inner">
     <p class="section-label">Serviços Digitais</p>
@@ -350,13 +413,13 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
         <ul class="steps-list">
           <li><div class="step-num">1</div>Baixe o app ou acesse o portal web</li>
           <li><div class="step-num">2</div>Clique em "Entrar com código do condomínio"</li>
-          <li><div class="step-num">3</div>Digite o código: <strong style="color:var(--g)">PIN837</strong></li>
+          <li><div class="step-num">3</div><div>Digite o código do condomínio:<br><span style="display:inline-flex;align-items:center;gap:.5rem;margin-top:.35rem;padding:.3rem .75rem;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.35);border-radius:6px;font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--g);letter-spacing:.12em">PIN837</span><br><span style="font-size:.72rem;color:var(--cm);margin-top:.3rem;display:inline-block">Usado somente no <strong style="color:var(--cr)">primeiro acesso</strong> para vincular sua conta ao condomínio.</span></div></li>
           <li><div class="step-num">4</div>Cadastre-se com nome, e-mail e celular</li>
           <li><div class="step-num">5</div>Toque em "Novo Chamado" para abrir ocorrência</li>
           <li><div class="step-num">6</div>Acompanhe em "Meus Chamados"</li>
         </ul>
         <div class="sistema-info">
-          <div class="sistema-info-row"><span class="lbl">🔑 Código Pine</span><span class="val">PIN837</span></div>
+          <div class="sistema-info-row"><span class="lbl">🔑 Código Pine</span><span class="val">PIN837 <span style="font-size:.65rem;color:var(--cm);font-weight:400">(1º acesso)</span></span></div>
           <div class="sistema-info-row"><span class="lbl">📱 iOS / Android</span><span class="val">Gratuito</span></div>
         </div>
         <a href="https://app.informma.com.br/c/cm6par3a102xff8kadrsqlli8" class="btn-sistema" target="_blank">Baixar / Acessar ↗</a>
@@ -443,7 +506,7 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
         <div class="ch-num">1</div>
         <div class="ch-icon">📱</div>
         <h4>Abra o chamado no Informma</h4>
-        <p><strong style="color:var(--cr)">Antes de tudo</strong>, acesse o app Informma Síndicos (código <strong style="color:var(--g)">PIN837</strong>), crie um novo chamado e <strong style="color:var(--cr)">anote o número de protocolo</strong> gerado automaticamente. O chamado no app é obrigatório — sem ele, o síndico não tem como agir.</p>
+        <p><strong style="color:var(--cr)">Antes de tudo</strong>, acesse o app Informma Síndicos (código <strong style="color:var(--g)">PIN837</strong> — <em style="font-size:.75rem;color:var(--cm)">somente no primeiro acesso</em>), crie um novo chamado e <strong style="color:var(--cr)">anote o número de protocolo</strong> gerado automaticamente. O chamado no app é obrigatório — sem ele, o síndico não tem como agir.</p>
         <a href="https://app.informma.com.br/c/cm6par3a102xff8kadrsqlli8" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem;margin-top:.85rem;padding:.5rem 1rem;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.35);border-radius:6px;color:var(--g);text-decoration:none;font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:all .3s">
           📲 Abrir app Informma ↗
         </a>
@@ -483,126 +546,420 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
     <div class="divider"></div>
     <div class="areas-grid">
 
+      <!-- ACADEMIA -->
       <div class="area-card fade-up">
-        <div class="area-header"><div class="area-icon">🏋️</div><h3>Academia</h3></div>
-        <div class="area-tags"><span class="tag-hora">⏰ Aberta 24h</span><span class="tag-cap">👤 Moradores</span></div>
-        <ul class="area-rules">
-          <li>Exclusivo para moradores cadastrados. Visitantes proibidos.</li>
-          <li>Silêncio obrigatório das 22h às 8h.</li>
-          <li>Menores de 14 anos: obrigatório responsável maior de 18 anos.</li>
-          <li>Aeróbicos (esteira, bike): limite 30 min em horários de pico.</li>
-          <li>Personal trainer permitido (pré-cadastro na portaria obrigatório).</li>
-          <li>Higienizar equipamentos após cada uso.</li>
-          <li>Halteres particulares: máx. 20 kg por peça.</li>
-          <li>Não retirar equipamentos ou acessórios da sala.</li>
-        </ul>
+        <div class="area-card-top">
+          <div class="area-header"><div class="area-icon">🏋️</div><h3>Academia</h3></div>
+          <div class="area-tags"><span class="tag-hora">⏰ 24h</span><span class="tag-cap">👤 Só moradores</span></div>
+        </div>
+        <div class="area-tabs">
+          <button class="area-tab-btn active" onclick="switchTab(this,'ac-rules')">Regras</button>
+          <button class="area-tab-btn" onclick="switchTab(this,'ac-book')">Reserva</button>
+        </div>
+        <div id="ac-rules" class="area-tab-content active">
+          <ul class="area-rules">
+            <li data-ref="Art. 24 e 24.1">Exclusivo para moradores cadastrados — visitantes proibidos.</li>
+            <li data-ref="Art. 24.2">Silêncio obrigatório das 22h às 8h.</li>
+            <li data-ref="Art. 24.11">Menores de 14 anos: acompanhamento obrigatório de adulto.</li>
+            <li data-ref="Art. 24.5">Equipamentos aeróbicos: máx. 30 min em horários de pico.</li>
+            <li data-ref="Art. 24.7">Personal trainer permitido (pré-cadastro na portaria).</li>
+            <li data-ref="Art. 24.14">Halteres particulares: máx. 20 kg por peça.</li>
+            <li data-ref="Art. 24.15">Proibido retirar equipamentos ou acessórios da academia.</li>
+            <li data-ref="Art. 24.8">Danos por mau uso: custos debitados ao condômino responsável.</li>
+          </ul>
+          <div style="margin-top:.75rem;display:flex;flex-direction:column;gap:.5rem;">
+            <div style="display:flex;align-items:center;gap:.75rem;padding:.65rem .85rem;background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.2);border-radius:7px;">
+              <span style="font-size:1.1rem;flex-shrink:0">⏱️</span>
+              <span style="font-size:.78rem;color:var(--cm);line-height:1.55">Recomenda-se limitar o uso a <strong style="color:var(--g);font-size:.88rem">no máximo 1h por dia</strong>, respeitando a disponibilidade para os demais moradores.</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:.75rem;padding:.65rem .85rem;background:rgba(74,140,92,.07);border:1px solid rgba(74,140,92,.2);border-radius:7px;">
+              <span style="font-size:1.1rem;flex-shrink:0">⚡</span>
+              <span style="font-size:.78rem;color:var(--cm);line-height:1.55">Ao sair: <strong style="color:var(--cr)">higienize os equipamentos</strong> usados e <strong style="color:var(--cr)">desligue luzes, ventiladores e ar-condicionado</strong>.</span>
+            </div>
+          </div>
+        </div>
+        <div id="ac-book" class="area-tab-content">
+          <div class="booking-price"><div class="booking-price-label">Taxa de utilização</div><div class="booking-price-val">Gratuito</div><div class="booking-price-sub">Sem cobrança de taxa</div></div>
+          <ul class="booking-rows">
+            <li class="booking-row"><span class="blbl">🔒 Acesso</span><span class="bval">Sem reserva</span></li>
+            <li class="booking-row"><span class="blbl">⏰ Horário</span><span class="bval">24h por dia</span></li>
+            <li class="booking-row"><span class="blbl">👥 Quem pode usar</span><span class="bval">Moradores cadastrados</span></li>
+          </ul>
+        </div>
       </div>
 
+      <!-- ESPAÇO BAR -->
       <div class="area-card fade-up">
-        <div class="area-header"><div class="area-icon">🎉</div><h3>Salão de Festas</h3></div>
-        <div class="area-tags"><span class="tag-hora">⏰ 10h–2h</span><span class="tag-cap">👥 Máx. 30 pess.</span></div>
-        <ul class="area-rules">
-          <li>Reserva obrigatória (máx. 60 dias de antecedência).</li>
-          <li>Taxa: 10% do salário mínimo por dia de uso.</li>
-          <li>Cancelamento com mínimo 48h (multa 50% se menor).</li>
-          <li>Silêncio após 22h; entrega organizado até 1h após término.</li>
-          <li>Proibido fumar dentro do ambiente ou sob marquises.</li>
-          <li>Danos: reparação em até 72 horas.</li>
-          <li>Proibido sublocar ou usar para fins lucrativos.</li>
-          <li>Chaves devolvidas até 10h do dia seguinte.</li>
-        </ul>
+        <div class="area-card-top">
+          <div class="area-header"><div class="area-icon">🍺</div><h3>Espaço Bar</h3></div>
+          <div class="area-tags">
+            <span class="tag-hora">⏰ 10h–22h</span>
+            <span class="tag-cap">👥 Máx. 10 pess.</span>
+            <span class="tag-cap" style="background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.2);color:var(--g)">📍 Térreo</span>
+          </div>
+        </div>
+        <div class="area-tabs">
+          <button class="area-tab-btn active" onclick="switchTab(this,'eb-rules')">Regras</button>
+          <button class="area-tab-btn" onclick="switchTab(this,'eb-book')">Reserva</button>
+        </div>
+        <div id="eb-rules" class="area-tab-content active">
+          <ul class="area-rules">
+            <li data-ref="Art. 26">Reserva prévia obrigatória e pagamento da taxa de conservação.</li>
+            <li data-ref="Art. 25.6">Somente o proprietário ou locatário pode efetuar a reserva.</li>
+            <li data-ref="Art. 25.8 e 25.9">Proibido sublocar ou usar para fins lucrativos, políticos, religiosos ou beneficentes.</li>
+            <li data-ref="Art. 25.20">Proibido fumar dentro do espaço ou sob marquises e telhados.</li>
+            <li data-ref="Art. 25.23">Convidados restritos ao ambiente locado e seu entorno.</li>
+            <li data-ref="Art. 25.11">Proibido alterar sistema de iluminação, som ou outros componentes.</li>
+            <li data-ref="Art. 25.10">Proibido retirar móveis ou utensílios do espaço.</li>
+            <li data-ref="Art. 25.3">O ambiente deve ser entregue organizado após o uso.</li>
+            <li data-ref="Art. 25.14">Danos ou avarias: reparação em até 72 horas pelo responsável.</li>
+            <li data-ref="Art. 26.2">Horário máximo: 22h — sem extensão de horário.</li>
+          </ul>
+          <div style="margin-top:.75rem;display:flex;align-items:center;gap:.75rem;padding:.65rem .85rem;background:rgba(74,140,92,.07);border:1px solid rgba(74,140,92,.2);border-radius:7px;">
+            <span style="font-size:1.1rem;flex-shrink:0">⚡</span>
+            <span style="font-size:.78rem;color:var(--cm);line-height:1.55">Ao sair: <strong style="color:var(--cr)">desligue luzes, ar-condicionado e televisão</strong>, deixe o espaço <strong style="color:var(--cr)">organizado</strong>. <span style="color:var(--cm);font-size:.73rem">🚫 Não desligue: modem de internet, geladeira ou freezer.</span></span>
+          </div>
+        </div>
+        <div id="eb-book" class="area-tab-content">
+          <div class="booking-price"><div class="booking-price-label">Taxa de utilização</div><div class="booking-price-val">R$ 81,05</div><div class="booking-price-sub">por dia de uso</div></div>
+          <ul class="booking-rows">
+            <li class="booking-row"><span class="blbl">📅 Antecedência mín.</span><span class="bval">2 dias</span></li>
+            <li class="booking-row"><span class="blbl">📅 Antecedência máx.</span><span class="bval">60 dias</span></li>
+            <li class="booking-row"><span class="blbl">❌ Cancelamento</span><span class="bval warn">Mín. 48h (multa 50%)</span></li>
+            <li class="booking-row"><span class="blbl">📦 Entrega</span><span class="bval">Até 1h após uso</span></li>
+            <li class="booking-row"><span class="blbl">🔑 Chaves</span><span class="bval">Devolver até 10h do dia seguinte</span></li>
+          </ul>
+          <div class="booking-note">Reservar pelo portal <strong>CMPremium</strong>: Menu → Reservas → Espaço Bar.</div>
+        </div>
       </div>
 
+      <!-- GOURMET MAIOR -->
       <div class="area-card fade-up">
-        <div class="area-header"><div class="area-icon">🍖</div><h3>Espaços Gourmet</h3></div>
-        <div class="area-tags"><span class="tag-hora">⏰ 10h–2h</span></div>
-        <ul class="area-rules">
-          <li><strong style="color:var(--g)">Gourmet 01:</strong> máx. 15 pessoas — taxa 10% salário mínimo.</li>
-          <li><strong style="color:var(--g)">Gourmet 02:</strong> máx. 8 pessoas — taxa 5% salário mínimo.</li>
-          <li><strong style="color:var(--g)">Gourmet 03:</strong> máx. 8 pessoas — taxa 5% salário mínimo.</li>
-          <li>Reserva obrigatória via portal CMPremium.</li>
-          <li>Proibido remover móveis ou utensílios do espaço.</li>
-          <li>Convidados restritos ao ambiente locado.</li>
-          <li>Entrega organizada até 1h após o encerramento.</li>
-        </ul>
+        <div class="area-card-top">
+          <div class="area-header"><div class="area-icon">🍖</div><h3>Gourmet Maior</h3></div>
+          <div class="area-tags">
+            <span class="tag-hora">⏰ 10h–2h</span>
+            <span class="tag-cap">👥 Máx. 15 pess.</span>
+            <span class="tag-cap" style="background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.2);color:var(--g)">📍 Térreo</span>
+          </div>
+        </div>
+        <div class="area-tabs">
+          <button class="area-tab-btn active" onclick="switchTab(this,'gm-rules')">Regras</button>
+          <button class="area-tab-btn" onclick="switchTab(this,'gm-book')">Reserva</button>
+        </div>
+        <div id="gm-rules" class="area-tab-content active">
+          <ul class="area-rules">
+            <li data-ref="Art. 27">Reserva prévia obrigatória e pagamento da taxa de conservação.</li>
+            <li data-ref="Art. 25.6">Somente o proprietário ou locatário pode efetuar a reserva.</li>
+            <li data-ref="Art. 25.8 e 25.9">Proibido sublocar ou usar para fins lucrativos, políticos, religiosos ou beneficentes.</li>
+            <li data-ref="Art. 25.20">Proibido fumar dentro do ambiente ou sob marquises e telhados.</li>
+            <li data-ref="Art. 25.23">Convidados restritos ao ambiente locado e seu entorno.</li>
+            <li data-ref="Art. 25.11">Proibido alterar sistema de iluminação, som ou outros componentes.</li>
+            <li data-ref="Art. 25.10">Proibido retirar móveis ou utensílios do espaço.</li>
+            <li data-ref="Art. 25.15 e 25.16">Silêncio obrigatório após 22h. Em caso de descumprimento, as luzes poderão ser desligadas.</li>
+            <li data-ref="Art. 25.18">O ambiente deve ser entregue organizado até 1h após o término.</li>
+            <li data-ref="Art. 25.14">Danos ou avarias: reparação em até 72 horas pelo responsável.</li>
+            <li data-ref="Art. 28">Pode ser combinado com o Gourmet Menor (combo R$ 243,15).</li>
+          </ul>
+          <div style="margin-top:.75rem;display:flex;align-items:center;gap:.75rem;padding:.65rem .85rem;background:rgba(74,140,92,.07);border:1px solid rgba(74,140,92,.2);border-radius:7px;">
+            <span style="font-size:1.1rem;flex-shrink:0">⚡</span>
+            <span style="font-size:.78rem;color:var(--cm);line-height:1.55">Ao sair: <strong style="color:var(--cr)">desligue luzes, ar-condicionado e televisão</strong>, deixe o espaço <strong style="color:var(--cr)">organizado</strong>. <span style="color:var(--cm);font-size:.73rem">🚫 Não desligue: modem de internet, geladeira ou freezer.</span></span>
+          </div>
+        </div>
+        <div id="gm-book" class="area-tab-content">
+          <div class="booking-price"><div class="booking-price-label">Taxa de utilização</div><div class="booking-price-val">R$ 162,10</div><div class="booking-price-sub">por dia de uso</div></div>
+          <ul class="booking-rows">
+            <li class="booking-row"><span class="blbl">📅 Antecedência mín.</span><span class="bval">2 dias</span></li>
+            <li class="booking-row"><span class="blbl">📅 Antecedência máx.</span><span class="bval">60 dias</span></li>
+            <li class="booking-row"><span class="blbl">❌ Cancelamento</span><span class="bval warn">Mín. 48h (multa 50%)</span></li>
+            <li class="booking-row"><span class="blbl">📦 Entrega</span><span class="bval">Até 1h após uso</span></li>
+            <li class="booking-row"><span class="blbl">🔑 Chaves</span><span class="bval">Devolver até 10h do dia seguinte</span></li>
+          </ul>
+          <div class="booking-note">Reservar pelo portal <strong>CMPremium</strong>: Menu → Reservas → Gourmet Maior.</div>
+        </div>
       </div>
 
+      <!-- GOURMET MENOR -->
       <div class="area-card fade-up">
-        <div class="area-header"><div class="area-icon">🍺</div><h3>Espaço Bar</h3></div>
-        <div class="area-tags"><span class="tag-hora">⏰ 10h–22h</span><span class="tag-cap">👥 Máx. 10 pess.</span></div>
-        <ul class="area-rules">
-          <li>Reserva obrigatória e pagamento de taxa.</li>
-          <li>Taxa: 5% do salário mínimo por dia de uso.</li>
-          <li>Proibido uso para fins políticos, religiosos ou comerciais.</li>
-          <li>Proibido fumar dentro do espaço.</li>
-          <li>Entrega organizada ao final do uso.</li>
-        </ul>
+        <div class="area-card-top">
+          <div class="area-header"><div class="area-icon">🥂</div><h3>Gourmet Menor</h3></div>
+          <div class="area-tags">
+            <span class="tag-hora">⏰ 10h–2h</span>
+            <span class="tag-cap">👥 Máx. 8 pess.</span>
+            <span class="tag-cap" style="background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.2);color:var(--g)">📍 Térreo</span>
+          </div>
+        </div>
+        <div class="area-tabs">
+          <button class="area-tab-btn active" onclick="switchTab(this,'gn-rules')">Regras</button>
+          <button class="area-tab-btn" onclick="switchTab(this,'gn-book')">Reserva</button>
+        </div>
+        <div id="gn-rules" class="area-tab-content active">
+          <ul class="area-rules">
+            <li data-ref="Art. 27">Reserva prévia obrigatória e pagamento da taxa de conservação.</li>
+            <li data-ref="Art. 25.6">Somente o proprietário ou locatário pode efetuar a reserva.</li>
+            <li data-ref="Art. 25.8 e 25.9">Proibido sublocar ou usar para fins lucrativos, políticos, religiosos ou beneficentes.</li>
+            <li data-ref="Art. 25.20">Proibido fumar dentro do ambiente ou sob marquises e telhados.</li>
+            <li data-ref="Art. 25.23">Convidados restritos ao ambiente locado e seu entorno.</li>
+            <li data-ref="Art. 25.11">Proibido alterar sistema de iluminação, som ou outros componentes.</li>
+            <li data-ref="Art. 25.10">Proibido retirar móveis ou utensílios do espaço.</li>
+            <li data-ref="Art. 25.15 e 25.16">Silêncio obrigatório após 22h. Em caso de descumprimento, as luzes poderão ser desligadas.</li>
+            <li data-ref="Art. 25.18">O ambiente deve ser entregue organizado até 1h após o término.</li>
+            <li data-ref="Art. 25.14">Danos ou avarias: reparação em até 72 horas pelo responsável.</li>
+            <li data-ref="Art. 28">Pode ser combinado com o Gourmet Maior (combo R$ 243,15).</li>
+          </ul>
+          <div style="margin-top:.75rem;display:flex;align-items:center;gap:.75rem;padding:.65rem .85rem;background:rgba(74,140,92,.07);border:1px solid rgba(74,140,92,.2);border-radius:7px;">
+            <span style="font-size:1.1rem;flex-shrink:0">⚡</span>
+            <span style="font-size:.78rem;color:var(--cm);line-height:1.55">Ao sair: <strong style="color:var(--cr)">desligue luzes, ar-condicionado e televisão</strong>, deixe o espaço <strong style="color:var(--cr)">organizado</strong>. <span style="color:var(--cm);font-size:.73rem">🚫 Não desligue: modem de internet, geladeira ou freezer.</span></span>
+          </div>
+        </div>
+        <div id="gn-book" class="area-tab-content">
+          <div class="booking-price"><div class="booking-price-label">Taxa de utilização</div><div class="booking-price-val">R$ 162,10</div><div class="booking-price-sub">por dia de uso</div></div>
+          <ul class="booking-rows">
+            <li class="booking-row"><span class="blbl">📅 Antecedência mín.</span><span class="bval">2 dias</span></li>
+            <li class="booking-row"><span class="blbl">📅 Antecedência máx.</span><span class="bval">60 dias</span></li>
+            <li class="booking-row"><span class="blbl">❌ Cancelamento</span><span class="bval warn">Mín. 48h (multa 50%)</span></li>
+            <li class="booking-row"><span class="blbl">📦 Entrega</span><span class="bval">Até 1h após uso</span></li>
+            <li class="booking-row"><span class="blbl">🔑 Chaves</span><span class="bval">Devolver até 10h do dia seguinte</span></li>
+          </ul>
+          <div class="booking-note">Reservar pelo portal <strong>CMPremium</strong>: Menu → Reservas → Gourmet Menor.</div>
+        </div>
       </div>
 
+      <!-- GOURMET MAIOR + MENOR (COMBO) -->
       <div class="area-card fade-up">
-        <div class="area-header"><div class="area-icon">🐾</div><h3>Espaço Pet</h3></div>
-        <div class="area-tags"><span class="tag-hora">⏰ 8h–23h</span><span class="tag-cap">🐶 Moradores</span></div>
-        <ul class="area-rules">
-          <li>Exclusivo animais de moradores do prédio. Animais silvestres proibidos.</li>
-          <li>Animal sempre acompanhado pelo tutor. Proibido deixar sozinho.</li>
-          <li>Guia obrigatória fora do espaço fechado. Focinheira p/ raças ferozes.</li>
-          <li>Tutor remove as fezes imediatamente e descarta nos locais indicados.</li>
-          <li>Proibido alimentar animais no espaço (mesmo petiscos).</li>
-          <li>Fêmeas em cio proibidas. Filhotes &lt;4 meses proibidos.</li>
-          <li><strong style="color:var(--g)">Pet Care (banho):</strong> uso livre, somente banho, máx. 1h/dia.</li>
-          <li>Higienizar local após uso.</li>
-        </ul>
+        <div class="area-card-top">
+          <div class="area-header"><div class="area-icon">🍽️</div><h3>Gourmet Maior + Menor</h3></div>
+          <div class="area-tags">
+            <span class="tag-hora">⏰ 10h–2h</span>
+            <span class="tag-cap">👥 Máx. 23 pess.</span>
+            <span class="tag-cap" style="background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.2);color:var(--g)">📍 Térreo</span>
+          </div>
+        </div>
+        <div class="area-tabs">
+          <button class="area-tab-btn active" onclick="switchTab(this,'gc-rules')">Regras</button>
+          <button class="area-tab-btn" onclick="switchTab(this,'gc-book')">Reserva</button>
+        </div>
+        <div id="gc-rules" class="area-tab-content active">
+          <ul class="area-rules">
+            <li data-ref="Art. 25 e 27">Reserva dos dois espaços obrigatória via portal CMPremium.</li>
+            <li data-ref="Art. 25.6">Somente o proprietário ou locatário pode efetuar a reserva.</li>
+            <li data-ref="Art. 25.8 e 25.9">Proibido sublocar ou usar para fins lucrativos, políticos, religiosos ou beneficentes.</li>
+            <li data-ref="Art. 25.20">Proibido fumar dentro dos ambientes ou sob marquises e telhados.</li>
+            <li data-ref="Art. 25.23">Convidados restritos aos ambientes locados e seu entorno.</li>
+            <li data-ref="Art. 25.11">Proibido alterar sistema de iluminação, som ou outros componentes.</li>
+            <li data-ref="Art. 25.10">Proibido retirar móveis ou utensílios dos espaços.</li>
+            <li data-ref="Art. 25.15 e 25.16">Silêncio obrigatório após 22h. Em caso de descumprimento, as luzes poderão ser desligadas.</li>
+            <li data-ref="Art. 25.18">Os ambientes devem ser entregues organizados até 1h após o término.</li>
+            <li data-ref="Art. 25.14">Danos ou avarias: reparação em até 72 horas pelo responsável.</li>
+          </ul>
+          <div style="margin-top:.75rem;display:flex;align-items:center;gap:.75rem;padding:.65rem .85rem;background:rgba(74,140,92,.07);border:1px solid rgba(74,140,92,.2);border-radius:7px;">
+            <span style="font-size:1.1rem;flex-shrink:0">⚡</span>
+            <span style="font-size:.78rem;color:var(--cm);line-height:1.55">Ao sair: <strong style="color:var(--cr)">desligue luzes, ar-condicionado e televisão</strong>, deixe o espaço <strong style="color:var(--cr)">organizado</strong>. <span style="color:var(--cm);font-size:.73rem">🚫 Não desligue: modem de internet, geladeira ou freezer.</span></span>
+          </div>
+        </div>
+        <div id="gc-book" class="area-tab-content">
+          <div class="booking-price"><div class="booking-price-label">Taxa de utilização (combo)</div><div class="booking-price-val">R$ 243,15</div><div class="booking-price-sub">por dia de uso — os dois espaços juntos</div></div>
+          <ul class="booking-rows">
+            <li class="booking-row"><span class="blbl">📅 Antecedência mín.</span><span class="bval">2 dias</span></li>
+            <li class="booking-row"><span class="blbl">📅 Antecedência máx.</span><span class="bval">60 dias</span></li>
+            <li class="booking-row"><span class="blbl">❌ Cancelamento</span><span class="bval warn">Mín. 48h (multa 50%)</span></li>
+            <li class="booking-row"><span class="blbl">📦 Entrega</span><span class="bval">Até 1h após uso</span></li>
+            <li class="booking-row"><span class="blbl">🔑 Chaves</span><span class="bval">Devolver até 10h do dia seguinte</span></li>
+          </ul>
+          <div class="booking-note">Reservar pelo portal <strong>CMPremium</strong>: Menu → Reservas → selecione Gourmet Maior e Gourmet Menor.</div>
+        </div>
       </div>
 
+      <!-- ROOFTOP 1 -->
       <div class="area-card fade-up">
-        <div class="area-header"><div class="area-icon">🧸</div><h3>Brinquedoteca</h3></div>
-        <div class="area-tags"><span class="tag-hora">⏰ 8h–22h</span><span class="tag-cap">👶 Até 10 anos</span></div>
-        <ul class="area-rules">
-          <li>Exclusivo para crianças até 10 anos. Sempre com responsável adulto.</li>
-          <li>Proibido consumo de comida ou bebida no local.</li>
-          <li>Proibido uso de bolas (reservado a brincadeiras não físicas).</li>
-          <li>Troca de fraldas apenas no local destinado.</li>
-          <li>Não usar como espaço para festas.</li>
-          <li>Danos: ressarcimento em até 10 dias.</li>
-        </ul>
+        <div class="area-card-top">
+          <div class="area-header"><div class="area-icon">🌆</div><h3>Rooftop 1</h3></div>
+          <div class="area-tags">
+            <span class="tag-hora">⏰ 10h–2h</span>
+            <span class="tag-cap" style="background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.2);color:var(--g)">📍 Último andar</span>
+          </div>
+        </div>
+        <div class="area-tabs">
+          <button class="area-tab-btn active" onclick="switchTab(this,'r1-rules')">Regras</button>
+          <button class="area-tab-btn" onclick="switchTab(this,'r1-book')">Reserva</button>
+        </div>
+        <div id="r1-rules" class="area-tab-content active">
+          <ul class="area-rules">
+            <li data-ref="Art. 25">Reserva prévia obrigatória e pagamento da taxa de conservação.</li>
+            <li data-ref="Art. 25.6">Somente o proprietário ou locatário pode efetuar a reserva.</li>
+            <li data-ref="Art. 25.8 e 25.9">Proibido sublocar ou usar para fins lucrativos, políticos, religiosos ou beneficentes.</li>
+            <li data-ref="Art. 25.20">Proibido fumar dentro do espaço ou sob marquises e telhados.</li>
+            <li data-ref="Art. 25.23">Convidados restritos ao ambiente locado e seu entorno.</li>
+            <li data-ref="Art. 25.10">Proibido retirar móveis ou utensílios do espaço.</li>
+            <li data-ref="Art. 25.15 e 25.16">Silêncio obrigatório após 22h. Em caso de descumprimento, as luzes poderão ser desligadas.</li>
+            <li data-ref="Art. 25.18">O ambiente deve ser entregue organizado até 1h após o término.</li>
+            <li data-ref="Art. 25.14">Danos ou avarias: reparação em até 72 horas pelo responsável.</li>
+          </ul>
+          <div style="margin-top:.75rem;display:flex;align-items:center;gap:.75rem;padding:.65rem .85rem;background:rgba(74,140,92,.07);border:1px solid rgba(74,140,92,.2);border-radius:7px;">
+            <span style="font-size:1.1rem;flex-shrink:0">⚡</span>
+            <span style="font-size:.78rem;color:var(--cm);line-height:1.55">Ao sair: <strong style="color:var(--cr)">desligue luzes, ar-condicionado e televisão</strong>, deixe o espaço <strong style="color:var(--cr)">organizado</strong>. <span style="color:var(--cm);font-size:.73rem">🚫 Não desligue: modem de internet, geladeira ou freezer.</span></span>
+          </div>
+        </div>
+        <div id="r1-book" class="area-tab-content">
+          <div class="booking-price"><div class="booking-price-label">Taxa de utilização</div><div class="booking-price-val">R$ 81,05</div><div class="booking-price-sub">por dia de uso</div></div>
+          <ul class="booking-rows">
+            <li class="booking-row"><span class="blbl">📅 Antecedência mín.</span><span class="bval">2 dias</span></li>
+            <li class="booking-row"><span class="blbl">📅 Antecedência máx.</span><span class="bval">30 dias</span></li>
+            <li class="booking-row"><span class="blbl">❌ Cancelamento</span><span class="bval warn">Mín. 48h (multa 50%)</span></li>
+            <li class="booking-row"><span class="blbl">📦 Entrega</span><span class="bval">Até 1h após uso</span></li>
+            <li class="booking-row"><span class="blbl">🔑 Chaves</span><span class="bval">Devolver até 10h do dia seguinte</span></li>
+          </ul>
+          <div class="booking-note">Reservar pelo portal <strong>CMPremium</strong>: Menu → Reservas → Rooftop 1.</div>
+        </div>
       </div>
 
+      <!-- ROOFTOP 2 -->
       <div class="area-card fade-up">
-        <div class="area-header"><div class="area-icon">🚗</div><h3>Garagem</h3></div>
-        <div class="area-tags"><span class="tag-hora">⚡ 10 km/h máx.</span></div>
-        <ul class="area-rules">
-          <li>Velocidade máxima: 10 km/h. Faróis acesos sempre.</li>
-          <li>Proibido buzinar (exceto para evitar acidente iminente).</li>
-          <li>Proibido praticar esportes, ciclismo, skate, patins etc.</li>
-          <li>Proibido lavagem, lubrificação ou reparos gerais de veículos.</li>
-          <li>Proibido guardar objetos, pneus ou móveis (máx. 5 dias emergencial).</li>
-          <li>Carregador elétrico permitido (projeto e medidor individual pelo morador).</li>
-          <li>Pedestres: usar portão de pedestres. Proibido usar portão de veículos.</li>
-        </ul>
+        <div class="area-card-top">
+          <div class="area-header"><div class="area-icon">🌇</div><h3>Rooftop 2</h3></div>
+          <div class="area-tags">
+            <span class="tag-hora">⏰ 10h–2h</span>
+            <span class="tag-cap" style="background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.2);color:var(--g)">📍 Último andar</span>
+          </div>
+        </div>
+        <div class="area-tabs">
+          <button class="area-tab-btn active" onclick="switchTab(this,'r2-rules')">Regras</button>
+          <button class="area-tab-btn" onclick="switchTab(this,'r2-book')">Reserva</button>
+        </div>
+        <div id="r2-rules" class="area-tab-content active">
+          <ul class="area-rules">
+            <li data-ref="Art. 25">Reserva prévia obrigatória e pagamento da taxa de conservação.</li>
+            <li data-ref="Art. 25.6">Somente o proprietário ou locatário pode efetuar a reserva.</li>
+            <li data-ref="Art. 25.8 e 25.9">Proibido sublocar ou usar para fins lucrativos, políticos, religiosos ou beneficentes.</li>
+            <li data-ref="Art. 25.20">Proibido fumar dentro do espaço ou sob marquises e telhados.</li>
+            <li data-ref="Art. 25.23">Convidados restritos ao ambiente locado e seu entorno.</li>
+            <li data-ref="Art. 25.10">Proibido retirar móveis ou utensílios do espaço.</li>
+            <li data-ref="Art. 25.15 e 25.16">Silêncio obrigatório após 22h. Em caso de descumprimento, as luzes poderão ser desligadas.</li>
+            <li data-ref="Art. 25.18">O ambiente deve ser entregue organizado até 1h após o término.</li>
+            <li data-ref="Art. 25.14">Danos ou avarias: reparação em até 72 horas pelo responsável.</li>
+          </ul>
+          <div style="margin-top:.75rem;display:flex;align-items:center;gap:.75rem;padding:.65rem .85rem;background:rgba(74,140,92,.07);border:1px solid rgba(74,140,92,.2);border-radius:7px;">
+            <span style="font-size:1.1rem;flex-shrink:0">⚡</span>
+            <span style="font-size:.78rem;color:var(--cm);line-height:1.55">Ao sair: <strong style="color:var(--cr)">desligue luzes, ar-condicionado e televisão</strong>, deixe o espaço <strong style="color:var(--cr)">organizado</strong>. <span style="color:var(--cm);font-size:.73rem">🚫 Não desligue: modem de internet, geladeira ou freezer.</span></span>
+          </div>
+        </div>
+        <div id="r2-book" class="area-tab-content">
+          <div class="booking-price"><div class="booking-price-label">Taxa de utilização</div><div class="booking-price-val">R$ 81,05</div><div class="booking-price-sub">por dia de uso</div></div>
+          <ul class="booking-rows">
+            <li class="booking-row"><span class="blbl">📅 Antecedência mín.</span><span class="bval">2 dias</span></li>
+            <li class="booking-row"><span class="blbl">📅 Antecedência máx.</span><span class="bval">30 dias</span></li>
+            <li class="booking-row"><span class="blbl">❌ Cancelamento</span><span class="bval warn">Mín. 48h (multa 50%)</span></li>
+            <li class="booking-row"><span class="blbl">📦 Entrega</span><span class="bval">Até 1h após uso</span></li>
+            <li class="booking-row"><span class="blbl">🔑 Chaves</span><span class="bval">Devolver até 10h do dia seguinte</span></li>
+          </ul>
+          <div class="booking-note">Reservar pelo portal <strong>CMPremium</strong>: Menu → Reservas → Rooftop 2.</div>
+        </div>
       </div>
 
+      <!-- MUDANÇA -->
       <div class="area-card fade-up">
-        <div class="area-header"><div class="area-icon">🛗</div><h3>Elevadores</h3></div>
-        <div class="area-tags"><span class="tag-hora">📋 Regras de uso</span></div>
-        <ul class="area-rules">
-          <li>Proibido em trajes molhados, de banho ou sem camisa.</li>
-          <li>Crianças &lt;6 anos: obrigatório acompanhamento de adulto.</li>
-          <li>Mudanças: usar proteção na cabine. Horários regulamentados.</li>
-          <li>Proibido manter porta aberta além do necessário.</li>
-          <li>Danos causados durante mudança: responsabilidade do morador.</li>
-        </ul>
+        <div class="area-card-top">
+          <div class="area-header"><div class="area-icon">📦</div><h3>Mudança</h3></div>
+          <div class="area-tags"><span class="tag-hora">⏰ Seg–Sex 8h–17h</span><span class="tag-free">✓ Grátis</span></div>
+        </div>
+        <div class="area-tabs">
+          <button class="area-tab-btn active" onclick="switchTab(this,'mu-rules')">Regras</button>
+          <button class="area-tab-btn" onclick="switchTab(this,'mu-book')">Agendamento</button>
+        </div>
+        <div id="mu-rules" class="area-tab-content active">
+          <ul class="area-rules">
+            <li>Seg–Sex: 8h às 17h. Sábado: 8h às 12h. Proibido dom. e feriados.</li>
+            <li>Morador responsável por danos a elevadores, portas e paredes.</li>
+            <li>Objetos grandes: usar as escadas sempre que possível.</li>
+            <li>Apenas uma mudança por dia por elevador.</li>
+            <li>Taxa dispensada na primeira ocupação do imóvel.</li>
+          </ul>
+        </div>
+        <div id="mu-book" class="area-tab-content">
+          <div class="booking-price"><div class="booking-price-label">Taxa de utilização</div><div class="booking-price-val">R$ 0,00</div><div class="booking-price-sub">entrada e saída (1ª ocupação isenta)</div></div>
+          <ul class="booking-rows">
+            <li class="booking-row"><span class="blbl">📅 Antecedência mín.</span><span class="bval">1 dia</span></li>
+            <li class="booking-row"><span class="blbl">📅 Antecedência máx.</span><span class="bval">30 dias</span></li>
+            <li class="booking-row"><span class="blbl">❌ Cancelamento</span><span class="bval warn">Mín. 1 dia antes</span></li>
+            <li class="booking-row"><span class="blbl">🛗 Elevador</span><span class="bval">1 mudança/dia</span></li>
+          </ul>
+          <div class="booking-note">Solicitar via portal <strong>CMPremium</strong>: Menu → Serviços → Agendar Mudança — ou pelo e-mail pine@informma.com.br.</div>
+        </div>
       </div>
 
+      <!-- ESPAÇO PET -->
       <div class="area-card fade-up">
-        <div class="area-header"><div class="area-icon">🚲</div><h3>Bicicletário</h3></div>
-        <div class="area-tags"><span class="tag-hora">🔒 Uso livre</span></div>
-        <ul class="area-rules">
-          <li>Exclusivo para guarda de bicicletas. Nenhum outro objeto permitido.</li>
-          <li>Respeitar o limite de bicicletas por espaço.</li>
-          <li>O condomínio não se responsabiliza por furtos ou danos.</li>
-          <li>Bicicletas também podem ficar na vaga da garagem ou no apartamento.</li>
-        </ul>
+        <div class="area-card-top">
+          <div class="area-header"><div class="area-icon">🐾</div><h3>Espaço Pet</h3></div>
+          <div class="area-tags"><span class="tag-hora">⏰ 8h–23h</span><span class="tag-free">✓ Livre</span></div>
+        </div>
+        <div class="area-tabs">
+          <button class="area-tab-btn active" onclick="switchTab(this,'ep-rules')">Regras</button>
+          <button class="area-tab-btn" onclick="switchTab(this,'ep-book')">Pet Care</button>
+        </div>
+        <div id="ep-rules" class="area-tab-content active">
+          <ul class="area-rules">
+            <li data-ref="Art. 31">Exclusivo animais de moradores. Animais silvestres proibidos.</li>
+            <li data-ref="Art. 31.7">Tutor deve permanecer no espaço. Proibido deixar animal sozinho.</li>
+            <li data-ref="Art. 31.8 e 31.18">Guia obrigatória fora do espaço fechado. Focinheira p/ raças ferozes.</li>
+            <li data-ref="Art. 31.5">Remover fezes imediatamente nos locais indicados.</li>
+            <li data-ref="Art. 31.10">Proibido alimentar animais no espaço (mesmo petiscos).</li>
+            <li data-ref="Art. 31.13 e 31.17">Fêmeas em cio e filhotes &lt;4 meses: proibido acesso.</li>
+            <li data-ref="Art. 31.9">Crianças menores de 10 anos: acompanhamento obrigatório.</li>
+            <li data-ref="Art. 31.16">Proibido permitir que animais pratiquem escavação.</li>
+            <li data-ref="Art. 31.15">Danos causados pelo pet são de responsabilidade do tutor.</li>
+          </ul>
+          <div style="margin-top:.75rem;display:flex;align-items:center;gap:.75rem;padding:.65rem .85rem;background:rgba(74,140,92,.07);border:1px solid rgba(74,140,92,.2);border-radius:7px;">
+            <span style="font-size:1.1rem;flex-shrink:0">⚡</span>
+            <span style="font-size:.78rem;color:var(--cm);line-height:1.55">Ao sair: <strong style="color:var(--cr)">desligue luzes e equipamentos</strong>, e deixe o espaço <strong style="color:var(--cr)">organizado e limpo</strong>.</span>
+          </div>
+        </div>
+        <div id="ep-book" class="area-tab-content">
+          <div class="booking-price"><div class="booking-price-label">Pet Care (banho)</div><div class="booking-price-val">Gratuito</div><div class="booking-price-sub">uso livre, sem reserva</div></div>
+          <ul class="booking-rows">
+            <li class="booking-row"><span class="blbl">⏱️ Tempo máximo</span><span class="bval">1 hora por dia</span></li>
+            <li class="booking-row"><span class="blbl">✂️ Tosa</span><span class="bval warn">Não permitida</span></li>
+            <li class="booking-row"><span class="blbl">🧹 Após uso</span><span class="bval">Higienizar obrigatório</span></li>
+          </ul>
+          <div class="booking-note">O espaço de banho (Pet Care) é exclusivo para banho — tosas não são autorizadas.</div>
+        </div>
       </div>
+
+      <!-- BRINQUEDOTECA -->
+      <div class="area-card fade-up">
+        <div class="area-card-top">
+          <div class="area-header"><div class="area-icon">🧸</div><h3>Brinquedoteca</h3></div>
+          <div class="area-tags"><span class="tag-hora">⏰ 8h–22h</span><span class="tag-cap">👶 Até 10 anos</span></div>
+        </div>
+        <div class="area-tabs">
+          <button class="area-tab-btn active" onclick="switchTab(this,'br-rules')">Regras</button>
+          <button class="area-tab-btn" onclick="switchTab(this,'br-book')">Uso</button>
+        </div>
+        <div id="br-rules" class="area-tab-content active">
+          <ul class="area-rules">
+            <li data-ref="Art. 30">Exclusivo crianças até 10 anos, sempre com responsável adulto.</li>
+            <li data-ref="Art. 30.1">Proibido consumo de comida ou bebida no local.</li>
+            <li data-ref="Art. 30.4">Proibido uso de bolas e atividades físicas.</li>
+            <li data-ref="Art. 30.2">Troca de fraldas apenas no local destinado.</li>
+            <li data-ref="Art. 30.5">Não pode ser usada como espaço de recreação para festas.</li>
+            <li data-ref="Art. 30.6">Danos: ressarcimento em até 10 dias pelo condômino responsável.</li>
+            <li data-ref="Art. 30.3">Visitantes externos permitidos, desde que acompanhados do morador.</li>
+          </ul>
+          <div style="margin-top:.75rem;display:flex;align-items:center;gap:.75rem;padding:.65rem .85rem;background:rgba(74,140,92,.07);border:1px solid rgba(74,140,92,.2);border-radius:7px;">
+            <span style="font-size:1.1rem;flex-shrink:0">⚡</span>
+            <span style="font-size:.78rem;color:var(--cm);line-height:1.55">Ao sair: <strong style="color:var(--cr)">desligue luzes e equipamentos</strong>, e deixe o espaço <strong style="color:var(--cr)">organizado e limpo</strong>.</span>
+          </div>
+        </div>
+        <div id="br-book" class="area-tab-content">
+          <div class="booking-price"><div class="booking-price-label">Taxa de utilização</div><div class="booking-price-val">Gratuito</div><div class="booking-price-sub">sem reserva necessária</div></div>
+          <ul class="booking-rows">
+            <li class="booking-row"><span class="blbl">⏰ Horário</span><span class="bval">8h às 22h</span></li>
+            <li class="booking-row"><span class="blbl">👤 Acesso</span><span class="bval">Livre (sem reserva)</span></li>
+            <li class="booking-row"><span class="blbl">👶 Idade máxima</span><span class="bval">Até 10 anos</span></li>
+          </ul>
+        </div>
+      </div>
+
 
     </div>
   </div>
@@ -616,8 +973,17 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
     <div class="divider"></div>
 
     <div class="reg-intro">
-      <strong>Apresentação:</strong> O presente Regimento Interno foi elaborado com a finalidade de proporcionar aos moradores do Residencial Pine, sito na Rua Coronel Pretextato Pena Forte Taborda Ribas, 385, Santa Quitéria, Curitiba-PR, o máximo de bem-estar social e convivência de alto nível. Este Regimento complementa e ratifica a Convenção do Condomínio, redigida na forma das disposições da legislação federal nº 10.406/2002 (Código Civil) e nº 4.591/1964, estabelecendo <strong>direitos, deveres e procedimentos a todos os moradores</strong> e demais pessoas que frequentam o Condomínio. <em>Curitiba, 03 de setembro de 2024 — Informma Síndicos.</em>
+      <strong>Sobre este Regimento</strong><br><br>
+      O Regimento Interno do <strong>Residencial Pine</strong> foi elaborado para garantir a boa convivência, o bem-estar e a segurança de todos os moradores. Ele complementa e ratifica a Convenção do Condomínio, estabelecendo de forma clara os <strong>direitos, deveres e procedimentos</strong> aplicáveis a moradores, visitantes e demais pessoas que frequentam o Condomínio.<br><br>
+      Suas disposições têm respaldo na legislação federal — <strong>Código Civil (Lei nº 10.406/2002)</strong> e <strong>Lei nº 4.591/1964</strong> — e são de cumprimento obrigatório por todos, independentemente de conhecimento prévio.<br><br>
+      <span style="font-size:.75rem;color:var(--cm);display:block;padding-top:.5rem;border-top:1px solid rgba(255,255,255,.07)">📍 Rua Coronel Pretextato Pena Forte Taborda Ribas, 385 — Santa Quitéria, Curitiba-PR &nbsp;·&nbsp; Aprovado em 03 de setembro de 2024 &nbsp;·&nbsp; Gestão Informma Síndicos</span>
     </div>
+
+    <div class="reg-search-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--g)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="regSearch" placeholder="Buscar no regimento… ex: silêncio, animais, mudança, multa" oninput="searchReg(this.value)" autocomplete="off">
+    </div>
+    <div class="reg-no-results" id="regNoResults">Nenhum resultado encontrado para "<span id="regSearchTerm"></span>"</div>
 
     <!-- CAP I -->
     <div class="accordion-item">
@@ -790,16 +1156,6 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
       </div>
     </div>
 
-    <!-- CAP XVI -->
-    <div class="accordion-item">
-      <button class="accordion-btn" onclick="toggleAcc(this)">
-        <div class="acc-num">XVI</div><span class="acc-title">Do Bicicletário</span><span class="acc-chevron">▾</span>
-      </button>
-      <div class="accordion-content">
-        <div class="artigo"><div class="artigo-num">Art. 32º</div><div class="artigo-texto"><div class="artigo-sub"><p>32.1. Os bicicletários devem ser utilizados apenas para a guarda de bicicletas, não sendo permitido qualquer outro tipo de objeto.</p><p>32.2. Devem ser utilizados de forma adequada, respeitando o limite de bicicletas em cada um.</p><p>32.3. O condomínio não é responsável pelas bicicletas.</p></div></div></div>
-      </div>
-    </div>
-
     <!-- CAP XVII -->
     <div class="accordion-item">
       <button class="accordion-btn" onclick="toggleAcc(this)">
@@ -918,7 +1274,7 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
           <ul style="margin-top:.6rem">
             <li>Ruído excessivo durante o dia → pode ser exigida a cessação com base no Código Civil</li>
             <li>Ruído após 22h → viola adicionalmente o Regimento Interno (Art. 33), sujeitando o infrator à advertência e multa</li>
-            <li>Em ambos os casos → registre a ocorrência pelo Informma Síndicos (código PIN837) ou pelo e-mail pine@informma.com.br</li>
+            <li>Em ambos os casos → registre a ocorrência pelo Informma Síndicos (código PIN837 — somente no primeiro acesso) ou pelo e-mail pine@informma.com.br</li>
           </ul>
         </div>
       </div>
@@ -981,7 +1337,7 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
 
       <div class="faq-item">
         <button class="faq-btn" onclick="toggleFaq(this)"><span class="faq-q">Como faço para registrar uma ocorrência ou reclamação?</span><span class="faq-icon">▾</span></button>
-        <div class="faq-a">Você tem três canais: <strong>1)</strong> Pelo app <strong>Informma Síndicos</strong> (código PIN837) — canal oficial para chamados e ocorrências. <strong>2)</strong> Por e-mail para <strong>pine@informma.com.br</strong> (síndico). <strong>3)</strong> Via <strong>Ouvidoria</strong> para a diretoria: ouvidoria@informma.com.br. É vedado se dirigir pessoalmente à residência do síndico ou conselheiros para reivindicações. (Art. 12.2, 12.4)</div>
+        <div class="faq-a">Você tem três canais: <strong>1)</strong> Pelo app <strong>Informma Síndicos</strong> (código PIN837 — <em>somente no primeiro acesso</em>) — canal oficial para chamados e ocorrências. <strong>2)</strong> Por e-mail para <strong>pine@informma.com.br</strong> (síndico). <strong>3)</strong> Via <strong>Ouvidoria</strong> para a diretoria: ouvidoria@informma.com.br. É vedado se dirigir pessoalmente à residência do síndico ou conselheiros para reivindicações. (Art. 12.2, 12.4)</div>
       </div>
 
       <div class="faq-item">
@@ -997,45 +1353,126 @@ footer{background:#050d08;padding:3rem 2rem;border-top:1px solid rgba(201,168,76
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 62" width="44" height="56" fill="none" stroke="var(--g)" stroke-linecap="round" stroke-linejoin="round">
-        <defs><clipPath id="fcc"><path d="M24 2C31 2 42 16 42 33C42 50 35 60 24 60C13 60 6 50 6 33C6 16 17 2 24 2Z"/></clipPath></defs>
-        <g clip-path="url(#fcc)" stroke-width="1.5">
-          <path d="M24 1C27 1 27 10 24 13C21 10 21 1 24 1Z"/>
-          <path d="M17 9C20 9 20 18 17 21C14 18 14 9 17 9Z"/>
-          <path d="M24 8C27 8 27 17 24 20C21 17 21 8 24 8Z"/>
-          <path d="M31 9C34 9 34 18 31 21C28 18 28 9 31 9Z"/>
-          <path d="M11 17C14 17 14 26 11 29C8 26 8 17 11 17Z"/>
-          <path d="M18 16C21 16 21 25 18 28C15 25 15 16 18 16Z"/>
-          <path d="M24 15C27 15 27 24 24 27C21 24 21 15 24 15Z"/>
-          <path d="M30 16C33 16 33 25 30 28C27 25 27 16 30 16Z"/>
-          <path d="M37 17C40 17 40 26 37 29C34 26 34 17 37 17Z"/>
-          <path d="M12 25C15 25 15 34 12 37C9 34 9 25 12 25Z"/>
-          <path d="M18 24C21 24 21 33 18 36C15 33 15 24 18 24Z"/>
-          <path d="M24 23C27 23 27 32 24 35C21 32 21 23 24 23Z"/>
-          <path d="M30 24C33 24 33 33 30 36C27 33 27 24 30 24Z"/>
-          <path d="M36 25C39 25 39 34 36 37C33 34 33 25 36 25Z"/>
-          <path d="M14 34C17 34 17 43 14 46C11 43 11 34 14 34Z"/>
-          <path d="M20 33C23 33 23 42 20 45C17 42 17 33 20 33Z"/>
-          <path d="M24 32C27 32 27 41 24 44C21 41 21 32 24 32Z"/>
-          <path d="M28 33C31 33 31 42 28 45C25 42 25 33 28 33Z"/>
-          <path d="M34 34C37 34 37 43 34 46C31 43 31 34 34 34Z"/>
-          <path d="M17 43C20 43 20 52 17 55C14 52 14 43 17 43Z"/>
-          <path d="M24 42C27 42 27 51 24 54C21 51 21 42 24 42Z"/>
-          <path d="M31 43C34 43 34 52 31 55C28 52 28 43 31 43Z"/>
-        </g>
-        <path d="M24 2C31 2 42 16 42 33C42 50 35 60 24 60C13 60 6 50 6 33C6 16 17 2 24 2Z" stroke-width="2"/>
-      </svg>
-      <div class="footer-logo-res">Residencial</div>
       <div class="footer-logo-rule"></div>
-      <div class="footer-logo-pine">— Pine —</div>
+      <div class="footer-logo-res">Residencial</div>
+      <div class="footer-logo-pine">—&thinsp;Pine&thinsp;—</div>
+      <div class="footer-logo-rule"></div>
     </div>
     <p class="footer-sub">Residencial Pine — Hub do Condômino</p>
     <p class="footer-sub">Rua Coronel Pretextato Pena Forte Taborda Ribas, 385 — Santa Quitéria, Curitiba, PR</p>
-    <p class="footer-copy">© 2025 Residencial Pine — Gestão Informma Síndicos. Regimento Interno de 03/09/2024.</p>
+
+    <div style="margin-top:1rem;padding:1rem 1.25rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;max-width:620px;text-align:center;">
+      <p style="font-size:.7rem;color:var(--cm);line-height:1.8;margin-bottom:.6rem">
+        <strong style="color:var(--cr);font-size:.72rem">✏️ Créditos</strong><br>
+        Material elaborado pelo <strong style="color:var(--cr)">Conselheiro Elias</strong>, com revisão do <strong style="color:var(--cr)">Conselheiro Vitor</strong> e do <strong style="color:var(--cr)">Síndico Rui</strong>.
+      </p>
+      <p style="font-size:.67rem;color:var(--cm);opacity:.65;line-height:1.75;border-top:1px solid rgba(255,255,255,.07);padding-top:.6rem">
+        <strong>⚠️ Disclaimer:</strong> Este hub é um canal informativo de apoio aos condôminos do Residencial Pine. As informações aqui apresentadas são baseadas no Regimento Interno aprovado em 03/09/2024 e nos dados fornecidos pela administração. Em caso de divergência, prevalece o documento original do Regimento Interno e as deliberações das Assembleias Gerais. Para questões jurídicas ou contratuais, consulte diretamente a administradora CMPremium ou o síndico.
+      </p>
+    </div>
+
+    <p class="footer-copy" style="margin-top:.85rem">© 2025 Residencial Pine — Gestão Informma Síndicos. Regimento Interno de 03/09/2024.</p>
   </div>
 </footer>
 
 <script>
+// Normalize text: remove accents for accent-insensitive search
+function normalize(str){
+  return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+}
+
+function searchReg(q){
+  const raw = q.trim();
+  const term = normalize(raw);
+
+  // ── 1. RESET COMPLETO ─────────────────────────────────────
+  // Remove highlights
+  document.querySelectorAll('#regimento .search-highlight').forEach(el=>{
+    el.outerHTML = el.textContent;
+  });
+  // Show all artigos, close all accordions
+  document.querySelectorAll('#regimento .accordion-item').forEach(item=>{
+    item.style.display = '';
+    item.querySelectorAll('.artigo').forEach(a=>a.style.display='');
+    item.querySelector('.accordion-content').classList.remove('open');
+    item.querySelector('.accordion-btn').classList.remove('active');
+  });
+
+  const noResults = document.getElementById('regNoResults');
+  const termSpan = document.getElementById('regSearchTerm');
+
+  // ── 2. SE CAMPO VAZIO, SÓ RESETAR ─────────────────────────
+  if(!term){
+    noResults.style.display='none';
+    return;
+  }
+
+  // ── 3. APLICAR NOVA BUSCA ──────────────────────────────────
+  let found = 0;
+  document.querySelectorAll('#regimento .accordion-item').forEach(item=>{
+    const content = item.querySelector('.accordion-content');
+    const btn = item.querySelector('.accordion-btn');
+    const artigos = item.querySelectorAll('.artigo');
+    const titleText = normalize(btn.textContent);
+    const titleMatch = titleText.includes(term);
+
+    let chapterHit = 0;
+    artigos.forEach(a=>{
+      if(normalize(a.textContent).includes(term)){
+        chapterHit++;
+      } else {
+        a.style.display='none';
+      }
+    });
+
+    if(chapterHit > 0 || titleMatch){
+      item.style.display='';
+      content.classList.add('open');
+      btn.classList.add('active');
+      if(titleMatch) artigos.forEach(a=>a.style.display='');
+      // Highlight only inside visible artigos
+      item.querySelectorAll('.artigo').forEach(a=>{
+        if(a.style.display !== 'none') highlightInEl(a, term, raw);
+      });
+      found++;
+    } else {
+      item.style.display='none';
+    }
+  });
+
+  noResults.style.display = found===0 ? 'block' : 'none';
+  termSpan.textContent = raw;
+}
+
+function highlightInEl(el, termNorm, termRaw){
+  if(!el) return;
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  const nodes = [];
+  while(walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node=>{
+    const normText = normalize(node.textContent);
+    const idx = normText.indexOf(termNorm);
+    if(idx === -1) return;
+    const span = document.createElement('span');
+    const before = document.createTextNode(node.textContent.slice(0, idx));
+    const match = document.createElement('mark');
+    match.className = 'search-highlight';
+    match.textContent = node.textContent.slice(idx, idx + termRaw.length);
+    const after = document.createTextNode(node.textContent.slice(idx + termRaw.length));
+    span.appendChild(before);
+    span.appendChild(match);
+    span.appendChild(after);
+    node.parentNode.replaceChild(span, node);
+  });
+}
+
+function switchTab(btn, targetId){
+  const card = btn.closest('.area-card');
+  card.querySelectorAll('.area-tab-btn').forEach(b=>b.classList.remove('active'));
+  card.querySelectorAll('.area-tab-content').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(targetId).classList.add('active');
+}
 function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');}
 document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
 

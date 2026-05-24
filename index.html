@@ -217,6 +217,19 @@ section:nth-child(even) { background: rgba(255,255,255,0.015); }
 
 .booking-note { font-size: 0.85rem; color: var(--text-muted); background: var(--bg-surface-light); padding: 1rem; border-radius: var(--radius-sm); line-height: 1.5; }
 
+/* ── ESTILOS DA SEÇÃO DE ORIENTAÇÕES ── */
+.dicas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+.dica-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 2rem; transition: transform 0.3s; }
+.dica-card:hover { transform: translateY(-3px); border-color: var(--border-gold); }
+.dica-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.dica-icon { font-size: 1.75rem; width: 56px; height: 56px; background: var(--gold-dim); border: 1px solid var(--border-gold); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; }
+.dica-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #fff; line-height: 1.2; }
+.dica-list { list-style: none; }
+.dica-list li { font-size: 0.95rem; color: var(--text-muted); padding: 0.75rem 0; border-bottom: 1px dashed var(--border-subtle); display: flex; gap: 0.75rem; line-height: 1.5; }
+.dica-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.dica-list li::before { content: '✓'; color: var(--gold); font-size: 1rem; line-height: 1.3; font-weight: 700; flex-shrink: 0; }
+.dica-list li strong { color: var(--text-main); font-weight: 600; }
+
 .reg-intro { background: var(--bg-surface); padding: 2rem; border-radius: var(--radius-md); border-left: 4px solid var(--gold); margin-bottom: 3rem; font-size: 1rem; color: var(--text-muted); line-height: 1.8; }
 .reg-intro strong { color: var(--text-main); }
 .reg-disclaimer { font-size: 0.8rem; border-top: 1px solid var(--border-subtle); padding-top: 1rem; margin-top: 1.5rem; }
@@ -311,6 +324,7 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
       <li><a href="#contatos">Contatos</a></li>
       <li><a href="#sistemas">Sistemas</a></li>
       <li><a href="#areas">Áreas</a></li>
+      <li><a href="#orientacoes">Orientações</a></li>
       <li><a href="#regimento">Regimento</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
@@ -1107,6 +1121,74 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
             <li class="booking-row"><span class="blbl">👶 Idade máxima</span><span class="bval">Até 10 anos</span></li>
           </ul>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NOVA SEÇÃO: ORIENTAÇÕES E SEGURANÇA -->
+<section id="orientacoes">
+  <div class="section-inner">
+    <p class="section-label">Boas Práticas</p>
+    <h2 class="section-title">Orientações e Segurança</h2>
+    <div class="divider"></div>
+    
+    <div class="dicas-grid">
+      
+      <!-- Segurança Coletiva -->
+      <div class="dica-card fade-up">
+        <div class="dica-header">
+          <div class="dica-icon">🛡️</div>
+          <h3>Segurança Coletiva</h3>
+        </div>
+        <ul class="dica-list">
+          <li><strong>Acesso de veículos:</strong> Aguarde sempre o portão fechar completamente ao entrar ou sair da garagem.</li>
+          <li><strong>O perigo do "carona":</strong> Não permita que pessoas desconhecidas aproveitem a abertura do portão para entrar no condomínio junto com você.</li>
+          <li><strong>Identificação:</strong> A Porttari faz o controle de acessos, mas a primeira barreira é o morador. Se notar atitudes suspeitas, avise a portaria imediatamente (Disque 94).</li>
+          <li><strong>Prestadores:</strong> Desconfie de serviços não solicitados ou horários fora do comum. Todo prestador deve ser anunciado e liberado por você via app ou interfone.</li>
+        </ul>
+      </div>
+
+      <!-- Manutenção da Unidade -->
+      <div class="dica-card fade-up">
+        <div class="dica-header">
+          <div class="dica-icon">🔧</div>
+          <h3>Manutenção da Unidade</h3>
+        </div>
+        <ul class="dica-list">
+          <li><strong>Ralos e Sifões:</strong> Limpe bimestralmente para evitar entupimentos e mau cheiro.</li>
+          <li><strong>Gás e Hidráulica:</strong> Verifique periodicamente o estado das mangueiras do fogão, registros e possíveis vazamentos nas pias e vasos sanitários.</li>
+          <li><strong>Elétrica:</strong> Teste os disjuntores do quadro elétrico a cada 6 meses (ligando e desligando).</li>
+          <li><strong>Filtros e Vedações:</strong> Mantenha os filtros do ar-condicionado e depurador limpos. Confira as vedações das janelas e esquadrias anualmente para evitar infiltrações.</li>
+        </ul>
+      </div>
+
+      <!-- Convivência e Empatia -->
+      <div class="dica-card fade-up">
+        <div class="dica-header">
+          <div class="dica-icon">🤝</div>
+          <h3>Dicas de Convivência</h3>
+        </div>
+        <ul class="dica-list">
+          <li><strong>Bom senso sempre:</strong> O silêncio absoluto é das 22h às 8h, mas barulhos excessivos (móveis arrastando, saltos, som alto) devem ser evitados em qualquer horário.</li>
+          <li><strong>Lixo organizado:</strong> Embale vidros quebrados com segurança (em jornais ou caixas) e dobre/amasse as caixas de papelão antes de descartar na lixeira reciclável.</li>
+          <li><strong>Pets educados:</strong> Circule sempre com a guia curta. Se o pet fizer necessidades no trajeto, a limpeza imediata é responsabilidade do tutor.</li>
+          <li><strong>Comunicação:</strong> Vai fazer uma pequena comemoração ou obra? Um aviso amigável aos vizinhos de porta e de baixo previne muitos desgastes.</li>
+        </ul>
+      </div>
+
+      <!-- Emergências -->
+      <div class="dica-card fade-up">
+        <div class="dica-header">
+          <div class="dica-icon">🚨</div>
+          <h3>Como agir em Emergências</h3>
+        </div>
+        <ul class="dica-list">
+          <li><strong>Vazamento de Gás:</strong> Feche imediatamente o registro geral da sua unidade, abra as janelas para ventilar, <strong>não</strong> acenda as luzes ou risque fósforos e acione a Ultragaz (0800 886 1616).</li>
+          <li><strong>Prevenção a Incêndios:</strong> Conheça previamente as rotas de fuga (escadas) e a localização dos extintores no corredor do seu andar.</li>
+          <li><strong>Apoio da Portaria:</strong> Em casos médicos ou de risco à vida, a Porttari (Interfone 94) pode auxiliar acionando o SAMU ou a Polícia Militar para um atendimento mais rápido.</li>
+        </ul>
       </div>
 
     </div>

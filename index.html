@@ -225,9 +225,24 @@ section:nth-child(even) { background: rgba(255,255,255,0.015); }
 .dica-icon { font-size: 1.75rem; width: 56px; height: 56px; background: var(--gold-dim); border: 1px solid var(--border-gold); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; }
 .dica-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #fff; line-height: 1.2; }
 .dica-list { list-style: none; }
-.dica-list li { font-size: 0.95rem; color: var(--text-muted); padding: 0.75rem 0; border-bottom: 1px dashed var(--border-subtle); display: flex; gap: 0.75rem; line-height: 1.5; }
+.dica-list li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    padding: 0.75rem 0 0.75rem 1.6rem;
+    border-bottom: 1px dashed var(--border-subtle);
+    line-height: 1.6;
+    position: relative;
+}
 .dica-list li:last-child { border-bottom: none; padding-bottom: 0; }
-.dica-list li::before { content: '✓'; color: var(--gold); font-size: 1rem; line-height: 1.3; font-weight: 700; flex-shrink: 0; }
+.dica-list li::before {
+    content: '\2713';
+    color: var(--gold);
+    font-size: 0.9rem;
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+}
 .dica-list li strong { color: var(--text-main); font-weight: 600; }
 
 .reg-intro { background: var(--bg-surface); padding: 2rem; border-radius: var(--radius-md); border-left: 4px solid var(--gold); margin-bottom: 3rem; font-size: 1rem; color: var(--text-muted); line-height: 1.8; }
@@ -305,7 +320,15 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
   section { padding: 4rem 1.5rem; }
   .artigo { padding-left: 0; }
 }
-</style>
+
+        .area-wifi-badge { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.25rem; padding: 0.85rem 1rem; background: var(--bg-main); border: 1px solid var(--border-gold); border-radius: var(--radius-sm); }
+        .area-wifi-icon { font-size: 1.2rem; flex-shrink: 0; }
+        .area-wifi-info { display: flex; flex-direction: column; gap: 0.15rem; }
+        .area-wifi-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); font-weight: 700; }
+        .area-wifi-rede { font-size: 0.9rem; color: var(--text-main); }
+        .area-wifi-rede strong { color: var(--gold); }
+
+        </style>
 </head>
 <body>
 
@@ -856,6 +879,7 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
             <span class="rule-alert-icon">⚡</span>
             <span class="rule-alert-text">Ao sair: <strong>higienize os equipamentos</strong> e <strong>desligue luzes, ventiladores e ar-condicionado</strong>. Recomendado máx. 1h por dia.</span>
           </div>
+          <div class="area-wifi-badge"><span class="area-wifi-icon">📶</span><div class="area-wifi-info"><span class="area-wifi-label">Wi-Fi disponível</span><span class="area-wifi-rede">Rede: <strong>ACADEMIA</strong> &nbsp;·&nbsp; Senha: <strong>Pine1234</strong></span></div></div>
         </div>
         <div id="ac-book" class="area-tab-content">
           <div class="booking-price"><div class="booking-price-label">Taxa</div><div class="booking-price-val">Gratuito</div><div class="booking-price-sub">Uso livre</div></div>
@@ -997,6 +1021,7 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
             <span class="rule-alert-icon">⚡</span>
             <span class="rule-alert-text">Regras iguais aos espaços individuais aplicadas a ambos.</span>
           </div>
+          <div class="area-wifi-badge"><span class="area-wifi-icon">📶</span><div class="area-wifi-info"><span class="area-wifi-label">Wi-Fi disponível</span><span class="area-wifi-rede">Rede: <strong>SALÃO DE FESTAS</strong> &nbsp;·&nbsp; Senha: <strong>Pine1234</strong></span></div></div>
         </div>
         <div id="gc-book" class="area-tab-content">
           <div class="booking-price"><div class="booking-price-label">Taxa (Combo)</div><div class="booking-price-val">R$ 243,15</div><div class="booking-price-sub">Maior + Menor</div></div>
@@ -1161,6 +1186,7 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
           <li><strong>Gás e Hidráulica:</strong> Verifique periodicamente o estado das mangueiras do fogão, registros e possíveis vazamentos nas pias e vasos sanitários.</li>
           <li><strong>Elétrica:</strong> Teste os disjuntores do quadro elétrico a cada 6 meses (ligando e desligando).</li>
           <li><strong>Filtros e Vedações:</strong> Mantenha os filtros do ar-condicionado e depurador limpos. Confira as vedações das janelas e esquadrias anualmente para evitar infiltrações.</li>
+          <li><strong>Aquecedor de Passagem:</strong> A revisão periódica do aquecedor a gás de passagem é <strong>responsabilidade do morador/proprietário</strong>. Conforme a <strong>ABNT NBR 13.103</strong>, a manutenção preventiva por profissional qualificado deve ocorrer a cada <strong>12 meses</strong> ou no prazo indicado pelo fabricante (prevalecendo o menor). Após cada revisão, o <strong>laudo técnico de aprovação de uso</strong> deve ser entregue ao síndico.</li>
         </ul>
       </div>
 
@@ -1171,7 +1197,7 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
           <h3>Dicas de Convivência</h3>
         </div>
         <ul class="dica-list">
-          <li><strong>Bom senso sempre:</strong> O silêncio absoluto é das 22h às 8h, mas barulhos excessivos (móveis arrastando, saltos, som alto) devem ser evitados em qualquer horário.</li>
+          <li><strong>Silêncio e Sossego:</strong> Nos termos do <strong>art. 1.336, IV, do Código Civil</strong>, é vedado o uso da unidade de forma prejudicial ao sossego dos condôminos em qualquer horário, com restrição absoluta das <strong>22h às 8h</strong>. O <strong>art. 1.277 do Código Civil</strong> assegura a cessação de interferências nocivas, podendo configurar, em tese, contravenção do <strong>art. 42 da Lei de Contravenções Penais</strong>. Parâmetros técnicos: <strong>ABNT NBR 10.151</strong> — <strong>55 dB (dia)</strong> e <strong>50 dB (noite)</strong> em áreas residenciais.</li>
           <li><strong>Lixo organizado:</strong> Embale vidros quebrados com segurança (em jornais ou caixas) e dobre/amasse as caixas de papelão antes de descartar na lixeira reciclável.</li>
           <li><strong>Pets educados:</strong> Circule sempre com a guia curta. Se o pet fizer necessidades no trajeto, a limpeza imediata é responsabilidade do tutor.</li>
           <li><strong>Comunicação:</strong> Vai fazer uma pequena comemoração ou obra? Um aviso amigável aos vizinhos de porta e de baixo previne muitos desgastes.</li>
@@ -1344,7 +1370,7 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
           <div class="acc-num">XVII</div><span class="acc-title">Silêncio, Mudanças, Lixo e Obras</span><span class="acc-chevron">▾</span>
         </button>
         <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Art. 33º — Silêncio</div><div class="artigo-texto">O sossego deve ser garantido a qualquer hora (Código Civil art. 1.277), com restrição absoluta das 22h às 8h.</div></div>
+          <div class="artigo"><div class="artigo-num">Art. 33º — Silêncio</div><div class="artigo-texto">O sossego deve ser garantido a qualquer hora. Nos termos do <strong>art. 1.336, IV, do Código Civil</strong>, é vedado o uso da unidade de forma prejudicial ao sossego dos condôminos, com restrição absoluta das <strong>22h às 8h</strong>. O <strong>art. 1.277 do Código Civil</strong> assegura a cessação de interferências nocivas, podendo configurar, em tese, a contravenção do <strong>art. 42 da Lei de Contravenções Penais</strong>. Parâmetros: <strong>ABNT NBR 10.151</strong> — <strong>55 dB diurnos</strong> e <strong>50 dB noturnos</strong>.</div></div>
           <div class="artigo"><div class="artigo-num">Art. 35º — Mudanças</div><div class="artigo-texto">Agendamento com 2 dias de antecedência. Seg-Sex (8-17h), Sáb (8-12h). Taxa de 5% do salário mínimo.</div></div>
           <div class="artigo"><div class="artigo-num">Art. 37º — Obras</div><div class="artigo-texto"><div class="artigo-sub"><p>Permitidas Seg-Sex (8-17h), Sáb (8-12h). Proibido usar furadeira/martelo aos domingos.</p></div>
           <span class="artigo-note">📌 <strong>ART e/ou RRT obrigatórios:</strong> Obras complexas não podem ser iniciadas sem a apresentação de ART/RRT emitido por engenheiro/arquiteto e o Formulário de Autorização.</span>
@@ -1397,7 +1423,7 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
     <div class="faq-container">
       <div class="faq-item">
         <button class="faq-btn" onclick="toggleFaq(this)">Qual é o horário de silêncio no condomínio? <span class="faq-icon">▾</span></button>
-        <div class="faq-a">O Regimento Interno estabelece o horário de silêncio das <strong>22h às 8h</strong>. É proibido som alto, instrumentos ou qualquer ruído que prejudique vizinhos, inclusive nas áreas de lazer. <strong>Atenção: o silêncio não vale só depois das 22h.</strong> O art. 1.277 do Código Civil permite coibir barulho excessivo (como furadeiras) a qualquer hora do dia se ultrapassar limites toleráveis. Registre ocorrências via app Informma.</div>
+        <div class="faq-a">O Regimento Interno impõe restrição absoluta das <strong>22h às 8h</strong>. Nos termos do <strong>art. 1.336, IV, do Código Civil</strong>, é vedado o uso da unidade de forma prejudicial ao sossego dos condôminos em <em>qualquer horário</em>. O <strong>art. 1.277 do Código Civil</strong> assegura a cessação de interferências nocivas; o comportamento pode configurar, em tese, contravenção do <strong>art. 42 da Lei de Contravenções Penais</strong>. Limites: <strong>ABNT NBR 10.151</strong> — <strong>55 dB de dia</strong> e <strong>50 dB à noite</strong>. Registre ocorrências pelo app Informma (PIN837).</div>
       </div>
       
       <div class="faq-item">

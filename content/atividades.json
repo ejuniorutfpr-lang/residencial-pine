@@ -3,12 +3,32 @@
     {
       "categoria": "Jurídico",
       "status": "Em Andamento",
-      "progresso": 87,
+      "progresso": 50,
       "responsavel": "Conselho Fiscal",
-      "titulo": "Parecer de Compliance - BV Garantia",
-      "descricao": "Transferência da gestão de cobranças e dos dados pessoais dos condôminos da Multi Condominium para a BV Garantia, sem deliberação assemblear e sem due diligence prévia sobre a nova empresa. A qualificação jurídica exata da operação (cessão de posição contratual, sujeita a consentimento, ou cessão de crédito, sujeita a mera notificação) depende de documentos ainda não obtidos.",
+      "titulo": "Parecer de Compliance - BV Garantia / CM Administradora / Porttari",
+      "descricao": "O Conselho, em conjunto com o síndico do condomínio, está revisando contratos e procedimentos relevantes (assessoria administrativa, portaria remota e cobrança/garantias), com foco em aperfeiçoar a segurança jurídica, ampliar a transparência, fortalecer o controle de custos, assegurar a adequação à legislação, inclusive à LGPD, e aprimorar a proteção de dados. Essa atuação tem por objetivo reduzir riscos e reforçar a proteção do condomínio, podendo resultar em propostas de renegociação, ajustes contratuais e eventuais aditivos específicos, que serão oportunamente apresentados aos moradores para conhecimento e eventual deliberação em assembleia.",
       "atualizado": "2026-07-07T00:00:00.000Z",
-      "observacoes": "Reunião agendada para apresentação do parecer ao Rui para providências."
+      "observacoes": "Reunião agendada para apresentação do parecer ao Rui na data de hoje (07/07/2026), para análise do síndico e avaliação da adoção das providências necessárias, mediante negociação de ajustes com as empresas, repactuação, notificação formal, entre outras medidas."
+    },
+    {
+      "categoria": "Administrativo",
+      "status": "Em Andamento",
+      "progresso": 47,
+      "responsavel": "Conselho Fiscal",
+      "descricao": "Há atuação em curso voltada à fiscalização trabalhista da zeladoria terceirizada prestada pela Porttari Serviços Ltda., com foco no adequado enquadramento trabalhista e normativo das atividades exercidas, em linha com o entendimento consolidado sobre terceirização e responsabilidade subsidiária do tomador de serviços (Súmula 331 do TST) e com as normas de segurança e saúde no trabalho. Essa fiscalização envolve a conferência de folha de pagamento, descontos, recolhimentos, EPI/EPC, PGR, PCMSO e das medidas previstas na NR-1, inclusive quanto a riscos psicossociais, buscando ao mesmo tempo ampliar a segurança jurídica do condomínio e promover condições de trabalho mais adequadas e seguras para a colaboradora.",
+      "titulo": "Fiscalização trabalhista Porttari Serviços Ltda.",
+      "atualizado": "2026-07-07T00:00:00.000Z",
+      "observacoes": "Reunião agendada para apresentação do parecer ao Rui na data de hoje (07/07/2026), para análise do síndico e avaliação da adoção das providências necessárias, mediante negociação de ajustes com as empresas, repactuação, notificação formal, entre outras medidas."
+    },
+    {
+      "categoria": "Administrativo",
+      "status": "Em Andamento",
+      "progresso": 40,
+      "responsavel": "Conselho Consultivo",
+      "titulo": "Termo de Referência / POP da Limpeza do Condomínio",
+      "descricao": "Foi concluída a primeira etapa de elaboração do Termo de Referência da limpeza, estruturado como Procedimento Operacional Padrão (POP) que define, de forma clara e objetiva, o que deve ser feito, como, quando e com quais critérios serão executados os serviços de limpeza do condomínio de acordo com as normas técnicas e legislação. Esse documento toma por base a CCT SINDICON/SECOVI (Registro MTE PR001907/2025), o enquadramento da função pela CBO 5143-20 (faxineiro/auxiliar de limpeza/servente), normas técnicas da ABNT (como a NBR 5674:2024 e outras NBRs aplicáveis), normas regulamentadoras de segurança e saúde no trabalho (NR-06 e NR-15), as Súmulas 331 e 448, II, do TST e o Regimento Interno, e será vinculativo ao contrato de prestação de serviços de limpeza. Com isso, busca-se estabelecer padrões objetivos de qualidade, segurança jurídica e conformidade para o condomínio, ao mesmo tempo em que se promovem condições de trabalho mais claras e seguras para a colaboradora terceirizada, alinhadas às atribuições próprias da função.",
+      "atualizado": "2026-07-07T00:00:00.000Z",
+      "observacoes": "Reunião agendada para apresentação do parecer ao Rui na data de hoje (07/07/2026), para análise do síndico e avaliação da adoção das providências necessárias. Em breve, a versão preliminar do Termo de Referência será disponibilizada para contribuição dos demais condôminos no âmbito de uma comissão específica de planejamento de contratação, a fim de ampliar a participação e o debate técnico antes da formalização contratual."
     }
   ]
 }

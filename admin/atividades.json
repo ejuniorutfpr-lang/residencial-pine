@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "titulo": "Parecer de Compliance — Contratos de Fornecedores",
+      "descricao": "Análise jurídica dos contratos com BV Garantia, Porttari e CMPremium para verificação de conformidade legal, riscos contratuais e cláusulas abusivas.",
+      "categoria": "Jurídico",
+      "status": "Em Andamento",
+      "progresso": 60,
+      "responsavel": "Conselho Fiscal",
+      "atualizado": "2026-07-01T00:00:00.000Z",
+      "observacoes": "Próxima etapa: apresentar parecer final ao Síndico Rui para providências."
+    },
+    {
+      "titulo": "Termo de Referência — Limpeza e Zeladoria",
+      "descricao": "Elaboração do termo de referência técnico para contratação dos serviços de limpeza e zeladoria do condomínio.",
+      "categoria": "Administrativo",
+      "status": "Concluído",
+      "progresso": 100,
+      "responsavel": "Conselho Consultivo",
+      "atualizado": "2026-06-15T00:00:00.000Z",
+      "observacoes": ""
+    },
+    {
+      "titulo": "Revisão do Regimento Interno",
+      "descricao": "Levantamento de pontos do Regimento Interno que precisam de atualização ou esclarecimento junto aos moradores.",
+      "categoria": "Jurídico",
+      "status": "Planejado",
+      "progresso": 10,
+      "responsavel": "Conselho Fiscal",
+      "atualizado": "2026-06-20T00:00:00.000Z",
+      "observacoes": "Aguardando pauta de Assembleia para apresentação."
+    }
+  ]
+}

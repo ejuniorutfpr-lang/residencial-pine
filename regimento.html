@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regimento Interno — Residencial Pine</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#inicio" class="nav-logo">
+      <div class="nav-logo-text">
+        <span class="nav-logo-res">Residencial</span>
+        <span class="nav-logo-pine">— Pine —</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="index.html#guia">Guia Rápido</a></li>
+      <li><a href="index.html#areas">Áreas</a></li>
+      <li><a href="transparencia.html">Transparência</a></li>
+      <li><a href="#regimento">Regimento</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="page-header-inner">
+    <div class="hero-badge">Normas e Diretrizes</div>
+    <h1>Regimento Interno & Dúvidas Frequentes</h1>
+    <p>Consulte o regimento completo por capítulo, use a busca para encontrar um assunto rapidamente, ou veja as perguntas mais frequentes dos moradores.</p>
+  </div>
+</section>
+
+<section id="regimento">
+  <div class="section-inner">
+    <p class="section-label">Normas e Diretrizes</p>
+    <h2 class="section-title">Regimento Interno Completo</h2>
+    <div class="divider"></div>
+
+    <div class="reg-intro">
+      <strong>Sobre este Regimento</strong><br><br>
+      O Regimento Interno do Residencial Pine foi elaborado para garantir a boa convivência, o bem-estar e a segurança de todos os moradores. Ele complementa e ratifica a Convenção do Condomínio, estabelecendo de forma clara os direitos, deveres e procedimentos aplicáveis a moradores, visitantes e demais pessoas que frequentam o Condomínio.<br><br>
+      Suas disposições têm respaldo na legislação federal — Código Civil e Lei nº 4.591/1964 — e são de cumprimento obrigatório por todos.
+      <div class="reg-disclaimer">
+        📍 Rua Coronel Pretextato Pena Forte Taborda Ribas, 385 — Santa Quitéria, Curitiba-PR &nbsp;·&nbsp; Aprovado em 03/09/2024
+      </div>
+    </div>
+
+    <div class="reg-search-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="regSearch" placeholder="Buscar no regimento… ex: silêncio, animais, obra" oninput="searchReg(this.value)" autocomplete="off">
+    </div>
+    
+    <div class="reg-search-suggestions">
+      <span class="reg-sugg-chip" onclick="applySearch('silêncio')">🔊 Silêncio</span>
+      <span class="reg-sugg-chip" onclick="applySearch('animais')">🐾 Animais</span>
+      <span class="reg-sugg-chip" onclick="applySearch('multa')">⚠️ Multa</span>
+      <span class="reg-sugg-chip" onclick="applySearch('obra')">🔨 Obra</span>
+      <span class="reg-sugg-chip" onclick="applySearch('mudança')">📦 Mudança</span>
+      <span class="reg-sugg-chip" onclick="applySearch('garagem')">🚗 Garagem</span>
+      <span class="reg-sugg-chip" onclick="applySearch('sacada')">🏠 Sacada</span>
+    </div>
+    <div class="reg-no-results" id="regNoResults">Nenhum resultado encontrado para "<span id="regSearchTerm"></span>"</div>
+
+    <div class="accordion-container">
+      <!-- CAP I -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">
+          <div class="acc-num">I</div><span class="acc-title">Das Disposições Gerais</span><span class="acc-chevron">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="artigo"><div class="artigo-num">Art. 1º</div><div class="artigo-texto">As disposições do presente Regimento Interno aplicam-se a toda e qualquer pessoa que se encontre dentro das dependências do Condomínio, ainda que eventualmente, obrigando a todos os possuidores, seus sub-rogados, prepostos e sucessores.<div class="artigo-sub"><p>§ 1º. Entende-se por possuidor o condômino, o locatário ou qualquer outra pessoa cessionária de direito de uso da unidade autônoma; por morador, todos os que residirem no condomínio.</p><p>§ 2º. Por Administração entende-se a pessoa do Síndico ou a empresa contratada para a administração do Condomínio e conselho fiscal e consultivo.</p></div></div></div>
+          <div class="artigo"><div class="artigo-num">Art. 2º</div><div class="artigo-texto">Todos os condôminos são obrigados a contribuir para as despesas comuns do Condomínio bem como para o custeio de obras nas áreas comuns, na forma e na proporção prevista na Convenção, efetuando os pagamentos nos prazos estipulados.</div></div>
+          <div class="artigo"><div class="artigo-num">Art. 3º</div><div class="artigo-texto">É direito de todo Condômino comparecer às Assembleias Gerais Ordinárias (AGO) e Assembleias Gerais Extraordinárias (AGE), e dever cumprir e fazer acatar as deliberações nelas aprovadas.</div></div>
+          <div class="artigo"><div class="artigo-num">Art. 4º — Compete ao Síndico</div><div class="artigo-texto"><div class="artigo-sub"><p>4.1. Convocar as Assembleias Gerais Ordinárias e Extraordinárias.</p><p>4.2. Representar ativa e passivamente o Condomínio praticando os atos necessários à defesa dos interesses comuns.</p><p>4.3. Dar imediato conhecimento à Assembleia de procedimentos judiciais ou administrativos de interesse do Condomínio.</p><p>4.4. Interpretar, aplicar e fazer cumprir as disposições da Convenção e deste Regimento Interno.</p><p>4.5. Diligenciar a conservação e guarda das partes comuns e zelar pela prestação dos serviços.</p><p>4.6. Elaborar o orçamento da receita e da despesa de cada ano.</p><p>4.7. Cobrar dos condôminos as contribuições e impor e cobrar as multas devidas.</p><p>4.8. Prestar contas à Assembleia Ordinária anualmente ou quando exigido.</p><p>4.9. Realizar e renovar o seguro da edificação.</p><p>4.10. Organizar e transferir a documentação ao seu sucessor, permanecendo 45 dias à disposição.</p><p>4.11. Garantir que compras e contratações acima de 3 salários mínimos sejam baseadas em no mínimo 3 propostas.</p><p>4.12. Orientar funcionários e empresas contratadas para serviços terceirizados.</p><p>4.13. Realizar e manter atualizado o cadastro dos moradores e veículos.</p><p>4.14. Contratar escritório de assessoria jurídica quando necessário, após consulta ao conselho.</p><p>4.15. Organizar e manter agenda de compromissos e cronograma anual de manutenções.</p><p>4.16. Apresentar certificações e alvarás necessários para o funcionamento do condomínio.</p><p>4.17. Os casos omissos serão solucionados pelo Conselho Fiscal e Consultivo.</p></div></div></div>
+          <div class="artigo"><div class="artigo-num">Art. 5º — Zelador</div><div class="artigo-texto">Cabe ao Zelador ou a quem a administração delegar a manutenção e conservação do Condomínio, a coordenação e fiscalização dos serviços, zelar pela boa ordem, tratar com respeito moradores e funcionários, e levar ao conhecimento da Administração quaisquer infrações ao Regimento.</div></div>
+          <div class="artigo"><div class="artigo-num">Art. 6º</div><div class="artigo-texto">Todos os moradores e prepostos têm o dever de tratar com respeito e cortesia os empregados do Condomínio e o direito de receber deles o mesmo tratamento.</div></div>
+          <div class="artigo"><div class="artigo-num">Art. 7º</div><div class="artigo-texto">Não é permitido usar os préstimos dos empregados do Condomínio para serviços particulares dos moradores.<div class="artigo-sub"><p>7.1. As chaves da casa de bombas e demais dependências comuns ficarão sempre na portaria ou em poder do Zelador.</p></div></div></div>
+          <div class="artigo"><div class="artigo-num">Art. 8º</div><div class="artigo-texto">O uso das áreas de lazer do condomínio é restrito aos moradores, tolerada a frequência de pessoas de suas relações, sempre acompanhadas por moradores do Condomínio.</div></div>
+        </div>
+      </div>
+
+      <!-- CAP II -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">
+          <div class="acc-num">II</div><span class="acc-title">Da Administração</span><span class="acc-chevron">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="artigo"><div class="artigo-num">Art. 9º — Estrutura</div><div class="artigo-texto">O Condomínio será administrado por um Síndico, um Conselho Fiscal e Consultivo e pela Assembleia Geral.<div class="artigo-sub"><p>9.1. Se o síndico for condômino, os honorários serão de até 2 salários mínimos. Se externo, deve apresentar contrato social, certidões negativas e proposta de honorários com 3 dias de antecedência.</p><p>9.1.1. O mandato do síndico será de 1 (um) ano, permitida a reeleição.</p><p>9.1.2. Em caso de renúncia ou vacância, o Conselho Fiscal assume provisoriamente e nova eleição será convocada.</p><p>9.2. A administração será fiscalizada pelo Conselho Fiscal e Consultivo.</p><p>9.3. Nas eleições, em não havendo candidato espontâneo, o Conselho poderá contratar síndico externo.</p><p>9.4. O Síndico pode ordenar reparos urgentes até 2 salários mínimos; de 2 a 5, com anuência do Conselho; acima de 5, com aprovação de Assembleia.</p><p>9.5. O síndico poderá ser destituído na forma prevista no art. 50.9 deste regimento.</p></div></div></div>
+          <div class="artigo"><div class="artigo-num">Art. 10º — Conselho Fiscal e Consultivo</div><div class="artigo-texto">Será composto de 3 membros efetivos e 3 suplentes, condôminos, eleitos em Assembleia Geral, com mandato de 1 ano, permitida a reeleição.<div class="artigo-sub"><p>10.7. Compete ao Conselho: fiscalizar a contabilidade; examinar contas e relatórios anuais; analisar contratos; fiscalizar obras; emitir pareceres; convocar assembleias; julgar recursos contra atos do Síndico; assessorar o Síndico; autorizar despesas não previstas no orçamento (entre 2 e 5 salários mínimos).</p></div></div></div>
+        </div>
+      </div>
+
+      <!-- CAP III -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">
+          <div class="acc-num">III</div><span class="acc-title">Dos Empregados</span><span class="acc-chevron">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="artigo"><div class="artigo-num">Art. 11º</div><div class="artigo-texto">Conforme necessidade e mediante aprovação prévia do Corpo Diretivo, o Condomínio poderá manter quadro de empregados, comunicando aos condôminos.<div class="artigo-sub"><p>11.1. Os empregados devem portar-se com urbanidade e cortesia, uniformizados e manter disciplina.</p><p>11.2. Devem permanecer nas áreas indicadas durante intervalos.</p></div></div></div>
+        </div>
+      </div>
+
+      <!-- CAP IV -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">
+          <div class="acc-num">IV</div><span class="acc-title">Da Organização do Condomínio</span><span class="acc-chevron">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="artigo"><div class="artigo-num">Art. 12º — Cadastro e Ocorrências</div><div class="artigo-texto"><div class="artigo-sub"><p>12.1. Os possuidores deverão informar à Administradora os nomes dos moradores, empregados particulares e veículos.</p><p>12.2. Haverá um Diário (físico ou digital) para registro de ocorrências, queixas e sugestões.</p><p>12.3. Em reclamações, o síndico verificará o fato in loco, notificará o condômino e registrará.</p><p>12.4. É vedado aos condôminos se dirigirem às residências do síndico e conselheiros para reclamações.</p><p>12.5. Situações de urgência devem ser comunicadas à portaria, zelador, síndico e conselho.</p></div></div></div>
+          <div class="artigo"><div class="artigo-num">Art. 13º — Locação / Alienação</div><div class="artigo-texto">Em caso de alienação ou locação, o condômino é obrigado a fornecer cópia deste Regimento ao novo ocupante. Somente autorizada mudança em unidades com titularidade regularizada.</div></div>
+        </div>
+      </div>
+
+      <!-- CAP V -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">
+          <div class="acc-num">V</div><span class="acc-title">Dos Direitos e Deveres</span><span class="acc-chevron">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="artigo"><div class="artigo-num">Art. 14º — Direitos</div><div class="artigo-texto"><div class="artigo-sub"><p>14.1. Usar e gozar da unidade sem prejudicar segurança e tranquilidade.</p><p>14.2. Usar as partes comuns sem impedir idêntico uso.</p><p>14.3. Examinar livros com solicitação de 5 dias.</p><p>14.4. Votar e ser votado, estando em dia com as quotas.</p><p>14.9. Condômino que alugar sua unidade perde direito de frequentar áreas de lazer em benefício do inquilino.</p></div></div></div>
+          <div class="artigo"><div class="artigo-num">Art. 15º — Deveres Gerais</div><div class="artigo-texto"><div class="artigo-sub"><p>15.2. Não utilizar para fins não residenciais.</p><p>15.7. <strong>Não fumar nas áreas de uso comum do edifício.</strong></p><p>15.8. Não manter inflamáveis ou explosivos.</p><p>15.9. Não colocar objetos nas áreas comuns.</p><p>15.17. <strong>Não utilizar som que prejudique o sossego, especialmente das 22h às 8h.</strong></p><p>15.21. Não instalar ar-condicionado fora do local padrão.</p><p>15.25. Separar lixo reciclável do orgânico.</p><p>15.36. Não permitir entrada de pessoas sem identificação na portaria.</p><p>15.55. Não é permitido utilização de drones nas áreas comuns.</p></div></div></div>
+        </div>
+      </div>
+
+      <!-- CAP VI -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">
+          <div class="acc-num">VI</div><span class="acc-title">Dos Animais</span><span class="acc-chevron">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="artigo"><div class="artigo-num">Art. 16º</div><div class="artigo-texto">Permitida a posse de animal não feroz, observando:<div class="artigo-sub"><p>a) Permanência na unidade.</p><p>b) Tráfego com guia ou no colo.</p><p>c) Proibido em salões, gourmet, academia e ático.</p><p>d) Limpeza imediata de sujeira.</p><p>16.2. Em caso de incômodo, notificação. Reincidência gera multa e, se persistir, retirada imediata.</p></div></div></div>
+        </div>
+      </div>
+
+      <!-- CAP VII -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">
+          <div class="acc-num">VII</div><span class="acc-title">Da Responsabilidade do Condomínio</span><span class="acc-chevron">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="artigo"><div class="artigo-num">Art. 17º</div><div class="artigo-texto">O Condomínio não assume responsabilidade por acidentes, danos materiais, furtos ou roubos, nem pela interrupção de concessionárias (água, luz).</div></div>
+        </div>
+      </div>
+
+      <!-- CAP VIII -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">
+          <div class="acc-num">VIII</div><span class="acc-title">Do Uso das Áreas Comuns</span><span class="acc-chevron">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="artigo"><div class="artigo-num">Art. 19º e 21º — Acessos e Portaria</div><div class="artigo-texto">Portões permanentemente fechados. Proibida entrada de não identificados. A portaria é exclusiva aos funcionários.</div></div>
+          <div class="artigo"><div class="artigo-num">Art. 22º — Garagem</div><div class="artigo-texto"><div class="artigo-sub"><p>22.1. Vagas são para veículos, motos, patinetes de médio/grande porte.</p><p>22.4. Proibida guarda de móveis e entulhos.</p><p>22.12. Velocidade máxima: 10 km/h, faróis acesos.</p><p>22.20. Carregadores elétricos apenas com projeto custeado pelo morador e medidor individual.</p></div></div></div>
+        </div>
+      </div>
+
+      <!-- CAP IX e X -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">
+          <div class="acc-num">IX</div><span class="acc-title">Atividades com Profissionais</span><span class="acc-chevron">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="artigo"><div class="artigo-num">Art. 23º</div><div class="artigo-texto">Profissionais contratados (ex: personal trainer) precisam de termo de compromisso e autorização. O condomínio não se responsabiliza por suas atividades.</div></div>
+        </div>
+      </div>
+
+      <!-- CAP XI a XVI combinados (Salões, Espaços, Brinquedoteca, Pet) -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">
+          <div class="acc-num">XI</div><span class="acc-title">Regras Gerais dos Espaços Sociais</span><span class="acc-chevron">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="artigo"><div class="artigo-num">Art. 25 a 31º</div><div class="artigo-texto">Para detalhes específicos de uso, capacidade e taxas de todos os espaços (Gourmet, Rooftop, Pet, Brinquedoteca), consulte a seção <strong>Guia Rápido &gt; Áreas Comuns</strong> acima, onde as regras estão detalhadas por ambiente.</div></div>
+        </div>
+      </div>
+
+      <!-- CAP XVII -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">
+          <div class="acc-num">XVII</div><span class="acc-title">Silêncio, Mudanças, Lixo e Obras</span><span class="acc-chevron">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="artigo"><div class="artigo-num">Art. 33º — Silêncio</div><div class="artigo-texto">O sossego deve ser garantido a qualquer hora. Nos termos do <strong>art. 1.336, IV, do Código Civil</strong>, é vedado o uso da unidade de forma prejudicial ao sossego dos condôminos, com restrição absoluta das <strong>22h às 8h</strong>. O <strong>art. 1.277 do Código Civil</strong> assegura a cessação de interferências nocivas, podendo configurar, em tese, a contravenção do <strong>art. 42 da Lei de Contravenções Penais</strong>. Parâmetros: <strong>ABNT NBR 10.151</strong> — <strong>55 dB diurnos</strong> e <strong>50 dB noturnos</strong>.</div></div>
+          <div class="artigo"><div class="artigo-num">Art. 35º — Mudanças</div><div class="artigo-texto">Agendamento com 2 dias de antecedência. Seg-Sex (8-17h), Sáb (8-12h). Taxa de 5% do salário mínimo.</div></div>
+          <div class="artigo"><div class="artigo-num">Art. 37º — Obras</div><div class="artigo-texto"><div class="artigo-sub"><p>Permitidas Seg-Sex (8-17h), Sáb (8-12h). Proibido usar furadeira/martelo aos domingos.</p></div>
+          <span class="artigo-note">📌 <strong>ART e/ou RRT obrigatórios:</strong> Obras complexas não podem ser iniciadas sem a apresentação de ART/RRT emitido por engenheiro/arquiteto e o Formulário de Autorização.</span>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- CAP XIX -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">
+          <div class="acc-num">XIX</div><span class="acc-title">Pagamento das Quotas e Penalidades</span><span class="acc-chevron">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="artigo"><div class="artigo-num">Art. 39 a 42º</div><div class="artigo-texto"><div class="artigo-sub"><p>Vencimento dia 10. Atraso gera multa de 1% e juros de mora de 0,33% ao dia.</p><p><strong>Infrações ao Regimento:</strong><br>1ª ocorrência: Advertência.<br>Reincidência em 6 meses: Multa (Leve: 10% SM, Média: 40% SM, Grave: 100% SM).</p></div></div></div>
+        </div>
+      </div>
+
+      <!-- CAP XX -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">
+          <div class="acc-num">XX</div><span class="acc-title">Das Sacadas e Gardens</span><span class="acc-chevron">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="artigo"><div class="artigo-num">Art. 43 e 44º</div><div class="artigo-texto"><div class="artigo-sub"><p>Permite-se fechamento apenas dentro da padronização aprovada na convenção.</p><p>Proibido toldos, varal de teto/parede, películas nas janelas e móveis acima da altura do vidro.</p></div></div></div>
+        </div>
+      </div>
+
+      <!-- ANEXOS -->
+      <div class="accordion-item">
+        <button class="accordion-btn" onclick="toggleAcc(this)">
+          <div class="acc-num" style="font-size:0.8rem; line-height:1">ANEX</div><span class="acc-title">Anexos — Tabela de Infrações</span><span class="acc-chevron">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="artigo"><div class="artigo-num">Anexo I — Leves (10% SM)</div><div class="artigo-texto">Demais infrações não listadas abaixo.</div></div>
+          <div class="artigo"><div class="artigo-num">Anexo II — Médias (40% SM)</div><div class="artigo-texto"><div class="artigo-sub"><p>— Usar unidade para atividades que afetem saúde e tranquilidade.</p><p>— Trancar porta corta-fogo.</p><p>— Acessar condomínio com veículo sem identificação.</p><p>— Permitir que estranhos usem a academia.</p></div></div></div>
+          <div class="artigo"><div class="artigo-num">Anexo III — Graves (100% SM)</div><div class="artigo-texto"><div class="artigo-sub"><p>— Atos libidinosos ou obscenos em área comum.</p><p>— Fracionar unidade para sublocação.</p><p>— Guardar inflamáveis ou explosivos.</p><p>— Soltar fogos, balões, pipas ou atirar arma de fogo.</p><p>— Obras com sobrecarga estrutural.</p></div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-inner">
+    <p class="section-label">Dúvidas Frequentes</p>
+    <h2 class="section-title">Perguntas Frequentes</h2>
+    <div class="divider"></div>
+    
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Qual é o horário de silêncio no condomínio? <span class="faq-icon">▾</span></button>
+        <div class="faq-a">O Regimento Interno impõe restrição absoluta das <strong>22h às 8h</strong>. Nos termos do <strong>art. 1.336, IV, do Código Civil</strong>, é vedado o uso da unidade de forma prejudicial ao sossego dos condôminos em <em>qualquer horário</em>. O <strong>art. 1.277 do Código Civil</strong> assegura a cessação de interferências nocivas; o comportamento pode configurar, em tese, contravenção do <strong>art. 42 da Lei de Contravenções Penais</strong>. Limites: <strong>ABNT NBR 10.151</strong> — <strong>55 dB de dia</strong> e <strong>50 dB à noite</strong>. Registre ocorrências pelo app Informma (PIN837).</div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Posso fumar nas áreas comuns? <span class="faq-icon">▾</span></button>
+        <div class="faq-a"><strong>Não.</strong> É expressamente proibido fumar em quaisquer áreas de uso comum, incluindo salões, academia, halls, garagem e embaixo de marquises.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Posso ter animais de estimação? <span class="faq-icon">▾</span></button>
+        <div class="faq-a"><strong>Sim</strong>, apenas animais domésticos. Circulação nas áreas comuns só com guia, colo ou caixa. Proibido nos salões, academia e ático. Limpeza imediata é obrigatória.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Quando posso realizar obras no apartamento? <span class="faq-icon">▾</span></button>
+        <div class="faq-a">De segunda a sexta (8h às 17h) e sábados (8h às 12h). Proibido domingos e feriados. É necessário preencher o Formulário de Autorização. <strong>Obras complexas exigem ART ou RRT</strong> obrigatoriamente aprovado pelo síndico.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Quando posso fazer mudanças? <span class="faq-icon">▾</span></button>
+        <div class="faq-a">Seg–Sex (8h às 17h) e sábados (8h às 12h). Exige agendamento com 2 dias de antecedência. Taxa de 5% do salário mínimo (dispensada na primeira ocupação).</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Qual o vencimento e a multa por atraso da taxa? <span class="faq-icon">▾</span></button>
+        <div class="faq-a">Vencimento todo dia <strong>10</strong>. Atraso gera multa de 1% e juros de mora de 0,33% ao dia. Após 30 dias vai para cobrança judicial.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Como reservo o salão de festas ou espaços gourmet? <span class="faq-icon">▾</span></button>
+        <div class="faq-a">Pelo portal <strong>CMPremium</strong>. Cancelamentos devem ser feitos com no mínimo 48h de antecedência para evitar multa de 50%.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Posso instalar carregador de carro elétrico? <span class="faq-icon">▾</span></button>
+        <div class="faq-a"><strong>Sim</strong>, desde que o projeto e execução sejam custeados pelo morador e seja instalado medidor individual de energia aprovado pela Administração.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Acesso de entregadores e prestadores? <span class="faq-icon">▾</span></button>
+        <div class="faq-a">Entregadores (comida/remédio) apenas no portão. Prestadores (técnicos) precisam de autorização prévia na portaria com apresentação de documento.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Como faço para registrar uma ocorrência? <span class="faq-icon">▾</span></button>
+        <div class="faq-a">Sempre pelo aplicativo <strong>Informma Síndicos</strong> (código PIN837) ou e-mail pine@informma.com.br. Não se dirija à unidade do síndico para reclamações.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="float-group">
+  <button id="btnTopo" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="float-btn-top" title="Voltar ao topo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo-res">Residencial</div>
+    <div class="footer-logo-pine">— Pine —</div>
+    <p class="footer-sub">Hub digital e manual prático para moradores e proprietários.</p>
+    
+    <div class="footer-credits">
+      <p>Material elaborado pelo <strong>Conselheiro Elias</strong>, com revisão do <strong>Conselheiro Vitor</strong> e do <strong>Síndico Rui</strong>.</p>
+    </div>
+
+    <div class="footer-disclaimer">
+      <strong>Disclaimer:</strong> Este hub é um canal informativo de apoio aos condôminos do Residencial Pine. As informações aqui apresentadas são baseadas no Regimento Interno aprovado em 03/09/2024. Em caso de divergência, prevalece a <strong>legislação vigente</strong>, a <strong>jurisprudência e decisões dos Tribunais</strong> e as <strong>deliberações em Assembleia Geral</strong>.<br><br>
+      © 2026 Residencial Pine
+    </div>
+  </div>
+</footer>
+
+
+<script src="assets/site.js"></script>
+
+<script>
+function toggleAcc(btn){
+  const content = btn.nextElementSibling;
+  const isOpen = content.classList.contains('open');
+  document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+  document.querySelectorAll('.accordion-btn').forEach(b => b.classList.remove('active'));
+  if(!isOpen){ content.classList.add('open'); btn.classList.add('active'); }
+}
+function toggleFaq(btn){
+  const content = btn.nextElementSibling;
+  const isOpen = content.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(c => c.classList.remove('open'));
+  document.querySelectorAll('.faq-btn').forEach(b => b.classList.remove('active'));
+  if(!isOpen){ content.classList.add('open'); btn.classList.add('active'); }
+}
+
+// Busca do Regimento
+function normalize(str){ return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+function applySearch(term){
+  const input = document.getElementById('regSearch');
+  input.value = term;
+  searchReg(term);
+  input.focus();
+}
+function searchReg(q){
+  const raw = q.trim();
+  const term = normalize(raw);
+
+  document.querySelectorAll('#regimento .search-highlight').forEach(el => el.outerHTML = el.textContent);
+  document.querySelectorAll('#regimento .accordion-item').forEach(item => {
+    item.style.display = '';
+    item.querySelectorAll('.artigo').forEach(a => a.style.display='');
+    item.querySelector('.accordion-content').classList.remove('open');
+    item.querySelector('.accordion-btn').classList.remove('active');
+  });
+
+  const noResults = document.getElementById('regNoResults');
+  const termSpan = document.getElementById('regSearchTerm');
+
+  if(!term){ noResults.style.display = 'none'; return; }
+
+  let found = 0;
+  document.querySelectorAll('#regimento .accordion-item').forEach(item => {
+    const content = item.querySelector('.accordion-content');
+    const btn = item.querySelector('.accordion-btn');
+    const artigos = item.querySelectorAll('.artigo');
+    const titleMatch = normalize(btn.textContent).includes(term);
+    let chapterHit = 0;
+
+    artigos.forEach(a => {
+      if(normalize(a.textContent).includes(term)){ chapterHit++; }
+      else { a.style.display = 'none'; }
+    });
+
+    if(chapterHit > 0 || titleMatch){
+      item.style.display = '';
+      content.classList.add('open');
+      btn.classList.add('active');
+      if(titleMatch) artigos.forEach(a => a.style.display='');
+
+      item.querySelectorAll('.artigo').forEach(a => {
+        if(a.style.display !== 'none') highlightInEl(a, term, raw);
+      });
+      found++;
+    } else {
+      item.style.display = 'none';
+    }
+  });
+
+  noResults.style.display = found === 0 ? 'block' : 'none';
+  termSpan.textContent = raw;
+}
+
+function highlightInEl(el, termNorm, termRaw){
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+  const nodes = [];
+  while(walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    const normText = normalize(node.textContent);
+    const idx = normText.indexOf(termNorm);
+    if(idx === -1) return;
+    const span = document.createElement('span');
+    span.appendChild(document.createTextNode(node.textContent.slice(0, idx)));
+    const match = document.createElement('mark');
+    match.className = 'search-highlight';
+    match.textContent = node.textContent.slice(idx, idx + termRaw.length);
+    span.appendChild(match);
+    span.appendChild(document.createTextNode(node.textContent.slice(idx + termRaw.length)));
+    node.parentNode.replaceChild(span, node);
+  });
+}
+
+// Se a página foi aberta com ?q=termo (vindo do Guia Rápido da Início), já preenche e busca
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q');
+  if(q){
+    const input = document.getElementById('regSearch');
+    if(input){
+      input.value = q;
+      searchReg(q);
+      document.getElementById('regimento').scrollIntoView({behavior:'smooth'});
+    }
+  }
+})();
+</script>
+
+<!-- Chatbase -->
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Y11sprFM6FjqJEh_kr_tf";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+</body>
+</html>

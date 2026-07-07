@@ -1,1 +1,46 @@
+backend:
+  name: git-gateway
+  branch: main
 
+# Painel só é acessível a quem foi convidado via Netlify Identity
+local_backend: false
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+site_url: https://SEU-SITE.netlify.app
+display_url: https://SEU-SITE.netlify.app
+
+collections:
+  - name: "atividades"
+    label: "Conselho em Ação"
+    label_singular: "Lista de Atividades"
+    description: "Atividades, análises e trabalhos que o Conselho está conduzindo. Aparecem na seção 'Conselho em Ação' do site."
+    files:
+      - file: "content/atividades.json"
+        label: "Atividades do Conselho"
+        name: "atividades"
+        format: "json"
+        fields:
+          - label: "Atividades"
+            name: "items"
+            widget: "list"
+            label_singular: "Atividade"
+            summary: "{{titulo}} — {{status}} ({{progresso}}%)"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string", hint: "Ex: Parecer de Compliance — Contrato BV Garantia" }
+              - { label: "Descrição", name: "descricao", widget: "text", hint: "Explique em 1 a 3 frases o que está sendo feito" }
+              - label: "Categoria"
+                name: "categoria"
+                widget: "select"
+                options: ["Jurídico", "Financeiro", "Manutenção", "Segurança", "Obras", "Administrativo", "Assembleia", "Outro"]
+                default: "Administrativo"
+              - label: "Status"
+                name: "status"
+                widget: "select"
+                options: ["Planejado", "Em Andamento", "Concluído"]
+                default: "Planejado"
+              - { label: "Progresso (%)", name: "progresso", widget: "number", min: 0, max: 100, default: 0, value_type: "int" }
+              - { label: "Responsável", name: "responsavel", widget: "string", default: "Conselho Fiscal", hint: "Nome do conselheiro ou setor responsável" }
+              - { label: "Última Atualização", name: "atualizado", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ss.SSS[Z]", date_format: "DD/MM/YYYY", time_format: false, picker_utc: true }
+              - { label: "Observações (opcional)", name: "observacoes", widget: "text", required: false, hint: "Detalhes extras, próximos passos, prazos" }

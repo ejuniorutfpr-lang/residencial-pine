@@ -74,3 +74,67 @@ const fadeObs = new IntersectionObserver(entries => {
   entries.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); });
 }, {threshold: 0.1});
 document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
+
+// ══════════════════════════════════════════════
+// Busca global (ícone de lupa no menu) — usa assets/search-index.js
+// ══════════════════════════════════════════════
+function normalizeSearch(str){ return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+
+function openGlobalSearch(){
+  const overlay = document.getElementById('searchOverlay');
+  if(!overlay) return;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  const input = document.getElementById('globalSearchInput');
+  if(input){ input.value = ''; input.focus(); }
+  const results = document.getElementById('globalSearchResults');
+  if(results) results.innerHTML = '<div class="search-hint">Digite para buscar em contatos, sistemas, áreas, regimento e mais.</div>';
+}
+
+function closeGlobalSearch(){
+  const overlay = document.getElementById('searchOverlay');
+  if(!overlay) return;
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function runGlobalSearch(q){
+  const raw = q.trim();
+  const container = document.getElementById('globalSearchResults');
+  if(!container) return;
+
+  if(!raw){
+    container.innerHTML = '<div class="search-hint">Digite para buscar em contatos, sistemas, áreas, regimento e mais.</div>';
+    return;
+  }
+
+  const term = normalizeSearch(raw);
+  const index = window.SEARCH_INDEX || [];
+  const results = index.filter(item =>
+    normalizeSearch(item.title).includes(term) ||
+    normalizeSearch(item.snippet).includes(term) ||
+    normalizeSearch(item.cat).includes(term)
+  ).slice(0, 10);
+
+  if(results.length === 0){
+    container.innerHTML = `<div class="search-empty">Nenhum resultado para "${raw}"</div>`;
+    return;
+  }
+
+  container.innerHTML = results.map(r => `
+    <a class="search-result-item" href="${r.url}">
+      <span class="search-result-cat">${r.cat}</span>
+      <div class="search-result-title">${r.title}</div>
+      <div class="search-result-snippet">${r.snippet}</div>
+    </a>
+  `).join('');
+}
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') closeGlobalSearch();
+  const tag = document.activeElement ? document.activeElement.tagName : '';
+  if(e.key === '/' && tag !== 'INPUT' && tag !== 'TEXTAREA'){
+    e.preventDefault();
+    openGlobalSearch();
+  }
+});

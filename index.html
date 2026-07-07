@@ -5,367 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Residencial Pine — Hub do Condômino</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  /* Paleta Dark Nature - Mais limpa e com melhor contraste */
-  --bg-main: #0a120e;
-  --bg-surface: #111d17;
-  --bg-surface-hover: #182a21;
-  --bg-surface-light: #1e362a;
-  
-  --gold: #dca54c;
-  --gold-light: #f5c87a;
-  --gold-dim: rgba(220, 165, 76, 0.1);
-  
-  --text-main: #f8fafc;
-  --text-muted: #cbd5e1;
-  --text-dark: #0a120e;
-  
-  --border-subtle: rgba(255, 255, 255, 0.06);
-  --border-gold: rgba(220, 165, 76, 0.25);
-  
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { 
-  font-family: 'Nunito Sans', sans-serif; 
-  background: var(--bg-main); 
-  color: var(--text-main); 
-  line-height: 1.6; 
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── SCROLL PROGRESS BAR ── */
-#scrollProgress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #4a8c5c, var(--gold)); width: 0%; z-index: 200; transition: width 0.1s linear; }
-
-nav {
-  position: fixed; top: 0; width: 100%; 
-  background: rgba(10, 18, 14, 0.9); backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-subtle); z-index: 100; padding: 0 1.5rem;
-}
-.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 75px; }
-.nav-logo { text-decoration: none; display: flex; align-items: center; gap: .5rem; }
-.nav-logo-text { display: flex; flex-direction: column; gap: 0; line-height: 1.1; }
-.nav-logo-res { font-size: 0.65rem; letter-spacing: 0.2em; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
-.nav-logo-pine { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; font-style: italic; color: var(--gold); }
-
-.nav-links { display: flex; gap: 1.5rem; list-style: none; }
-.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.3s; }
-.nav-links a:hover, .nav-links a.active { color: var(--gold); }
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
-.hamburger span { display: block; width: 24px; height: 2px; background: var(--text-main); }
-
-.hero {
-  min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
-  position: relative; padding: 8rem 2rem 5rem;
-  background: radial-gradient(circle at center 30%, rgba(220, 165, 76, 0.08) 0%, transparent 60%);
-}
-.hero-content { max-width: 800px; position: relative; z-index: 1; }
-.hero-badge { 
-  display: inline-flex; padding: 0.5rem 1.2rem; background: var(--gold-dim); border: 1px solid var(--border-gold);
-  border-radius: 100px; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--gold); font-weight: 700; text-transform: uppercase; margin-bottom: 2rem; 
-}
-.hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; color: #fff; }
-.hero h1 em { font-style: italic; color: var(--gold); }
-.hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 3rem; font-weight: 300; line-height: 1.8; }
-
-.hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 4rem; }
-.btn-primary { padding: 0.875rem 2.5rem; background: var(--gold); color: var(--text-dark); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; transition: all 0.3s; }
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(220,165,76,0.2); }
-.btn-outline { padding: 0.875rem 2.5rem; background: transparent; border: 1px solid var(--border-gold); color: var(--gold); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; transition: all 0.3s; }
-.btn-outline:hover { background: var(--gold-dim); border-color: var(--gold); }
-
-.hero-stats { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 2rem; padding-top: 3rem; border-top: 1px solid var(--border-subtle); }
-.stat { text-align: center; max-width: 180px; }
-.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }
-.stat-label { font-size: 0.85rem; color: var(--text-main); font-weight: 600; margin-bottom: 0.25rem; }
-.stat-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; }
-
-section { padding: 6rem 2rem; }
-section:nth-child(even) { background: rgba(255,255,255,0.015); }
-.section-inner { max-width: 1200px; margin: 0 auto; }
-.section-label { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 0.5rem; display: block; }
-.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; color: #fff; line-height: 1.2; }
-.divider { width: 50px; height: 2px; background: var(--gold); margin: 1.5rem 0 3rem; border-radius: 2px; }
-
-.guia-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
-.guia-card { 
-  background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); 
-  padding: 2rem 1.5rem; cursor: pointer; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: flex-start;
-}
-.guia-card:hover { border-color: var(--border-gold); background: var(--bg-surface-hover); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-.guia-icon { font-size: 2rem; margin-bottom: 1rem; }
-.guia-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
-.guia-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem; flex-grow: 1; }
-.guia-arrow { font-size: 0.8rem; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem; transition: transform 0.3s; }
-.guia-card:hover .guia-arrow { transform: translateX(5px); }
-
-.contacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-.contact-card { background: var(--bg-surface); border-radius: var(--radius-md); padding: 2rem; border: 1px solid var(--border-subtle); transition: transform 0.3s; }
-.contact-card:hover { transform: translateY(-3px); border-color: var(--border-gold); }
-.contact-header { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); }
-.contact-card-icon { font-size: 1.75rem; width: 56px; height: 56px; background: var(--gold-dim); border: 1px solid var(--border-gold); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; }
-.contact-title-group h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
-.contact-title-group .role { font-size: 0.75rem; color: var(--gold); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
-
-.contact-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0; border-bottom: 1px dashed var(--border-subtle); }
-.contact-item:last-child { border-bottom: none; padding-bottom: 0; }
-.contact-icon { font-size: 1.25rem; opacity: 0.8; margin-top: 2px; }
-.contact-info { flex-grow: 1; }
-.contact-label { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
-.contact-value { font-size: 1rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem; }
-
-.contact-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.btn-action { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.8rem; font-weight: 700; text-decoration: none; transition: all 0.2s; }
-.btn-action-call { background: var(--bg-surface-light); border: 1px solid var(--border-subtle); color: var(--text-main); }
-.btn-action-call:hover { background: rgba(255,255,255,0.1); }
-.btn-action-wa { background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.3); color: #4fcc7a; }
-.btn-action-wa:hover { background: rgba(37,211,102,0.2); }
-.btn-action-urgent { background: rgba(220,80,60,0.15); border: 1px solid rgba(220,80,60,0.3); color: #f08070; }
-.btn-action-urgent:hover { background: rgba(220,80,60,0.25); }
-
-.sistemas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-.sistema-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 2rem; display: flex; flex-direction: column; transition: transform 0.3s; }
-.sistema-card:hover { transform: translateY(-3px); border-color: var(--border-gold); }
-.sistema-card-header { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem; }
-.sistema-logo { font-size: 1.75rem; width: 56px; height: 56px; background: var(--gold-dim); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; }
-.sistema-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #fff; line-height: 1.2; margin-bottom: 0.25rem; }
-.sistema-tipo { font-size: 0.75rem; color: var(--gold); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
-.sistema-desc { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6; }
-
-.steps-title { font-size: 0.8rem; color: var(--gold); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 1rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem; }
-.steps-list { list-style: none; margin-bottom: 1.5rem; flex-grow: 1; }
-.steps-list li { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.5rem 0; font-size: 0.9rem; color: var(--text-muted); }
-.step-num { width: 22px; height: 22px; flex-shrink: 0; background: var(--bg-surface-light); border: 1px solid var(--border-subtle); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; color: var(--text-main); margin-top: 2px; }
-
-.sistema-info { background: var(--bg-main); border-radius: var(--radius-sm); padding: 1rem; margin-bottom: 1.5rem; border: 1px solid var(--border-subtle); }
-.sistema-info-row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; font-size: 0.85rem; border-bottom: 1px dashed var(--border-subtle); }
-.sistema-info-row:last-child { border-bottom: none; padding-bottom: 0; }
-.sistema-info-row .lbl { color: var(--text-muted); }
-.sistema-info-row .val { color: var(--text-main); font-weight: 600; }
-
-.btn-sistema { display: block; width: 100%; text-align: center; padding: 1rem; background: var(--gold-dim); border: 1px solid var(--border-gold); border-radius: var(--radius-sm); color: var(--gold); text-decoration: none; font-weight: 700; font-size: 0.85rem; transition: all 0.3s; text-transform: uppercase; letter-spacing: 0.05em; }
-.btn-sistema:hover { background: var(--gold); color: var(--text-dark); }
-
-.pin-highlight { display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.8rem; background: var(--gold-dim); border: 1px solid var(--border-gold); border-radius: 6px; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; }
-
-.chamados-how { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
-.chamados-step { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 2rem; text-align: center; position: relative; }
-.ch-num { width: 40px; height: 40px; background: var(--gold-dim); border: 1px solid var(--border-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--gold); }
-.chamados-step h4 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
-.chamados-step p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
-
-.chamados-notice { background: var(--gold-dim); border-left: 4px solid var(--gold); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 1.5rem; margin-bottom: 3rem; font-size: 0.95rem; color: var(--text-main); line-height: 1.6; }
-.chamados-notice strong { color: var(--gold); }
-
-.chamados-cta-box { text-align: center; padding: 3rem 2rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); }
-
-.areas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-.area-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; transition: transform 0.3s; }
-.area-card:hover { border-color: var(--border-gold); transform: translateY(-3px); }
-.area-card-top { padding: 1.5rem; }
-.area-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
-.area-icon { font-size: 1.5rem; width: 48px; height: 48px; background: var(--bg-surface-light); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; }
-.area-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: #fff; font-weight: 600; }
-
-.area-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.tag { display: inline-flex; align-items: center; padding: 0.25rem 0.75rem; border-radius: 100px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
-.tag-hora { background: var(--bg-surface-light); color: var(--text-muted); }
-.tag-cap { background: rgba(74,140,92,0.15); color: #7dcca0; }
-.tag-loc { background: var(--gold-dim); color: var(--gold); }
-
-.area-tabs { display: flex; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); background: var(--bg-main); }
-.area-tab-btn { flex: 1; padding: 1rem; background: none; border: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
-.area-tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); background: var(--bg-surface); }
-.area-tab-content { display: none; padding: 1.5rem; }
-.area-tab-content.active { display: block; }
-
-.area-rules { list-style: none; }
-.area-rules li { font-size: 0.95rem; color: var(--text-muted); padding: 0.5rem 0; border-bottom: 1px dashed var(--border-subtle); display: flex; gap: 0.75rem; line-height: 1.5; position: relative; }
-.area-rules li:last-child { border-bottom: none; }
-.area-rules li::before { content: '•'; color: var(--gold); font-size: 1.2rem; line-height: 1; margin-top: 2px; }
-
-.area-rules li[data-ref] { cursor: help; }
-.area-rules li[data-ref]:hover { color: var(--text-main); }
-.area-rules li[data-ref]:hover::after {
-  content: attr(data-ref);
-  position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-  background: var(--bg-main); border: 1px solid var(--border-gold);
-  color: var(--gold); padding: 0.3rem 0.6rem; border-radius: 4px;
-  font-size: 0.75rem; font-weight: 700; white-space: nowrap; z-index: 10;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-}
-
-.rule-alert { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--bg-surface-light); border-radius: var(--radius-sm); margin-top: 1.5rem; }
-.rule-alert-icon { font-size: 1.25rem; }
-.rule-alert-text { font-size: 0.9rem; color: var(--text-main); line-height: 1.5; }
-
-.booking-price { text-align: center; margin-bottom: 1.5rem; padding: 1.5rem; background: var(--bg-main); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); }
-.booking-price-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
-.booking-price-val { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1; }
-.booking-price-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem; }
-
-.booking-rows { list-style: none; margin-bottom: 1.5rem; }
-.booking-row { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border-subtle); font-size: 0.95rem; }
-.booking-row .blbl { color: var(--text-muted); }
-.booking-row .bval { color: var(--text-main); font-weight: 600; }
-.booking-row .warn { color: #f08070; }
-
-.booking-note { font-size: 0.85rem; color: var(--text-muted); background: var(--bg-surface-light); padding: 1rem; border-radius: var(--radius-sm); line-height: 1.5; }
-
-/* ── ESTILOS DA SEÇÃO DE ORIENTAÇÕES ── */
-.dicas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-.dica-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 2rem; transition: transform 0.3s; }
-.dica-card:hover { transform: translateY(-3px); border-color: var(--border-gold); }
-.dica-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
-.dica-icon { font-size: 1.75rem; width: 56px; height: 56px; background: var(--gold-dim); border: 1px solid var(--border-gold); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; }
-.dica-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #fff; line-height: 1.2; }
-.dica-list { list-style: none; }
-.dica-list li {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    padding: 0.75rem 0 0.75rem 1.6rem;
-    border-bottom: 1px dashed var(--border-subtle);
-    line-height: 1.6;
-    position: relative;
-}
-.dica-list li:last-child { border-bottom: none; padding-bottom: 0; }
-.dica-list li::before {
-    content: '\2713';
-    color: var(--gold);
-    font-size: 0.9rem;
-    font-weight: 700;
-    position: absolute;
-    left: 0;
-    top: 0.8rem;
-}
-.dica-list li strong { color: var(--text-main); font-weight: 600; }
-
-.reg-intro { background: var(--bg-surface); padding: 2rem; border-radius: var(--radius-md); border-left: 4px solid var(--gold); margin-bottom: 3rem; font-size: 1rem; color: var(--text-muted); line-height: 1.8; }
-.reg-intro strong { color: var(--text-main); }
-.reg-disclaimer { font-size: 0.8rem; border-top: 1px solid var(--border-subtle); padding-top: 1rem; margin-top: 1.5rem; }
-
-.reg-search-wrap { position: relative; margin-bottom: 1rem; max-width: 800px; }
-.reg-search-wrap svg { position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%); opacity: 0.5; }
-#regSearch { 
-  width: 100%; padding: 1.25rem 1.25rem 1.25rem 3.5rem; background: var(--bg-surface); 
-  border: 1px solid var(--border-subtle); border-radius: var(--radius-md); color: var(--text-main); 
-  font-size: 1rem; outline: none; transition: all 0.3s;
-}
-#regSearch:focus { border-color: var(--gold); background: var(--bg-main); box-shadow: 0 0 0 2px var(--gold-dim); }
-
-.reg-search-suggestions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 3rem; }
-.reg-sugg-chip { padding: 0.4rem 1rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all 0.2s; }
-.reg-sugg-chip:hover { background: var(--gold-dim); border-color: var(--border-gold); color: var(--gold); }
-.reg-no-results { display: none; padding: 2rem; text-align: center; color: var(--text-muted); background: var(--bg-surface); border-radius: var(--radius-md); margin-bottom: 2rem; }
-.search-highlight { background: rgba(220, 165, 76, 0.3); color: #fff; padding: 0 0.2rem; border-radius: 2px; }
-
-.accordion-item { border-bottom: 1px solid var(--border-subtle); }
-.accordion-item:last-child { border-bottom: none; }
-.accordion-btn { 
-  width: 100%; display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem 0; 
-  background: transparent; border: none; cursor: pointer; text-align: left; color: var(--text-main); transition: color 0.3s; 
-}
-.accordion-btn:hover { color: var(--gold); }
-.acc-num { width: 40px; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--gold); }
-.acc-title { flex-grow: 1; font-size: 1.1rem; font-weight: 600; }
-.acc-chevron { font-size: 1.2rem; color: var(--text-muted); transition: transform 0.3s; }
-.accordion-btn.active .acc-chevron { transform: rotate(180deg); color: var(--gold); }
-.accordion-content { display: none; padding: 0 0 2rem 0; }
-.accordion-content.open { display: block; }
-
-.artigo { margin-bottom: 2rem; padding-left: 40px; }
-.artigo-num { font-size: 0.85rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
-.artigo-texto { font-size: 1rem; color: var(--text-main); line-height: 1.7; }
-.artigo-sub { margin-top: 1rem; padding-left: 1.5rem; border-left: 2px solid var(--border-subtle); }
-.artigo-sub p { margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; }
-.artigo-note { display: block; margin-top: 1rem; padding: 1rem; background: var(--bg-surface); border-radius: var(--radius-sm); border-left: 2px solid var(--gold); font-size: 0.9rem; }
-
-.faq-item { border-bottom: 1px solid var(--border-subtle); }
-.faq-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 0; background: transparent; border: none; cursor: pointer; text-align: left; color: var(--text-main); font-size: 1.1rem; font-weight: 600; transition: color 0.3s; }
-.faq-btn:hover { color: var(--gold); }
-.faq-icon { font-size: 1.2rem; color: var(--text-muted); transition: transform 0.3s; }
-.faq-btn.active .faq-icon { transform: rotate(180deg); color: var(--gold); }
-.faq-a { display: none; padding: 0 0 2rem 0; font-size: 1rem; color: var(--text-muted); line-height: 1.8; }
-.faq-a.open { display: block; }
-.faq-a strong { color: var(--text-main); }
-.faq-a ul { padding-left: 1.5rem; margin-top: 1rem; }
-.faq-a ul li { margin-bottom: 0.5rem; }
-
-footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--border-subtle); text-align: center; }
-.footer-inner { max-width: 800px; margin: 0 auto; }
-.footer-logo-res { font-size: 0.75rem; letter-spacing: 0.3em; font-weight: 600; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem; }
-.footer-logo-pine { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 700; font-style: italic; color: var(--gold); margin-bottom: 1.5rem; }
-.footer-sub { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; }
-.footer-credits { margin: 2rem auto; padding: 1.5rem; background: var(--bg-surface); border-radius: var(--radius-md); font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
-.footer-credits strong { color: var(--text-main); }
-.footer-disclaimer { font-size: 0.8rem; color: var(--text-muted); opacity: 0.7; margin-top: 2rem; border-top: 1px solid var(--border-subtle); padding-top: 2rem; }
-
-.float-group { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 90; }
-.float-btn-top { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--bg-surface); border: 1px solid var(--border-gold); color: var(--gold); border-radius: 50%; cursor: pointer; transition: all 0.3s; opacity: 0; pointer-events: none; transform: translateY(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-.float-btn-top:hover { background: var(--gold-dim); }
-
-.fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
-
-@media(max-width: 900px) {
-  .nav-links { display: none; position: absolute; top: 75px; left: 0; right: 0; background: var(--bg-main); flex-direction: column; padding: 2rem; gap: 1.5rem; border-bottom: 1px solid var(--border-subtle); text-align: center; }
-  .nav-links.open { display: flex; }
-  .hamburger { display: flex; }
-  .hero h1 { font-size: 2.5rem; }
-  section { padding: 4rem 1.5rem; }
-  .artigo { padding-left: 0; }
-}
-
-        .area-wifi-badge { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.25rem; padding: 0.85rem 1rem; background: var(--bg-main); border: 1px solid var(--border-gold); border-radius: var(--radius-sm); }
-        .area-wifi-icon { font-size: 1.2rem; flex-shrink: 0; }
-        .area-wifi-info { display: flex; flex-direction: column; gap: 0.15rem; }
-        .area-wifi-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); font-weight: 700; }
-        .area-wifi-rede { font-size: 0.9rem; color: var(--text-main); }
-        .area-wifi-rede strong { color: var(--gold); }
-
-        /* ── CONSELHO EM AÇÃO ── */
-        .conselho-topbar { display: flex; justify-content: flex-end; align-items: center; gap: 0.75rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
-        .conselho-user-pill { display: none; align-items: center; gap: 0.6rem; padding: 0.5rem 1rem; background: var(--bg-surface); border: 1px solid var(--border-gold); border-radius: 100px; font-size: 0.8rem; color: var(--text-muted); }
-        .conselho-user-pill strong { color: var(--gold); }
-        .btn-conselho-login { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.5rem; background: transparent; border: 1px solid var(--border-gold); color: var(--gold); border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s; text-decoration: none; }
-        .btn-conselho-login:hover { background: var(--gold-dim); }
-        .btn-conselho-edit { display: none; align-items: center; gap: 0.5rem; padding: 0.7rem 1.5rem; background: var(--gold); color: var(--text-dark); border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s; text-decoration: none; }
-        .btn-conselho-edit:hover { background: var(--gold-light); }
-        .btn-conselho-logout { display: none; padding: 0.7rem 1rem; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; }
-        .btn-conselho-logout:hover { border-color: var(--border-gold); color: var(--gold); }
-
-        .conselho-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
-        .conselho-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.75rem; display: flex; flex-direction: column; transition: transform 0.3s, border-color 0.3s; }
-        .conselho-card:hover { transform: translateY(-3px); border-color: var(--border-gold); }
-        .conselho-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
-        .conselho-cat { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); background: var(--gold-dim); border: 1px solid var(--border-gold); padding: 0.25rem 0.7rem; border-radius: 100px; }
-        .conselho-status { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 0.7rem; border-radius: 100px; white-space: nowrap; }
-        .status-planejado { background: rgba(255,255,255,0.08); color: var(--text-muted); }
-        .status-andamento { background: var(--gold-dim); color: var(--gold); }
-        .status-concluido { background: rgba(74,140,92,0.18); color: #7dcca0; }
-
-        .conselho-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: #fff; margin-bottom: 0.6rem; line-height: 1.25; }
-        .conselho-card p.conselho-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; }
-
-        .conselho-progress-wrap { margin-bottom: 1rem; }
-        .conselho-progress-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem; }
-        .conselho-progress-labels strong { color: var(--gold); }
-        .conselho-progress-bar { width: 100%; height: 8px; background: var(--bg-main); border: 1px solid var(--border-subtle); border-radius: 100px; overflow: hidden; }
-        .conselho-progress-fill { height: 100%; background: linear-gradient(90deg, #4a8c5c, var(--gold)); border-radius: 100px; transition: width 0.6s ease; }
-
-        .conselho-meta { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px dashed var(--border-subtle); font-size: 0.75rem; color: var(--text-muted); }
-        .conselho-meta .resp { font-weight: 600; color: var(--text-main); }
-        .conselho-obs { margin-top: 0.9rem; padding: 0.75rem; background: var(--bg-main); border-radius: var(--radius-sm); border-left: 2px solid var(--gold); font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
-
-        .conselho-empty, .conselho-error { grid-column: 1 / -1; text-align: center; padding: 3rem 1.5rem; color: var(--text-muted); background: var(--bg-surface); border-radius: var(--radius-md); border: 1px dashed var(--border-subtle); }
-        .conselho-loading { grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-muted); }
-
-        </style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
@@ -383,11 +23,10 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
       <li><a href="#guia">Guia Rápido</a></li>
       <li><a href="#contatos">Contatos</a></li>
       <li><a href="#sistemas">Sistemas</a></li>
-      <li><a href="#conselho">Conselho em Ação</a></li>
       <li><a href="#areas">Áreas</a></li>
       <li><a href="#orientacoes">Orientações</a></li>
-      <li><a href="#regimento">Regimento</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="transparencia.html">Transparência</a></li>
+      <li><a href="regimento.html">Regimento</a></li>
     </ul>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -400,7 +39,7 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
     <p>Central de informações, contatos, sistemas e regras para todos os moradores e condôminos.</p>
     <div class="hero-cta">
       <a href="#contatos" class="btn-primary">Ver Contatos</a>
-      <a href="#regimento" class="btn-outline">Regimento Interno</a>
+      <a href="regimento.html" class="btn-outline">Regimento Interno</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-num" data-target="7">7</div><div class="stat-label">Serviços & Sistemas</div><div class="stat-desc">Porttari · Internet · Informma · Manuais · CMPremium · BV Garantia · Ultragaz</div></div>
@@ -432,14 +71,14 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
         <div class="guia-arrow">Ver espaços →</div>
       </div>
 
-      <div class="guia-card fade-up" onclick="goToRegSearch('obra')">
+      <div class="guia-card fade-up" onclick="location.href='regimento.html?q=obra'">
         <span class="guia-icon">🔨</span>
         <h4>Fazer Obra ou Reforma</h4>
         <p>Horários permitidos, autorização prévia e documentos necessários.<br><span style="color:#f5c87a; font-weight:700">⚠️ Obras complexas exigem ART/RRT</span></p>
         <div class="guia-arrow">Ver regras →</div>
       </div>
 
-      <div class="guia-card fade-up" onclick="goToRegSearch('animais')">
+      <div class="guia-card fade-up" onclick="location.href='regimento.html?q=animais'">
         <span class="guia-icon">🐾</span>
         <h4>Tenho um Pet</h4>
         <p>Circulação, Espaço Pet, Pet Care e regras de convivência</p>
@@ -453,7 +92,7 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
         <div class="guia-arrow">Ver regras →</div>
       </div>
 
-      <div class="guia-card fade-up" onclick="goToRegSearch('silêncio')">
+      <div class="guia-card fade-up" onclick="location.href='regimento.html?q=silencio'">
         <span class="guia-icon">🔊</span>
         <h4>Convivência e Silêncio</h4>
         <p>Horários de silêncio, limites de ruído, como notificar e amparo legal</p>
@@ -467,14 +106,14 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
         <div class="guia-arrow">Ver sistemas →</div>
       </div>
 
-      <div class="guia-card fade-up" onclick="goToRegSearch('garagem')">
+      <div class="guia-card fade-up" onclick="location.href='regimento.html?q=garagem'">
         <span class="guia-icon">🚗</span>
         <h4>Regras da Garagem</h4>
         <p>Velocidade, proibições, carregador elétrico e estacionamento</p>
         <div class="guia-arrow">Ver regras →</div>
       </div>
 
-      <div class="guia-card fade-up" onclick="document.getElementById('chamados').scrollIntoView({behavior:'smooth'})">
+      <div class="guia-card fade-up" onclick="location.href='transparencia.html#chamados'">
         <span class="guia-icon">📋</span>
         <h4>Abrir Chamado</h4>
         <p>Registre ocorrências no Informma e acompanhe pelo Conselho</p>
@@ -488,7 +127,7 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
         <div class="guia-arrow">Ver contatos →</div>
       </div>
 
-      <div class="guia-card fade-up" onclick="document.getElementById('conselho').scrollIntoView({behavior:'smooth'})">
+      <div class="guia-card fade-up" onclick="location.href='transparencia.html#conselho'">
         <span class="guia-icon">📊</span>
         <h4>Conselho em Ação</h4>
         <p>Acompanhe as atividades, análises e trabalhos em andamento do Conselho</p>
@@ -856,62 +495,6 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
   </div>
 </section>
 
-<section id="chamados">
-  <div class="section-inner">
-    <p class="section-label">Transparência e Acompanhamento</p>
-    <h2 class="section-title">Acompanhamento de Chamados</h2>
-    <div class="divider"></div>
-
-    <div class="chamados-how">
-      <div class="chamados-step fade-up">
-        <div class="ch-num">1</div>
-        <h4>Abra o chamado no Informma</h4>
-        <p><strong>Antes de tudo</strong>, acesse o app Informma Síndicos (código <strong>PIN837</strong> — <em>somente 1º acesso</em>), crie um novo chamado e <strong>anote o número de protocolo</strong>. Sem ele, o síndico não tem como agir.</p>
-        <a href="https://app.informma.com.br/c/cm6par3a102xff8kadrsqlli8" target="_blank" class="btn-outline" style="margin-top:1.5rem; padding: 0.6rem 1.5rem; display:inline-block">📲 App Informma ↗</a>
-      </div>
-      <div class="chamados-step fade-up">
-        <div class="ch-num">2</div>
-        <h4>Registre neste formulário</h4>
-        <p>Preencha o formulário abaixo informando seus dados e o número de protocolo para que o <strong>Conselho do Condomínio</strong> possa acompanhar a situação.</p>
-      </div>
-      <div class="chamados-step fade-up">
-        <div class="ch-num">3</div>
-        <h4>Conselho acompanha</h4>
-        <p>Os membros do conselho terão acesso e poderão <strong>cobrar e auxiliar na resolução</strong> do chamado junto ao síndico com mais agilidade.</p>
-      </div>
-    </div>
-
-    <div class="chamados-notice fade-up">
-      <strong>📌 Importante:</strong> Este formulário é um canal de transparência entre os moradores e o Conselho. Ele <strong>não substitui</strong> a abertura do chamado no Informma Síndicos — o chamado no aplicativo é obrigatório. O número de protocolo do Informma é o campo principal deste formulário.
-    </div>
-
-    <div class="chamados-cta-box fade-up">
-      <p style="font-size:1.05rem; margin-bottom:2rem;">Clique no botão abaixo para registrar o protocolo para acompanhamento pelo Conselho.</p>
-      <a href="https://forms.gle/GV2SFUmcK32Cde2UA" target="_blank" class="btn-primary">📋 Acessar Formulário de Chamados ↗</a>
-    </div>
-  </div>
-</section>
-
-<!-- NOVA SEÇÃO: CONSELHO EM AÇÃO -->
-<section id="conselho">
-  <div class="section-inner">
-    <p class="section-label">Transparência e Gestão</p>
-    <h2 class="section-title">Conselho em Ação</h2>
-    <div class="divider"></div>
-
-    <div class="conselho-topbar">
-      <span id="conselhoUserPill" class="conselho-user-pill">Conectado como <strong id="conselhoUserName">—</strong></span>
-      <a href="/admin/#/collections/atividades/entries/atividades" id="btnConselhoEdit" class="btn-conselho-edit" target="_blank" rel="noopener">✏️ Editar Atividades</a>
-      <button id="btnConselhoLogout" class="btn-conselho-logout" onclick="if(window.netlifyIdentity) netlifyIdentity.logout()">Sair</button>
-      <button id="btnConselhoLogin" class="btn-conselho-login" onclick="if(window.netlifyIdentity) netlifyIdentity.open('login')">🔑 Acesso do Conselho</button>
-    </div>
-
-    <div id="conselhoGrid" class="conselho-grid">
-      <div class="conselho-loading">Carregando atividades…</div>
-    </div>
-  </div>
-</section>
-
 <section id="areas">
   <div class="section-inner">
     <p class="section-label">Espaços do Condomínio</p>
@@ -1217,7 +800,6 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
   </div>
 </section>
 
-<!-- NOVA SEÇÃO: ORIENTAÇÕES E SEGURANÇA -->
 <section id="orientacoes">
   <div class="section-inner">
     <p class="section-label">Boas Práticas</p>
@@ -1286,258 +868,6 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
   </div>
 </section>
 
-<section id="regimento">
-  <div class="section-inner">
-    <p class="section-label">Normas e Diretrizes</p>
-    <h2 class="section-title">Regimento Interno Completo</h2>
-    <div class="divider"></div>
-
-    <div class="reg-intro">
-      <strong>Sobre este Regimento</strong><br><br>
-      O Regimento Interno do Residencial Pine foi elaborado para garantir a boa convivência, o bem-estar e a segurança de todos os moradores. Ele complementa e ratifica a Convenção do Condomínio, estabelecendo de forma clara os direitos, deveres e procedimentos aplicáveis a moradores, visitantes e demais pessoas que frequentam o Condomínio.<br><br>
-      Suas disposições têm respaldo na legislação federal — Código Civil e Lei nº 4.591/1964 — e são de cumprimento obrigatório por todos.
-      <div class="reg-disclaimer">
-        📍 Rua Coronel Pretextato Pena Forte Taborda Ribas, 385 — Santa Quitéria, Curitiba-PR &nbsp;·&nbsp; Aprovado em 03/09/2024
-      </div>
-    </div>
-
-    <div class="reg-search-wrap">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" id="regSearch" placeholder="Buscar no regimento… ex: silêncio, animais, obra" oninput="searchReg(this.value)" autocomplete="off">
-    </div>
-    
-    <div class="reg-search-suggestions">
-      <span class="reg-sugg-chip" onclick="applySearch('silêncio')">🔊 Silêncio</span>
-      <span class="reg-sugg-chip" onclick="applySearch('animais')">🐾 Animais</span>
-      <span class="reg-sugg-chip" onclick="applySearch('multa')">⚠️ Multa</span>
-      <span class="reg-sugg-chip" onclick="applySearch('obra')">🔨 Obra</span>
-      <span class="reg-sugg-chip" onclick="applySearch('mudança')">📦 Mudança</span>
-      <span class="reg-sugg-chip" onclick="applySearch('garagem')">🚗 Garagem</span>
-      <span class="reg-sugg-chip" onclick="applySearch('sacada')">🏠 Sacada</span>
-    </div>
-    <div class="reg-no-results" id="regNoResults">Nenhum resultado encontrado para "<span id="regSearchTerm"></span>"</div>
-
-    <div class="accordion-container">
-      <!-- CAP I -->
-      <div class="accordion-item">
-        <button class="accordion-btn" onclick="toggleAcc(this)">
-          <div class="acc-num">I</div><span class="acc-title">Das Disposições Gerais</span><span class="acc-chevron">▾</span>
-        </button>
-        <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Art. 1º</div><div class="artigo-texto">As disposições do presente Regimento Interno aplicam-se a toda e qualquer pessoa que se encontre dentro das dependências do Condomínio, ainda que eventualmente, obrigando a todos os possuidores, seus sub-rogados, prepostos e sucessores.<div class="artigo-sub"><p>§ 1º. Entende-se por possuidor o condômino, o locatário ou qualquer outra pessoa cessionária de direito de uso da unidade autônoma; por morador, todos os que residirem no condomínio.</p><p>§ 2º. Por Administração entende-se a pessoa do Síndico ou a empresa contratada para a administração do Condomínio e conselho fiscal e consultivo.</p></div></div></div>
-          <div class="artigo"><div class="artigo-num">Art. 2º</div><div class="artigo-texto">Todos os condôminos são obrigados a contribuir para as despesas comuns do Condomínio bem como para o custeio de obras nas áreas comuns, na forma e na proporção prevista na Convenção, efetuando os pagamentos nos prazos estipulados.</div></div>
-          <div class="artigo"><div class="artigo-num">Art. 3º</div><div class="artigo-texto">É direito de todo Condômino comparecer às Assembleias Gerais Ordinárias (AGO) e Assembleias Gerais Extraordinárias (AGE), e dever cumprir e fazer acatar as deliberações nelas aprovadas.</div></div>
-          <div class="artigo"><div class="artigo-num">Art. 4º — Compete ao Síndico</div><div class="artigo-texto"><div class="artigo-sub"><p>4.1. Convocar as Assembleias Gerais Ordinárias e Extraordinárias.</p><p>4.2. Representar ativa e passivamente o Condomínio praticando os atos necessários à defesa dos interesses comuns.</p><p>4.3. Dar imediato conhecimento à Assembleia de procedimentos judiciais ou administrativos de interesse do Condomínio.</p><p>4.4. Interpretar, aplicar e fazer cumprir as disposições da Convenção e deste Regimento Interno.</p><p>4.5. Diligenciar a conservação e guarda das partes comuns e zelar pela prestação dos serviços.</p><p>4.6. Elaborar o orçamento da receita e da despesa de cada ano.</p><p>4.7. Cobrar dos condôminos as contribuições e impor e cobrar as multas devidas.</p><p>4.8. Prestar contas à Assembleia Ordinária anualmente ou quando exigido.</p><p>4.9. Realizar e renovar o seguro da edificação.</p><p>4.10. Organizar e transferir a documentação ao seu sucessor, permanecendo 45 dias à disposição.</p><p>4.11. Garantir que compras e contratações acima de 3 salários mínimos sejam baseadas em no mínimo 3 propostas.</p><p>4.12. Orientar funcionários e empresas contratadas para serviços terceirizados.</p><p>4.13. Realizar e manter atualizado o cadastro dos moradores e veículos.</p><p>4.14. Contratar escritório de assessoria jurídica quando necessário, após consulta ao conselho.</p><p>4.15. Organizar e manter agenda de compromissos e cronograma anual de manutenções.</p><p>4.16. Apresentar certificações e alvarás necessários para o funcionamento do condomínio.</p><p>4.17. Os casos omissos serão solucionados pelo Conselho Fiscal e Consultivo.</p></div></div></div>
-          <div class="artigo"><div class="artigo-num">Art. 5º — Zelador</div><div class="artigo-texto">Cabe ao Zelador ou a quem a administração delegar a manutenção e conservação do Condomínio, a coordenação e fiscalização dos serviços, zelar pela boa ordem, tratar com respeito moradores e funcionários, e levar ao conhecimento da Administração quaisquer infrações ao Regimento.</div></div>
-          <div class="artigo"><div class="artigo-num">Art. 6º</div><div class="artigo-texto">Todos os moradores e prepostos têm o dever de tratar com respeito e cortesia os empregados do Condomínio e o direito de receber deles o mesmo tratamento.</div></div>
-          <div class="artigo"><div class="artigo-num">Art. 7º</div><div class="artigo-texto">Não é permitido usar os préstimos dos empregados do Condomínio para serviços particulares dos moradores.<div class="artigo-sub"><p>7.1. As chaves da casa de bombas e demais dependências comuns ficarão sempre na portaria ou em poder do Zelador.</p></div></div></div>
-          <div class="artigo"><div class="artigo-num">Art. 8º</div><div class="artigo-texto">O uso das áreas de lazer do condomínio é restrito aos moradores, tolerada a frequência de pessoas de suas relações, sempre acompanhadas por moradores do Condomínio.</div></div>
-        </div>
-      </div>
-
-      <!-- CAP II -->
-      <div class="accordion-item">
-        <button class="accordion-btn" onclick="toggleAcc(this)">
-          <div class="acc-num">II</div><span class="acc-title">Da Administração</span><span class="acc-chevron">▾</span>
-        </button>
-        <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Art. 9º — Estrutura</div><div class="artigo-texto">O Condomínio será administrado por um Síndico, um Conselho Fiscal e Consultivo e pela Assembleia Geral.<div class="artigo-sub"><p>9.1. Se o síndico for condômino, os honorários serão de até 2 salários mínimos. Se externo, deve apresentar contrato social, certidões negativas e proposta de honorários com 3 dias de antecedência.</p><p>9.1.1. O mandato do síndico será de 1 (um) ano, permitida a reeleição.</p><p>9.1.2. Em caso de renúncia ou vacância, o Conselho Fiscal assume provisoriamente e nova eleição será convocada.</p><p>9.2. A administração será fiscalizada pelo Conselho Fiscal e Consultivo.</p><p>9.3. Nas eleições, em não havendo candidato espontâneo, o Conselho poderá contratar síndico externo.</p><p>9.4. O Síndico pode ordenar reparos urgentes até 2 salários mínimos; de 2 a 5, com anuência do Conselho; acima de 5, com aprovação de Assembleia.</p><p>9.5. O síndico poderá ser destituído na forma prevista no art. 50.9 deste regimento.</p></div></div></div>
-          <div class="artigo"><div class="artigo-num">Art. 10º — Conselho Fiscal e Consultivo</div><div class="artigo-texto">Será composto de 3 membros efetivos e 3 suplentes, condôminos, eleitos em Assembleia Geral, com mandato de 1 ano, permitida a reeleição.<div class="artigo-sub"><p>10.7. Compete ao Conselho: fiscalizar a contabilidade; examinar contas e relatórios anuais; analisar contratos; fiscalizar obras; emitir pareceres; convocar assembleias; julgar recursos contra atos do Síndico; assessorar o Síndico; autorizar despesas não previstas no orçamento (entre 2 e 5 salários mínimos).</p></div></div></div>
-        </div>
-      </div>
-
-      <!-- CAP III -->
-      <div class="accordion-item">
-        <button class="accordion-btn" onclick="toggleAcc(this)">
-          <div class="acc-num">III</div><span class="acc-title">Dos Empregados</span><span class="acc-chevron">▾</span>
-        </button>
-        <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Art. 11º</div><div class="artigo-texto">Conforme necessidade e mediante aprovação prévia do Corpo Diretivo, o Condomínio poderá manter quadro de empregados, comunicando aos condôminos.<div class="artigo-sub"><p>11.1. Os empregados devem portar-se com urbanidade e cortesia, uniformizados e manter disciplina.</p><p>11.2. Devem permanecer nas áreas indicadas durante intervalos.</p></div></div></div>
-        </div>
-      </div>
-
-      <!-- CAP IV -->
-      <div class="accordion-item">
-        <button class="accordion-btn" onclick="toggleAcc(this)">
-          <div class="acc-num">IV</div><span class="acc-title">Da Organização do Condomínio</span><span class="acc-chevron">▾</span>
-        </button>
-        <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Art. 12º — Cadastro e Ocorrências</div><div class="artigo-texto"><div class="artigo-sub"><p>12.1. Os possuidores deverão informar à Administradora os nomes dos moradores, empregados particulares e veículos.</p><p>12.2. Haverá um Diário (físico ou digital) para registro de ocorrências, queixas e sugestões.</p><p>12.3. Em reclamações, o síndico verificará o fato in loco, notificará o condômino e registrará.</p><p>12.4. É vedado aos condôminos se dirigirem às residências do síndico e conselheiros para reclamações.</p><p>12.5. Situações de urgência devem ser comunicadas à portaria, zelador, síndico e conselho.</p></div></div></div>
-          <div class="artigo"><div class="artigo-num">Art. 13º — Locação / Alienação</div><div class="artigo-texto">Em caso de alienação ou locação, o condômino é obrigado a fornecer cópia deste Regimento ao novo ocupante. Somente autorizada mudança em unidades com titularidade regularizada.</div></div>
-        </div>
-      </div>
-
-      <!-- CAP V -->
-      <div class="accordion-item">
-        <button class="accordion-btn" onclick="toggleAcc(this)">
-          <div class="acc-num">V</div><span class="acc-title">Dos Direitos e Deveres</span><span class="acc-chevron">▾</span>
-        </button>
-        <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Art. 14º — Direitos</div><div class="artigo-texto"><div class="artigo-sub"><p>14.1. Usar e gozar da unidade sem prejudicar segurança e tranquilidade.</p><p>14.2. Usar as partes comuns sem impedir idêntico uso.</p><p>14.3. Examinar livros com solicitação de 5 dias.</p><p>14.4. Votar e ser votado, estando em dia com as quotas.</p><p>14.9. Condômino que alugar sua unidade perde direito de frequentar áreas de lazer em benefício do inquilino.</p></div></div></div>
-          <div class="artigo"><div class="artigo-num">Art. 15º — Deveres Gerais</div><div class="artigo-texto"><div class="artigo-sub"><p>15.2. Não utilizar para fins não residenciais.</p><p>15.7. <strong>Não fumar nas áreas de uso comum do edifício.</strong></p><p>15.8. Não manter inflamáveis ou explosivos.</p><p>15.9. Não colocar objetos nas áreas comuns.</p><p>15.17. <strong>Não utilizar som que prejudique o sossego, especialmente das 22h às 8h.</strong></p><p>15.21. Não instalar ar-condicionado fora do local padrão.</p><p>15.25. Separar lixo reciclável do orgânico.</p><p>15.36. Não permitir entrada de pessoas sem identificação na portaria.</p><p>15.55. Não é permitido utilização de drones nas áreas comuns.</p></div></div></div>
-        </div>
-      </div>
-
-      <!-- CAP VI -->
-      <div class="accordion-item">
-        <button class="accordion-btn" onclick="toggleAcc(this)">
-          <div class="acc-num">VI</div><span class="acc-title">Dos Animais</span><span class="acc-chevron">▾</span>
-        </button>
-        <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Art. 16º</div><div class="artigo-texto">Permitida a posse de animal não feroz, observando:<div class="artigo-sub"><p>a) Permanência na unidade.</p><p>b) Tráfego com guia ou no colo.</p><p>c) Proibido em salões, gourmet, academia e ático.</p><p>d) Limpeza imediata de sujeira.</p><p>16.2. Em caso de incômodo, notificação. Reincidência gera multa e, se persistir, retirada imediata.</p></div></div></div>
-        </div>
-      </div>
-
-      <!-- CAP VII -->
-      <div class="accordion-item">
-        <button class="accordion-btn" onclick="toggleAcc(this)">
-          <div class="acc-num">VII</div><span class="acc-title">Da Responsabilidade do Condomínio</span><span class="acc-chevron">▾</span>
-        </button>
-        <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Art. 17º</div><div class="artigo-texto">O Condomínio não assume responsabilidade por acidentes, danos materiais, furtos ou roubos, nem pela interrupção de concessionárias (água, luz).</div></div>
-        </div>
-      </div>
-
-      <!-- CAP VIII -->
-      <div class="accordion-item">
-        <button class="accordion-btn" onclick="toggleAcc(this)">
-          <div class="acc-num">VIII</div><span class="acc-title">Do Uso das Áreas Comuns</span><span class="acc-chevron">▾</span>
-        </button>
-        <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Art. 19º e 21º — Acessos e Portaria</div><div class="artigo-texto">Portões permanentemente fechados. Proibida entrada de não identificados. A portaria é exclusiva aos funcionários.</div></div>
-          <div class="artigo"><div class="artigo-num">Art. 22º — Garagem</div><div class="artigo-texto"><div class="artigo-sub"><p>22.1. Vagas são para veículos, motos, patinetes de médio/grande porte.</p><p>22.4. Proibida guarda de móveis e entulhos.</p><p>22.12. Velocidade máxima: 10 km/h, faróis acesos.</p><p>22.20. Carregadores elétricos apenas com projeto custeado pelo morador e medidor individual.</p></div></div></div>
-        </div>
-      </div>
-
-      <!-- CAP IX e X -->
-      <div class="accordion-item">
-        <button class="accordion-btn" onclick="toggleAcc(this)">
-          <div class="acc-num">IX</div><span class="acc-title">Atividades com Profissionais</span><span class="acc-chevron">▾</span>
-        </button>
-        <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Art. 23º</div><div class="artigo-texto">Profissionais contratados (ex: personal trainer) precisam de termo de compromisso e autorização. O condomínio não se responsabiliza por suas atividades.</div></div>
-        </div>
-      </div>
-
-      <!-- CAP XI a XVI combinados (Salões, Espaços, Brinquedoteca, Pet) -->
-      <div class="accordion-item">
-        <button class="accordion-btn" onclick="toggleAcc(this)">
-          <div class="acc-num">XI</div><span class="acc-title">Regras Gerais dos Espaços Sociais</span><span class="acc-chevron">▾</span>
-        </button>
-        <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Art. 25 a 31º</div><div class="artigo-texto">Para detalhes específicos de uso, capacidade e taxas de todos os espaços (Gourmet, Rooftop, Pet, Brinquedoteca), consulte a seção <strong>Guia Rápido &gt; Áreas Comuns</strong> acima, onde as regras estão detalhadas por ambiente.</div></div>
-        </div>
-      </div>
-
-      <!-- CAP XVII -->
-      <div class="accordion-item">
-        <button class="accordion-btn" onclick="toggleAcc(this)">
-          <div class="acc-num">XVII</div><span class="acc-title">Silêncio, Mudanças, Lixo e Obras</span><span class="acc-chevron">▾</span>
-        </button>
-        <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Art. 33º — Silêncio</div><div class="artigo-texto">O sossego deve ser garantido a qualquer hora. Nos termos do <strong>art. 1.336, IV, do Código Civil</strong>, é vedado o uso da unidade de forma prejudicial ao sossego dos condôminos, com restrição absoluta das <strong>22h às 8h</strong>. O <strong>art. 1.277 do Código Civil</strong> assegura a cessação de interferências nocivas, podendo configurar, em tese, a contravenção do <strong>art. 42 da Lei de Contravenções Penais</strong>. Parâmetros: <strong>ABNT NBR 10.151</strong> — <strong>55 dB diurnos</strong> e <strong>50 dB noturnos</strong>.</div></div>
-          <div class="artigo"><div class="artigo-num">Art. 35º — Mudanças</div><div class="artigo-texto">Agendamento com 2 dias de antecedência. Seg-Sex (8-17h), Sáb (8-12h). Taxa de 5% do salário mínimo.</div></div>
-          <div class="artigo"><div class="artigo-num">Art. 37º — Obras</div><div class="artigo-texto"><div class="artigo-sub"><p>Permitidas Seg-Sex (8-17h), Sáb (8-12h). Proibido usar furadeira/martelo aos domingos.</p></div>
-          <span class="artigo-note">📌 <strong>ART e/ou RRT obrigatórios:</strong> Obras complexas não podem ser iniciadas sem a apresentação de ART/RRT emitido por engenheiro/arquiteto e o Formulário de Autorização.</span>
-          </div></div>
-        </div>
-      </div>
-
-      <!-- CAP XIX -->
-      <div class="accordion-item">
-        <button class="accordion-btn" onclick="toggleAcc(this)">
-          <div class="acc-num">XIX</div><span class="acc-title">Pagamento das Quotas e Penalidades</span><span class="acc-chevron">▾</span>
-        </button>
-        <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Art. 39 a 42º</div><div class="artigo-texto"><div class="artigo-sub"><p>Vencimento dia 10. Atraso gera multa de 1% e juros de mora de 0,33% ao dia.</p><p><strong>Infrações ao Regimento:</strong><br>1ª ocorrência: Advertência.<br>Reincidência em 6 meses: Multa (Leve: 10% SM, Média: 40% SM, Grave: 100% SM).</p></div></div></div>
-        </div>
-      </div>
-
-      <!-- CAP XX -->
-      <div class="accordion-item">
-        <button class="accordion-btn" onclick="toggleAcc(this)">
-          <div class="acc-num">XX</div><span class="acc-title">Das Sacadas e Gardens</span><span class="acc-chevron">▾</span>
-        </button>
-        <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Art. 43 e 44º</div><div class="artigo-texto"><div class="artigo-sub"><p>Permite-se fechamento apenas dentro da padronização aprovada na convenção.</p><p>Proibido toldos, varal de teto/parede, películas nas janelas e móveis acima da altura do vidro.</p></div></div></div>
-        </div>
-      </div>
-
-      <!-- ANEXOS -->
-      <div class="accordion-item">
-        <button class="accordion-btn" onclick="toggleAcc(this)">
-          <div class="acc-num" style="font-size:0.8rem; line-height:1">ANEX</div><span class="acc-title">Anexos — Tabela de Infrações</span><span class="acc-chevron">▾</span>
-        </button>
-        <div class="accordion-content">
-          <div class="artigo"><div class="artigo-num">Anexo I — Leves (10% SM)</div><div class="artigo-texto">Demais infrações não listadas abaixo.</div></div>
-          <div class="artigo"><div class="artigo-num">Anexo II — Médias (40% SM)</div><div class="artigo-texto"><div class="artigo-sub"><p>— Usar unidade para atividades que afetem saúde e tranquilidade.</p><p>— Trancar porta corta-fogo.</p><p>— Acessar condomínio com veículo sem identificação.</p><p>— Permitir que estranhos usem a academia.</p></div></div></div>
-          <div class="artigo"><div class="artigo-num">Anexo III — Graves (100% SM)</div><div class="artigo-texto"><div class="artigo-sub"><p>— Atos libidinosos ou obscenos em área comum.</p><p>— Fracionar unidade para sublocação.</p><p>— Guardar inflamáveis ou explosivos.</p><p>— Soltar fogos, balões, pipas ou atirar arma de fogo.</p><p>— Obras com sobrecarga estrutural.</p></div></div></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="section-inner">
-    <p class="section-label">Dúvidas Frequentes</p>
-    <h2 class="section-title">Perguntas Frequentes</h2>
-    <div class="divider"></div>
-    
-    <div class="faq-container">
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">Qual é o horário de silêncio no condomínio? <span class="faq-icon">▾</span></button>
-        <div class="faq-a">O Regimento Interno impõe restrição absoluta das <strong>22h às 8h</strong>. Nos termos do <strong>art. 1.336, IV, do Código Civil</strong>, é vedado o uso da unidade de forma prejudicial ao sossego dos condôminos em <em>qualquer horário</em>. O <strong>art. 1.277 do Código Civil</strong> assegura a cessação de interferências nocivas; o comportamento pode configurar, em tese, contravenção do <strong>art. 42 da Lei de Contravenções Penais</strong>. Limites: <strong>ABNT NBR 10.151</strong> — <strong>55 dB de dia</strong> e <strong>50 dB à noite</strong>. Registre ocorrências pelo app Informma (PIN837).</div>
-      </div>
-      
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">Posso fumar nas áreas comuns? <span class="faq-icon">▾</span></button>
-        <div class="faq-a"><strong>Não.</strong> É expressamente proibido fumar em quaisquer áreas de uso comum, incluindo salões, academia, halls, garagem e embaixo de marquises.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">Posso ter animais de estimação? <span class="faq-icon">▾</span></button>
-        <div class="faq-a"><strong>Sim</strong>, apenas animais domésticos. Circulação nas áreas comuns só com guia, colo ou caixa. Proibido nos salões, academia e ático. Limpeza imediata é obrigatória.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">Quando posso realizar obras no apartamento? <span class="faq-icon">▾</span></button>
-        <div class="faq-a">De segunda a sexta (8h às 17h) e sábados (8h às 12h). Proibido domingos e feriados. É necessário preencher o Formulário de Autorização. <strong>Obras complexas exigem ART ou RRT</strong> obrigatoriamente aprovado pelo síndico.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">Quando posso fazer mudanças? <span class="faq-icon">▾</span></button>
-        <div class="faq-a">Seg–Sex (8h às 17h) e sábados (8h às 12h). Exige agendamento com 2 dias de antecedência. Taxa de 5% do salário mínimo (dispensada na primeira ocupação).</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">Qual o vencimento e a multa por atraso da taxa? <span class="faq-icon">▾</span></button>
-        <div class="faq-a">Vencimento todo dia <strong>10</strong>. Atraso gera multa de 1% e juros de mora de 0,33% ao dia. Após 30 dias vai para cobrança judicial.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">Como reservo o salão de festas ou espaços gourmet? <span class="faq-icon">▾</span></button>
-        <div class="faq-a">Pelo portal <strong>CMPremium</strong>. Cancelamentos devem ser feitos com no mínimo 48h de antecedência para evitar multa de 50%.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">Posso instalar carregador de carro elétrico? <span class="faq-icon">▾</span></button>
-        <div class="faq-a"><strong>Sim</strong>, desde que o projeto e execução sejam custeados pelo morador e seja instalado medidor individual de energia aprovado pela Administração.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">Acesso de entregadores e prestadores? <span class="faq-icon">▾</span></button>
-        <div class="faq-a">Entregadores (comida/remédio) apenas no portão. Prestadores (técnicos) precisam de autorização prévia na portaria com apresentação de documento.</div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-btn" onclick="toggleFaq(this)">Como faço para registrar uma ocorrência? <span class="faq-icon">▾</span></button>
-        <div class="faq-a">Sempre pelo aplicativo <strong>Informma Síndicos</strong> (código PIN837) ou e-mail pine@informma.com.br. Não se dirija à unidade do síndico para reclamações.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <div class="float-group">
   <button id="btnTopo" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="float-btn-top" title="Voltar ao topo">
@@ -1562,78 +892,16 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
   </div>
 </footer>
 
+
+<script src="assets/site.js"></script>
+
 <script>
-// Scroll Progress & Topo Button
-const btnTopo = document.getElementById('btnTopo');
-window.addEventListener('scroll', () => {
-  const el = document.getElementById('scrollProgress');
-  const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-  if(el) el.style.width = scrolled + '%';
-  
-  if(btnTopo) {
-    if(window.scrollY > 500) {
-      btnTopo.style.opacity = '1';
-      btnTopo.style.pointerEvents = 'auto';
-      btnTopo.style.transform = 'translateY(0)';
-    } else {
-      btnTopo.style.opacity = '0';
-      btnTopo.style.pointerEvents = 'none';
-      btnTopo.style.transform = 'translateY(10px)';
-    }
-  }
-});
-
-// Animated Counters
-function animateCounter(el){
-  const target = parseInt(el.dataset.target);
-  const duration = 1500;
-  const start = performance.now();
-  const update = (now) => {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.round(eased * target);
-    if(progress < 1) requestAnimationFrame(update);
-    else el.textContent = target;
-  };
-  requestAnimationFrame(update);
-}
-const counterObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting && e.target.dataset.target) {
-      animateCounter(e.target);
-      counterObs.unobserve(e.target);
-    }
-  });
-},{threshold: 0.5});
-document.querySelectorAll('.stat-num[data-target]').forEach(el => counterObs.observe(el));
-
-// Active Nav
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-const navObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting) {
-      navLinks.forEach(a => a.classList.remove('active'));
-      const active = document.querySelector('.nav-links a[href="#'+e.target.id+'"]');
-      if(active) active.classList.add('active');
-    }
-  });
-},{threshold: 0.3, rootMargin: '-80px 0px 0px 0px'});
-sections.forEach(s => navObs.observe(s));
-
-// Nav Menu Toggle
-function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
-document.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
-
-// Helpers (Scroll & Open Tabs)
-function goToRegSearch(term){
-  document.getElementById('regimento').scrollIntoView({behavior:'smooth'});
-  setTimeout(()=>{
-    const input = document.getElementById('regSearch');
-    input.value = term;
-    searchReg(term);
-    input.focus();
-  }, 600);
+function switchTab(btn, targetId){
+  const card = btn.closest('.area-card');
+  card.querySelectorAll('.area-tab-btn').forEach(b => b.classList.remove('active'));
+  card.querySelectorAll('.area-tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(targetId).classList.add('active');
 }
 
 function goToArea(tabId){
@@ -1647,215 +915,7 @@ function goToArea(tabId){
     }
   }, 600);
 }
-
-function switchTab(btn, targetId){
-  const card = btn.closest('.area-card');
-  card.querySelectorAll('.area-tab-btn').forEach(b => b.classList.remove('active'));
-  card.querySelectorAll('.area-tab-content').forEach(c => c.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById(targetId).classList.add('active');
-}
-
-// Accordions
-function toggleAcc(btn){
-  const content = btn.nextElementSibling;
-  const isOpen = content.classList.contains('open');
-  document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
-  document.querySelectorAll('.accordion-btn').forEach(b => b.classList.remove('active'));
-  if(!isOpen){ content.classList.add('open'); btn.classList.add('active'); }
-}
-function toggleFaq(btn){
-  const content = btn.nextElementSibling;
-  const isOpen = content.classList.contains('open');
-  document.querySelectorAll('.faq-a').forEach(c => c.classList.remove('open'));
-  document.querySelectorAll('.faq-btn').forEach(b => b.classList.remove('active'));
-  if(!isOpen){ content.classList.add('open'); btn.classList.add('active'); }
-}
-
-// Busca do Regimento
-function normalize(str){ return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
-function applySearch(term){
-  const input = document.getElementById('regSearch');
-  input.value = term;
-  searchReg(term);
-  input.focus();
-}
-function searchReg(q){
-  const raw = q.trim();
-  const term = normalize(raw);
-
-  document.querySelectorAll('#regimento .search-highlight').forEach(el => el.outerHTML = el.textContent);
-  document.querySelectorAll('#regimento .accordion-item').forEach(item => {
-    item.style.display = '';
-    item.querySelectorAll('.artigo').forEach(a => a.style.display='');
-    item.querySelector('.accordion-content').classList.remove('open');
-    item.querySelector('.accordion-btn').classList.remove('active');
-  });
-
-  const noResults = document.getElementById('regNoResults');
-  const termSpan = document.getElementById('regSearchTerm');
-
-  if(!term){ noResults.style.display = 'none'; return; }
-
-  let found = 0;
-  document.querySelectorAll('#regimento .accordion-item').forEach(item => {
-    const content = item.querySelector('.accordion-content');
-    const btn = item.querySelector('.accordion-btn');
-    const artigos = item.querySelectorAll('.artigo');
-    const titleMatch = normalize(btn.textContent).includes(term);
-    let chapterHit = 0;
-
-    artigos.forEach(a => {
-      if(normalize(a.textContent).includes(term)){ chapterHit++; }
-      else { a.style.display = 'none'; }
-    });
-
-    if(chapterHit > 0 || titleMatch){
-      item.style.display = '';
-      content.classList.add('open');
-      btn.classList.add('active');
-      if(titleMatch) artigos.forEach(a => a.style.display='');
-      
-      item.querySelectorAll('.artigo').forEach(a => {
-        if(a.style.display !== 'none') highlightInEl(a, term, raw);
-      });
-      found++;
-    } else {
-      item.style.display = 'none';
-    }
-  });
-
-  noResults.style.display = found === 0 ? 'block' : 'none';
-  termSpan.textContent = raw;
-}
-
-function highlightInEl(el, termNorm, termRaw){
-  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
-  const nodes = [];
-  while(walker.nextNode()) nodes.push(walker.currentNode);
-  nodes.forEach(node => {
-    const normText = normalize(node.textContent);
-    const idx = normText.indexOf(termNorm);
-    if(idx === -1) return;
-    const span = document.createElement('span');
-    span.appendChild(document.createTextNode(node.textContent.slice(0, idx)));
-    const match = document.createElement('mark');
-    match.className = 'search-highlight';
-    match.textContent = node.textContent.slice(idx, idx + termRaw.length);
-    span.appendChild(match);
-    span.appendChild(document.createTextNode(node.textContent.slice(idx + termRaw.length)));
-    node.parentNode.replaceChild(span, node);
-  });
-}
-
-// Fade in
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); });
-}, {threshold: 0.1});
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-
-// ── CONSELHO EM AÇÃO: carregar atividades e controlar login ──
-const STATUS_CLASS = { 'Planejado': 'status-planejado', 'Em Andamento': 'status-andamento', 'Concluído': 'status-concluido' };
-
-function formatDataPT(iso){
-  if(!iso) return '';
-  try {
-    const d = new Date(iso);
-    return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
-  } catch(e) { return ''; }
-}
-
-function renderConselhoCard(item){
-  const status = item.status || 'Planejado';
-  const statusClass = STATUS_CLASS[status] || 'status-planejado';
-  const progresso = Math.max(0, Math.min(100, Number(item.progresso) || 0));
-  const obs = item.observacoes ? `<div class="conselho-obs">${item.observacoes}</div>` : '';
-  const responsavel = item.responsavel ? `<span class="resp">${item.responsavel}</span>` : '<span class="resp">Conselho</span>';
-  const atualizado = item.atualizado ? formatDataPT(item.atualizado) : '';
-
-  return `
-    <div class="conselho-card fade-up visible">
-      <div class="conselho-card-top">
-        <span class="conselho-cat">${item.categoria || 'Geral'}</span>
-        <span class="conselho-status ${statusClass}">${status}</span>
-      </div>
-      <h4>${item.titulo || 'Sem título'}</h4>
-      <p class="conselho-desc">${item.descricao || ''}</p>
-      <div class="conselho-progress-wrap">
-        <div class="conselho-progress-labels"><span>Progresso</span><strong>${progresso}%</strong></div>
-        <div class="conselho-progress-bar"><div class="conselho-progress-fill" style="width:${progresso}%"></div></div>
-      </div>
-      <div class="conselho-meta">
-        ${responsavel}
-        <span>${atualizado}</span>
-      </div>
-      ${obs}
-    </div>
-  `;
-}
-
-async function carregarAtividadesConselho(){
-  const grid = document.getElementById('conselhoGrid');
-  try {
-    const res = await fetch('content/atividades.json?t=' + Date.now());
-    if(!res.ok) throw new Error('not ok');
-    const data = await res.json();
-    const items = Array.isArray(data.items) ? data.items : [];
-
-    if(items.length === 0){
-      grid.innerHTML = '<div class="conselho-empty">Nenhuma atividade cadastrada no momento. O Conselho publicará novidades aqui em breve.</div>';
-      return;
-    }
-
-    // Ordena: Em Andamento primeiro, depois Planejado, depois Concluído
-    const ordem = { 'Em Andamento': 0, 'Planejado': 1, 'Concluído': 2 };
-    items.sort((a,b) => (ordem[a.status] ?? 1) - (ordem[b.status] ?? 1));
-
-    grid.innerHTML = items.map(renderConselhoCard).join('');
-  } catch(err){
-    grid.innerHTML = '<div class="conselho-error">Não foi possível carregar as atividades no momento. Tente novamente mais tarde.</div>';
-  }
-}
-document.addEventListener('DOMContentLoaded', carregarAtividadesConselho);
-
-// Netlify Identity — controla exibição dos botões de login/edição do Conselho
-function atualizarBarraConselho(user){
-  const pill = document.getElementById('conselhoUserPill');
-  const nameEl = document.getElementById('conselhoUserName');
-  const btnEdit = document.getElementById('btnConselhoEdit');
-  const btnLogout = document.getElementById('btnConselhoLogout');
-  const btnLogin = document.getElementById('btnConselhoLogin');
-
-  if(user){
-    pill.style.display = 'inline-flex';
-    nameEl.textContent = (user.user_metadata && user.user_metadata.full_name) || user.email || 'Conselheiro';
-    btnEdit.style.display = 'inline-flex';
-    btnLogout.style.display = 'inline-block';
-    btnLogin.style.display = 'none';
-  } else {
-    pill.style.display = 'none';
-    btnEdit.style.display = 'none';
-    btnLogout.style.display = 'none';
-    btnLogin.style.display = 'inline-flex';
-  }
-}
-
-if (window.netlifyIdentity) {
-  window.netlifyIdentity.on('init', user => atualizarBarraConselho(user));
-  window.netlifyIdentity.on('login', user => atualizarBarraConselho(user));
-  window.netlifyIdentity.on('logout', () => atualizarBarraConselho(null));
-  window.netlifyIdentity.on('init', user => {
-    if (!user) {
-      window.netlifyIdentity.on('login', () => {
-        // Login feito no site principal: apenas atualiza a barra, sem redirecionar
-      });
-    }
-  });
-}
 </script>
-
-<!-- Netlify Identity Widget (login do Conselho) -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 <!-- Chatbase -->
 <script>

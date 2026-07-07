@@ -328,6 +328,43 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
         .area-wifi-rede { font-size: 0.9rem; color: var(--text-main); }
         .area-wifi-rede strong { color: var(--gold); }
 
+        /* ── CONSELHO EM AÇÃO ── */
+        .conselho-topbar { display: flex; justify-content: flex-end; align-items: center; gap: 0.75rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+        .conselho-user-pill { display: none; align-items: center; gap: 0.6rem; padding: 0.5rem 1rem; background: var(--bg-surface); border: 1px solid var(--border-gold); border-radius: 100px; font-size: 0.8rem; color: var(--text-muted); }
+        .conselho-user-pill strong { color: var(--gold); }
+        .btn-conselho-login { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.5rem; background: transparent; border: 1px solid var(--border-gold); color: var(--gold); border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+        .btn-conselho-login:hover { background: var(--gold-dim); }
+        .btn-conselho-edit { display: none; align-items: center; gap: 0.5rem; padding: 0.7rem 1.5rem; background: var(--gold); color: var(--text-dark); border-radius: var(--radius-sm); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+        .btn-conselho-edit:hover { background: var(--gold-light); }
+        .btn-conselho-logout { display: none; padding: 0.7rem 1rem; background: transparent; border: 1px solid var(--border-subtle); color: var(--text-muted); border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; }
+        .btn-conselho-logout:hover { border-color: var(--border-gold); color: var(--gold); }
+
+        .conselho-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+        .conselho-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.75rem; display: flex; flex-direction: column; transition: transform 0.3s, border-color 0.3s; }
+        .conselho-card:hover { transform: translateY(-3px); border-color: var(--border-gold); }
+        .conselho-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+        .conselho-cat { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); background: var(--gold-dim); border: 1px solid var(--border-gold); padding: 0.25rem 0.7rem; border-radius: 100px; }
+        .conselho-status { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 0.7rem; border-radius: 100px; white-space: nowrap; }
+        .status-planejado { background: rgba(255,255,255,0.08); color: var(--text-muted); }
+        .status-andamento { background: var(--gold-dim); color: var(--gold); }
+        .status-concluido { background: rgba(74,140,92,0.18); color: #7dcca0; }
+
+        .conselho-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: #fff; margin-bottom: 0.6rem; line-height: 1.25; }
+        .conselho-card p.conselho-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; }
+
+        .conselho-progress-wrap { margin-bottom: 1rem; }
+        .conselho-progress-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+        .conselho-progress-labels strong { color: var(--gold); }
+        .conselho-progress-bar { width: 100%; height: 8px; background: var(--bg-main); border: 1px solid var(--border-subtle); border-radius: 100px; overflow: hidden; }
+        .conselho-progress-fill { height: 100%; background: linear-gradient(90deg, #4a8c5c, var(--gold)); border-radius: 100px; transition: width 0.6s ease; }
+
+        .conselho-meta { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px dashed var(--border-subtle); font-size: 0.75rem; color: var(--text-muted); }
+        .conselho-meta .resp { font-weight: 600; color: var(--text-main); }
+        .conselho-obs { margin-top: 0.9rem; padding: 0.75rem; background: var(--bg-main); border-radius: var(--radius-sm); border-left: 2px solid var(--gold); font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+
+        .conselho-empty, .conselho-error { grid-column: 1 / -1; text-align: center; padding: 3rem 1.5rem; color: var(--text-muted); background: var(--bg-surface); border-radius: var(--radius-md); border: 1px dashed var(--border-subtle); }
+        .conselho-loading { grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-muted); }
+
         </style>
 </head>
 <body>
@@ -346,6 +383,7 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
       <li><a href="#guia">Guia Rápido</a></li>
       <li><a href="#contatos">Contatos</a></li>
       <li><a href="#sistemas">Sistemas</a></li>
+      <li><a href="#conselho">Conselho em Ação</a></li>
       <li><a href="#areas">Áreas</a></li>
       <li><a href="#orientacoes">Orientações</a></li>
       <li><a href="#regimento">Regimento</a></li>
@@ -448,6 +486,13 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
         <h4>Emergência</h4>
         <p>Contatos do síndico, portaria remota e emergência de gás Ultragaz</p>
         <div class="guia-arrow">Ver contatos →</div>
+      </div>
+
+      <div class="guia-card fade-up" onclick="document.getElementById('conselho').scrollIntoView({behavior:'smooth'})">
+        <span class="guia-icon">📊</span>
+        <h4>Conselho em Ação</h4>
+        <p>Acompanhe as atividades, análises e trabalhos em andamento do Conselho</p>
+        <div class="guia-arrow">Ver atividades →</div>
       </div>
     </div>
   </div>
@@ -843,6 +888,26 @@ footer { background: #050a08; padding: 4rem 2rem; border-top: 1px solid var(--bo
     <div class="chamados-cta-box fade-up">
       <p style="font-size:1.05rem; margin-bottom:2rem;">Clique no botão abaixo para registrar o protocolo para acompanhamento pelo Conselho.</p>
       <a href="https://forms.gle/GV2SFUmcK32Cde2UA" target="_blank" class="btn-primary">📋 Acessar Formulário de Chamados ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- NOVA SEÇÃO: CONSELHO EM AÇÃO -->
+<section id="conselho">
+  <div class="section-inner">
+    <p class="section-label">Transparência e Gestão</p>
+    <h2 class="section-title">Conselho em Ação</h2>
+    <div class="divider"></div>
+
+    <div class="conselho-topbar">
+      <span id="conselhoUserPill" class="conselho-user-pill">Conectado como <strong id="conselhoUserName">—</strong></span>
+      <a href="/admin/#/collections/atividades/entries/atividades" id="btnConselhoEdit" class="btn-conselho-edit" target="_blank" rel="noopener">✏️ Editar Atividades</a>
+      <button id="btnConselhoLogout" class="btn-conselho-logout" onclick="if(window.netlifyIdentity) netlifyIdentity.logout()">Sair</button>
+      <button id="btnConselhoLogin" class="btn-conselho-login" onclick="if(window.netlifyIdentity) netlifyIdentity.open('login')">🔑 Acesso do Conselho</button>
+    </div>
+
+    <div id="conselhoGrid" class="conselho-grid">
+      <div class="conselho-loading">Carregando atividades…</div>
     </div>
   </div>
 </section>
@@ -1688,7 +1753,109 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); });
 }, {threshold: 0.1});
 document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// ── CONSELHO EM AÇÃO: carregar atividades e controlar login ──
+const STATUS_CLASS = { 'Planejado': 'status-planejado', 'Em Andamento': 'status-andamento', 'Concluído': 'status-concluido' };
+
+function formatDataPT(iso){
+  if(!iso) return '';
+  try {
+    const d = new Date(iso);
+    return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+  } catch(e) { return ''; }
+}
+
+function renderConselhoCard(item){
+  const status = item.status || 'Planejado';
+  const statusClass = STATUS_CLASS[status] || 'status-planejado';
+  const progresso = Math.max(0, Math.min(100, Number(item.progresso) || 0));
+  const obs = item.observacoes ? `<div class="conselho-obs">${item.observacoes}</div>` : '';
+  const responsavel = item.responsavel ? `<span class="resp">${item.responsavel}</span>` : '<span class="resp">Conselho</span>';
+  const atualizado = item.atualizado ? formatDataPT(item.atualizado) : '';
+
+  return `
+    <div class="conselho-card fade-up visible">
+      <div class="conselho-card-top">
+        <span class="conselho-cat">${item.categoria || 'Geral'}</span>
+        <span class="conselho-status ${statusClass}">${status}</span>
+      </div>
+      <h4>${item.titulo || 'Sem título'}</h4>
+      <p class="conselho-desc">${item.descricao || ''}</p>
+      <div class="conselho-progress-wrap">
+        <div class="conselho-progress-labels"><span>Progresso</span><strong>${progresso}%</strong></div>
+        <div class="conselho-progress-bar"><div class="conselho-progress-fill" style="width:${progresso}%"></div></div>
+      </div>
+      <div class="conselho-meta">
+        ${responsavel}
+        <span>${atualizado}</span>
+      </div>
+      ${obs}
+    </div>
+  `;
+}
+
+async function carregarAtividadesConselho(){
+  const grid = document.getElementById('conselhoGrid');
+  try {
+    const res = await fetch('content/atividades.json?t=' + Date.now());
+    if(!res.ok) throw new Error('not ok');
+    const data = await res.json();
+    const items = Array.isArray(data.items) ? data.items : [];
+
+    if(items.length === 0){
+      grid.innerHTML = '<div class="conselho-empty">Nenhuma atividade cadastrada no momento. O Conselho publicará novidades aqui em breve.</div>';
+      return;
+    }
+
+    // Ordena: Em Andamento primeiro, depois Planejado, depois Concluído
+    const ordem = { 'Em Andamento': 0, 'Planejado': 1, 'Concluído': 2 };
+    items.sort((a,b) => (ordem[a.status] ?? 1) - (ordem[b.status] ?? 1));
+
+    grid.innerHTML = items.map(renderConselhoCard).join('');
+  } catch(err){
+    grid.innerHTML = '<div class="conselho-error">Não foi possível carregar as atividades no momento. Tente novamente mais tarde.</div>';
+  }
+}
+document.addEventListener('DOMContentLoaded', carregarAtividadesConselho);
+
+// Netlify Identity — controla exibição dos botões de login/edição do Conselho
+function atualizarBarraConselho(user){
+  const pill = document.getElementById('conselhoUserPill');
+  const nameEl = document.getElementById('conselhoUserName');
+  const btnEdit = document.getElementById('btnConselhoEdit');
+  const btnLogout = document.getElementById('btnConselhoLogout');
+  const btnLogin = document.getElementById('btnConselhoLogin');
+
+  if(user){
+    pill.style.display = 'inline-flex';
+    nameEl.textContent = (user.user_metadata && user.user_metadata.full_name) || user.email || 'Conselheiro';
+    btnEdit.style.display = 'inline-flex';
+    btnLogout.style.display = 'inline-block';
+    btnLogin.style.display = 'none';
+  } else {
+    pill.style.display = 'none';
+    btnEdit.style.display = 'none';
+    btnLogout.style.display = 'none';
+    btnLogin.style.display = 'inline-flex';
+  }
+}
+
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on('init', user => atualizarBarraConselho(user));
+  window.netlifyIdentity.on('login', user => atualizarBarraConselho(user));
+  window.netlifyIdentity.on('logout', () => atualizarBarraConselho(null));
+  window.netlifyIdentity.on('init', user => {
+    if (!user) {
+      window.netlifyIdentity.on('login', () => {
+        // Login feito no site principal: apenas atualiza a barra, sem redirecionar
+      });
+    }
+  });
+}
 </script>
+
+<!-- Netlify Identity Widget (login do Conselho) -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 <!-- Chatbase -->
 <script>

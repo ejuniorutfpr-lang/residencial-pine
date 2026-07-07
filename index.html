@@ -4,6 +4,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Residencial Pine — Hub do Condômino</title>
+<meta name="description" content="Central de informações do Residencial Pine: contatos, sistemas, áreas comuns e orientações para moradores e condôminos.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://residencialpine.netlify.app/">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="alternate icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<!-- Open Graph / WhatsApp / Redes Sociais -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Residencial Pine">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://residencialpine.netlify.app/">
+<meta property="og:title" content="Residencial Pine — Hub do Condômino">
+<meta property="og:description" content="Central de informações do Residencial Pine: contatos, sistemas, áreas comuns e orientações para moradores e condôminos.">
+<meta property="og:image" content="https://residencialpine.netlify.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Residencial Pine — Hub do Condômino">
+<meta name="twitter:description" content="Central de informações do Residencial Pine: contatos, sistemas, áreas comuns e orientações para moradores e condôminos.">
+<meta name="twitter:image" content="https://residencialpine.netlify.app/assets/og-image.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -28,9 +54,24 @@
       <li><a href="transparencia.html">Transparência</a></li>
       <li><a href="regimento.html">Regimento</a></li>
     </ul>
+    <button class="nav-search-btn" onclick="openGlobalSearch()" aria-label="Buscar">🔍</button>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
+<div class="search-overlay" id="searchOverlay" onclick="if(event.target===this) closeGlobalSearch()">
+  <div class="search-box">
+    <button class="search-close-btn" onclick="closeGlobalSearch()" aria-label="Fechar busca">✕</button>
+    <div class="search-box-input-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dca54c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="globalSearchInput" placeholder="Buscar em todo o site… ex: silêncio, boleto, mudança" oninput="runGlobalSearch(this.value)" autocomplete="off">
+    </div>
+    <div class="search-results" id="globalSearchResults">
+      <div class="search-hint">Digite para buscar em contatos, sistemas, áreas, regimento e mais.</div>
+    </div>
+  </div>
+</div>
+
 
 <section class="hero" id="inicio">
   <div class="hero-content">
@@ -893,6 +934,7 @@
 </footer>
 
 
+<script src="assets/search-index.js"></script>
 <script src="assets/site.js"></script>
 
 <script>
@@ -915,6 +957,13 @@ function goToArea(tabId){
     }
   }, 600);
 }
+
+// Se a página foi aberta com ?area=id (vindo da busca global), já abre a aba certa
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const area = params.get('area');
+  if(area) goToArea(area);
+})();
 </script>
 
 <!-- Chatbase -->

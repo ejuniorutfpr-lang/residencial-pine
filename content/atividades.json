@@ -1,0 +1,14 @@
+{
+  "items": [
+    {
+      "categoria": "Jurídico",
+      "status": "Em Andamento",
+      "progresso": 87,
+      "responsavel": "Conselho Fiscal",
+      "titulo": "Parecer de Compliance - BV Garantia",
+      "descricao": "Transferência da gestão de cobranças e dos dados pessoais dos condôminos da Multi Condominium para a BV Garantia, sem deliberação assemblear e sem due diligence prévia sobre a nova empresa. A qualificação jurídica exata da operação (cessão de posição contratual, sujeita a consentimento, ou cessão de crédito, sujeita a mera notificação) depende de documentos ainda não obtidos.",
+      "atualizado": "2026-07-07T00:00:00.000Z",
+      "observacoes": "Reunião agendada para apresentação do parecer ao Rui para providências."
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transparência — Residencial Pine</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html#inicio" class="nav-logo">
+      <div class="nav-logo-text">
+        <span class="nav-logo-res">Residencial</span>
+        <span class="nav-logo-pine">— Pine —</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="index.html#guia">Guia Rápido</a></li>
+      <li><a href="index.html#contatos">Contatos</a></li>
+      <li><a href="index.html#sistemas">Sistemas</a></li>
+      <li><a href="index.html#areas">Áreas</a></li>
+      <li><a href="#chamados">Chamados</a></li>
+      <li><a href="#conselho">Conselho em Ação</a></li>
+      <li><a href="regimento.html">Regimento</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="page-header-inner">
+    <div class="hero-badge">Transparência</div>
+    <h1>Chamados & Conselho em Ação</h1>
+    <p>Acompanhe o andamento das ocorrências registradas e as atividades, análises e trabalhos que o Conselho está conduzindo pelo condomínio.</p>
+  </div>
+</section>
+
+<section id="chamados">
+  <div class="section-inner">
+    <p class="section-label">Transparência e Acompanhamento</p>
+    <h2 class="section-title">Acompanhamento de Chamados</h2>
+    <div class="divider"></div>
+
+    <div class="chamados-how">
+      <div class="chamados-step fade-up">
+        <div class="ch-num">1</div>
+        <h4>Abra o chamado no Informma</h4>
+        <p><strong>Antes de tudo</strong>, acesse o app Informma Síndicos (código <strong>PIN837</strong> — <em>somente 1º acesso</em>), crie um novo chamado e <strong>anote o número de protocolo</strong>. Sem ele, o síndico não tem como agir.</p>
+        <a href="https://app.informma.com.br/c/cm6par3a102xff8kadrsqlli8" target="_blank" class="btn-outline" style="margin-top:1.5rem; padding: 0.6rem 1.5rem; display:inline-block">📲 App Informma ↗</a>
+      </div>
+      <div class="chamados-step fade-up">
+        <div class="ch-num">2</div>
+        <h4>Registre neste formulário</h4>
+        <p>Preencha o formulário abaixo informando seus dados e o número de protocolo para que o <strong>Conselho do Condomínio</strong> possa acompanhar a situação.</p>
+      </div>
+      <div class="chamados-step fade-up">
+        <div class="ch-num">3</div>
+        <h4>Conselho acompanha</h4>
+        <p>Os membros do conselho terão acesso e poderão <strong>cobrar e auxiliar na resolução</strong> do chamado junto ao síndico com mais agilidade.</p>
+      </div>
+    </div>
+
+    <div class="chamados-notice fade-up">
+      <strong>📌 Importante:</strong> Este formulário é um canal de transparência entre os moradores e o Conselho. Ele <strong>não substitui</strong> a abertura do chamado no Informma Síndicos — o chamado no aplicativo é obrigatório. O número de protocolo do Informma é o campo principal deste formulário.
+    </div>
+
+    <div class="chamados-cta-box fade-up">
+      <p style="font-size:1.05rem; margin-bottom:2rem;">Clique no botão abaixo para registrar o protocolo para acompanhamento pelo Conselho.</p>
+      <a href="https://forms.gle/GV2SFUmcK32Cde2UA" target="_blank" class="btn-primary">📋 Acessar Formulário de Chamados ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="conselho">
+  <div class="section-inner">
+    <p class="section-label">Transparência e Gestão</p>
+    <h2 class="section-title">Conselho em Ação</h2>
+    <div class="divider"></div>
+
+    <div class="conselho-topbar">
+      <span id="conselhoUserPill" class="conselho-user-pill">Conectado como <strong id="conselhoUserName">—</strong></span>
+      <a href="/admin/#/collections/atividades/entries/atividades" id="btnConselhoEdit" class="btn-conselho-edit" target="_blank" rel="noopener">✏️ Editar Atividades</a>
+      <button id="btnConselhoLogout" class="btn-conselho-logout" onclick="if(window.netlifyIdentity) netlifyIdentity.logout()">Sair</button>
+      <button id="btnConselhoLogin" class="btn-conselho-login" onclick="if(window.netlifyIdentity) netlifyIdentity.open('login')">🔑 Acesso do Conselho</button>
+    </div>
+
+    <div id="conselhoGrid" class="conselho-grid">
+      <div class="conselho-loading">Carregando atividades…</div>
+    </div>
+  </div>
+</section>
+
+
+<div class="float-group">
+  <button id="btnTopo" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="float-btn-top" title="Voltar ao topo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo-res">Residencial</div>
+    <div class="footer-logo-pine">— Pine —</div>
+    <p class="footer-sub">Hub digital e manual prático para moradores e proprietários.</p>
+    
+    <div class="footer-credits">
+      <p>Material elaborado pelo <strong>Conselheiro Elias</strong>, com revisão do <strong>Conselheiro Vitor</strong> e do <strong>Síndico Rui</strong>.</p>
+    </div>
+
+    <div class="footer-disclaimer">
+      <strong>Disclaimer:</strong> Este hub é um canal informativo de apoio aos condôminos do Residencial Pine. As informações aqui apresentadas são baseadas no Regimento Interno aprovado em 03/09/2024. Em caso de divergência, prevalece a <strong>legislação vigente</strong>, a <strong>jurisprudência e decisões dos Tribunais</strong> e as <strong>deliberações em Assembleia Geral</strong>.<br><br>
+      © 2026 Residencial Pine
+    </div>
+  </div>
+</footer>
+
+
+<script src="assets/site.js"></script>
+
+<script>
+// ── CONSELHO EM AÇÃO: carregar atividades e controlar login ──
+const STATUS_CLASS = { 'Planejado': 'status-planejado', 'Em Andamento': 'status-andamento', 'Concluído': 'status-concluido' };
+
+function formatDataPT(iso){
+  if(!iso) return '';
+  try {
+    const d = new Date(iso);
+    return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+  } catch(e) { return ''; }
+}
+
+function renderConselhoCard(item){
+  const status = item.status || 'Planejado';
+  const statusClass = STATUS_CLASS[status] || 'status-planejado';
+  const progresso = Math.max(0, Math.min(100, Number(item.progresso) || 0));
+  const obs = item.observacoes ? `<div class="conselho-obs">${item.observacoes}</div>` : '';
+  const responsavel = item.responsavel ? `<span class="resp">${item.responsavel}</span>` : '<span class="resp">Conselho</span>';
+  const atualizado = item.atualizado ? formatDataPT(item.atualizado) : '';
+
+  return `
+    <div class="conselho-card fade-up visible">
+      <div class="conselho-card-top">
+        <span class="conselho-cat">${item.categoria || 'Geral'}</span>
+        <span class="conselho-status ${statusClass}">${status}</span>
+      </div>
+      <h4>${item.titulo || 'Sem título'}</h4>
+      <p class="conselho-desc">${item.descricao || ''}</p>
+      <div class="conselho-progress-wrap">
+        <div class="conselho-progress-labels"><span>Progresso</span><strong>${progresso}%</strong></div>
+        <div class="conselho-progress-bar"><div class="conselho-progress-fill" style="width:${progresso}%"></div></div>
+      </div>
+      <div class="conselho-meta">
+        ${responsavel}
+        <span>${atualizado}</span>
+      </div>
+      ${obs}
+    </div>
+  `;
+}
+
+async function carregarAtividadesConselho(){
+  const grid = document.getElementById('conselhoGrid');
+  try {
+    const res = await fetch('content/atividades.json?t=' + Date.now());
+    if(!res.ok) throw new Error('not ok');
+    const data = await res.json();
+    const items = Array.isArray(data.items) ? data.items : [];
+
+    if(items.length === 0){
+      grid.innerHTML = '<div class="conselho-empty">Nenhuma atividade cadastrada no momento. O Conselho publicará novidades aqui em breve.</div>';
+      return;
+    }
+
+    const ordem = { 'Em Andamento': 0, 'Planejado': 1, 'Concluído': 2 };
+    items.sort((a,b) => (ordem[a.status] ?? 1) - (ordem[b.status] ?? 1));
+
+    grid.innerHTML = items.map(renderConselhoCard).join('');
+  } catch(err){
+    grid.innerHTML = '<div class="conselho-error">Não foi possível carregar as atividades no momento. Tente novamente mais tarde.</div>';
+  }
+}
+document.addEventListener('DOMContentLoaded', carregarAtividadesConselho);
+
+// Netlify Identity — controla exibição dos botões de login/edição do Conselho
+function atualizarBarraConselho(user){
+  const pill = document.getElementById('conselhoUserPill');
+  const nameEl = document.getElementById('conselhoUserName');
+  const btnEdit = document.getElementById('btnConselhoEdit');
+  const btnLogout = document.getElementById('btnConselhoLogout');
+  const btnLogin = document.getElementById('btnConselhoLogin');
+
+  if(user){
+    pill.style.display = 'inline-flex';
+    nameEl.textContent = (user.user_metadata && user.user_metadata.full_name) || user.email || 'Conselheiro';
+    btnEdit.style.display = 'inline-flex';
+    btnLogout.style.display = 'inline-block';
+    btnLogin.style.display = 'none';
+  } else {
+    pill.style.display = 'none';
+    btnEdit.style.display = 'none';
+    btnLogout.style.display = 'none';
+    btnLogin.style.display = 'inline-flex';
+  }
+}
+
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on('init', user => atualizarBarraConselho(user));
+  window.netlifyIdentity.on('login', user => atualizarBarraConselho(user));
+  window.netlifyIdentity.on('logout', () => atualizarBarraConselho(null));
+}
+</script>
+
+<!-- Netlify Identity Widget (login do Conselho) -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<!-- Chatbase -->
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Y11sprFM6FjqJEh_kr_tf";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+</body>
+</html>
